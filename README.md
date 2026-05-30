@@ -66,15 +66,24 @@ most of it.
 
 ---
 
-## 🚀 Deploy on GitHub Pages
+## 🚀 Deploy on GitHub Pages (automated)
 
-1. Push this repo to GitHub (the default branch, `main`, works well).
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-4. Set **Branch = `main`** and **Folder = `/ (root)`**, then **Save**.
-5. Wait ~1 minute. Your site is live at `https://<your-username>.github.io/car-insurance/`.
+This repo ships a GitHub Actions workflow
+([`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml)) that builds and
+publishes the site automatically — no manual branch setup required.
 
-No build is required — it's plain HTML/CSS/JS.
+1. Make sure the code is on the default branch (`main`).
+2. In **Settings → Actions → General → Workflow permissions**, choose **Read and write
+   permissions** (this also lets the daily news job commit).
+3. The deploy workflow runs on every push to `main` (and after each daily news refresh). On its
+   first run it auto-enables Pages and publishes to
+   `https://<your-username>.github.io/car-insurance/`.
+4. Trigger it any time from **Actions → "Deploy to GitHub Pages" → Run workflow**.
+
+> Prefer no Actions? Instead use **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**
+> — the site is plain static files at the repo root and serves as-is. If you go this route you can
+> delete `deploy-pages.yml`.
+
 
 ---
 
@@ -85,8 +94,8 @@ No build is required — it's plain HTML/CSS/JS.
 - It runs [`scripts/fetch-news.mjs`](scripts/fetch-news.mjs), which queries **Google News RSS**
   (no API key needed) for several car-insurance topics, cleans and de-duplicates the results, and
   blends them with a curated set of evergreen guides so the feed is never empty.
-- If `data/news.json` changed, the Action commits it. Because Pages redeploys on push, the live
-  site picks up fresh articles automatically — the browser also cache-busts daily.
+- If `data/news.json` changed, the Action commits it, and the **Deploy to GitHub Pages** workflow
+  republishes the site automatically (the browser also cache-busts daily).
 
 **Enable it:** make sure **Settings → Actions → General → Workflow permissions** is set to
 **Read and write permissions** so the bot can commit the updated `data/news.json`. Scheduled

@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+# Builds and publishes the static site to GitHub Pages.
+# On its first run, actions/configure-pages (enablement: true) turns Pages on
+# automatically, so no manual Settings toggle is required.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+  # The daily news job commits via GITHUB_TOKEN, which does NOT fire a `push`
+  # event — so redeploy when that workflow finishes to publish fresh articles.
+  workflow_run:
+    workflows: ["Update car-insurance news"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-flight publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true # auto-enable Pages (Actions source) if not already on
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "." # serve the repo root (.git and .github are excluded)
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
