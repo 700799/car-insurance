@@ -1,0 +1,42 @@
+name: Update car-insurance news
+
+# Refreshes data/news.json every day so the site always shows recent articles.
+on:
+  schedule:
+    - cron: "0 11 * * *" # daily at 11:00 UTC (~6–7am US Eastern)
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-news
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch latest news
+        run: node scripts/fetch-news.mjs
+
+      - name: Commit & push if changed
+        run: |
+          if [ -n "$(git status --porcelain data/news.json)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/news.json
+            git commit -m "chore(news): daily refresh of car-insurance articles"
+            git push
+            echo "✅ news updated"
+          else
+            echo "ℹ️ no news changes today"
+          fi

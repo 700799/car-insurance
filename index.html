@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1f9d72" />
+  <title>Coverage Quest — Learn Car Insurance the Fun Way</title>
+  <meta name="description" content="Coverage Quest is a free, gamified guide to car insurance for teens and new drivers. Follow the trail, earn badges, decode key terms, find your ideal coverage, and read fresh insurance news updated daily." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Coverage Quest — Learn Car Insurance the Fun Way" />
+  <meta property="og:description" content="A gamified, Duolingo-style journey through car insurance for teens & new drivers. Earn badges, find your ideal coverage, read fresh news daily." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%A1%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts (degrade gracefully to system fonts if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#trail">Skip to the trail</a>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- ===== Top App Bar ===== -->
+  <header class="appbar" id="top">
+    <div class="appbar__inner">
+      <a class="brand" href="#top" aria-label="Coverage Quest home">
+        <span class="brand__logo" aria-hidden="true">🛡️</span>
+        <span class="brand__name">Coverage<span class="brand__accent">Quest</span></span>
+      </a>
+
+      <div class="appbar__progress" aria-hidden="true">
+        <div class="streak" title="Sections completed">
+          <span class="streak__icon">🏅</span>
+          <span class="streak__count" id="badgeCount">0</span><span class="streak__total">/7</span>
+        </div>
+        <div class="appbar__bar" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="appbar__bar-fill" id="appbarFill"></div>
+        </div>
+      </div>
+
+      <button class="btn btn--ghost btn--sm" id="resetBtn" type="button" title="Reset your progress">Reset</button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Free • No sign-up • Built for teens &amp; new drivers</p>
+      <h1 class="hero__title" id="heroTitle">Master car insurance,<br />one badge at a time.</h1>
+      <p class="hero__sub">
+        Insurance feels like a wall of fine print. <strong>Coverage Quest</strong> turns it into a
+        7-stop journey — real stories, the numbers behind your rate, plain-English terms, and a
+        coverage matcher that tells you exactly what to buy. Plus fresh news, refreshed daily.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" href="#trail">Start the journey →</a>
+        <a class="btn btn--ghost btn--lg" href="#news">Jump to today's news</a>
+      </div>
+      <ul class="hero__stats" aria-label="Quick facts">
+        <li><strong id="statBadges">7</strong><span>badges to earn</span></li>
+        <li><strong>~$2,200</strong><span>avg. yearly premium (2026)</span></li>
+        <li><strong>1 in 7</strong><span>drivers is uninsured</span></li>
+      </ul>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <div class="hero__car">🚗</div>
+      <div class="hero__bubble hero__bubble--1">📉 Lower my rate</div>
+      <div class="hero__bubble hero__bubble--2">🧠 What's a deductible?</div>
+      <div class="hero__bubble hero__bubble--3">🛡️ Am I covered?</div>
+    </div>
+  </section>
+
+  <!-- ===== The Trail (Duolingo-style) ===== -->
+  <main>
+    <section id="trail" class="trail" aria-labelledby="trailTitle">
+      <div class="section-head">
+        <h2 id="trailTitle" class="section-head__title">Your learning trail</h2>
+        <p class="section-head__sub">Follow the path. Tap any stop to dive in, finish it to claim a badge.</p>
+      </div>
+      <ol class="trail__path" id="trailPath" aria-label="Course sections">
+        <!-- nodes injected by JS -->
+      </ol>
+    </section>
+
+    <!-- ===== Sections (rendered by JS) ===== -->
+    <div id="sections" class="sections">
+      <!-- section panels injected by JS -->
+    </div>
+
+    <!-- ===== Badge Shelf ===== -->
+    <section id="badges" class="shelf" aria-labelledby="shelfTitle">
+      <div class="section-head">
+        <h2 id="shelfTitle" class="section-head__title">🏆 Your badge shelf</h2>
+        <p class="section-head__sub">Collect all seven to unlock <strong>Coverage Champion</strong>.</p>
+      </div>
+      <div class="shelf__grid" id="shelfGrid"><!-- badges injected by JS --></div>
+      <div class="champion" id="champion" hidden>
+        <div class="champion__medal">🏆</div>
+        <div>
+          <h3 class="champion__title">Coverage Champion unlocked!</h3>
+          <p class="champion__sub">You've finished every stop on the trail. You now know more about car insurance than most adults on the road. Go get the right policy — and drive safe.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== News ===== -->
+    <section id="news" class="news" aria-labelledby="newsTitle">
+      <div class="section-head">
+        <h2 id="newsTitle" class="section-head__title">📰 Fresh from the web</h2>
+        <p class="section-head__sub">
+          The latest car-insurance news &amp; guides, refreshed automatically every day.
+          <span class="news__updated" id="newsUpdated"></span>
+        </p>
+      </div>
+
+      <div class="news__toolbar">
+        <label class="news__search">
+          <span class="news__search-icon" aria-hidden="true">🔎</span>
+          <input type="search" id="newsSearch" placeholder="Filter articles… (e.g. teen, deductible, rates)" aria-label="Filter news articles" />
+        </label>
+      </div>
+
+      <div class="news__grid" id="newsGrid" aria-live="polite"><!-- articles injected by JS --></div>
+
+      <div class="news__more">
+        <button class="btn btn--primary" id="newsMoreBtn" type="button">Load more articles</button>
+        <p class="news__count" id="newsCount"></p>
+      </div>
+
+      <p class="news__disclaimer">
+        Headlines are aggregated automatically from public sources for convenience. Links open the
+        original publishers in a new tab. Coverage Quest doesn't endorse any company or product.
+      </p>
+    </section>
+  </main>
+
+  <!-- ===== Floating Menu (FAB) ===== -->
+  <div class="fab" id="fab">
+    <button class="fab__toggle" id="fabToggle" type="button" aria-expanded="false" aria-controls="fabMenu" aria-label="Open quick menu">
+      <span class="fab__icon" aria-hidden="true">🧭</span>
+    </button>
+    <nav class="fab__menu" id="fabMenu" aria-label="Quick navigation" hidden>
+      <p class="fab__heading">Jump to…</p>
+      <ul id="fabLinks"><!-- links injected by JS --></ul>
+      <div class="fab__foot">
+        <a class="fab__link" href="#badges"><span aria-hidden="true">🏅</span> Badges <em id="fabBadgeCount">0/7</em></a>
+        <a class="fab__link" href="#news"><span aria-hidden="true">📰</span> Today's news</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ===== Toast (badge earned) ===== -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span class="toast__icon" id="toastIcon">🏅</span>
+    <div class="toast__body">
+      <strong id="toastTitle">Badge earned!</strong>
+      <span id="toastText"></span>
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__brand">🛡️ <strong>Coverage Quest</strong></p>
+      <p class="footer__disclaimer">
+        Educational content only — not financial, legal, or insurance advice. Numbers are 2026
+        U.S. averages and vary widely by person, vehicle, and state. Always compare real quotes and
+        read your policy. Verify requirements with your state insurance department.
+      </p>
+      <p class="footer__meta">
+        Built as a static GitHub Pages site. News updates run daily via GitHub Actions.
+        <span id="footerUpdated"></span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
