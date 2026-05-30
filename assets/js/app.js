@@ -58,6 +58,7 @@
       case "essentials": return { title: CONTENT.essentials.title, sub: CONTENT.essentials.lead };
       case "situations": return { title: "Real California situations", sub: CONTENT.situationsIntro };
       case "factors":    return { title: "What sets your rate in California", sub: CONTENT.rateIntro };
+      case "trend":      return { title: "How premiums have grown (5-year trend)", sub: CONTENT.trendIntro };
       case "bestrate":   return { title: "Get the best rate (and what to avoid)", sub: CONTENT.bestrateIntro };
       case "myths":      return { title: "7 common myths", sub: CONTENT.mythsIntro };
       case "terms":      return { title: "Coverages & key terms", sub: CONTENT.termsIntro };
@@ -111,6 +112,120 @@
         mand,
         banned,
         h("p", { class: "min-note", text: CONTENT.rateNote }),
+      ];
+    },
+
+    trend() {
+      const T = CONTENT.trend;
+      const SVGNS = "http://www.w3.org/2000/svg";
+      const svgEl = (tag, attrs) => { const n = document.createElementNS(SVGNS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+      const money = (v) => "$" + Math.round(v).toLocaleString();
+
+      // Build each series' data points from base × multiplier.
+      const data = T.series.map((s) => ({ ...s, values: T.base.map((b) => Math.round(b * s.mult)) }));
+      const state = {}; data.forEach((s) => { state[s.id] = s.on; });
+
+      // Geometry (viewBox space; SVG scales responsively via CSS width:100%).
+      const W = 720, H = 360, m = { t: 24, r: 16, b: 40, l: 64 };
+      const plotW = W - m.l - m.r, plotH = H - m.t - m.b;
+      const yMax = 8000; // headroom for the DUI/teen lines
+      const x = (i) => m.l + (plotW * i) / (T.years.length - 1);
+      const y = (v) => m.t + plotH * (1 - v / yMax);
+
+      const svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Line chart of California car insurance premiums, 2022 to 2026, by driver profile", class: "chart__svg" });
+
+      // Gridlines + y labels
+      for (let g = 0; g <= 8; g += 2) {
+        const gv = g * 1000, gy = y(gv);
+        svg.appendChild(svgEl("line", { x1: m.l, y1: gy, x2: W - m.r, y2: gy, class: "chart__grid" }));
+        const lbl = svgEl("text", { x: m.l - 10, y: gy + 4, class: "chart__ylabel", "text-anchor": "end" });
+        lbl.textContent = "$" + (g) + "k"; svg.appendChild(lbl);
+      }
+      // X labels
+      T.years.forEach((yr, i) => {
+        const t = svgEl("text", { x: x(i), y: H - m.b + 22, class: "chart__xlabel", "text-anchor": "middle" });
+        t.textContent = yr; svg.appendChild(t);
+      });
+
+      // Layers for lines, dots, and a hover guide
+      const guide = svgEl("line", { x1: 0, y1: m.t, x2: 0, y2: m.t + plotH, class: "chart__guide", opacity: "0" });
+      svg.appendChild(guide);
+      const lineNodes = {}, dotGroups = {};
+      data.forEach((s) => {
+        const d = s.values.map((v, i) => (i ? "L" : "M") + x(i) + " " + y(v)).join(" ");
+        const path = svgEl("path", { d: d, fill: "none", stroke: s.color, "stroke-width": "2.5", "stroke-linejoin": "round", "stroke-linecap": "round", class: "chart__line" });
+        lineNodes[s.id] = path; svg.appendChild(path);
+        const dg = svgEl("g", {}); dotGroups[s.id] = dg;
+        s.values.forEach((v, i) => dg.appendChild(svgEl("circle", { cx: x(i), cy: y(v), r: "3.5", fill: s.color, class: "chart__dot" })));
+        svg.appendChild(dg);
+      });
+
+      // Tooltip (HTML overlay)
+      const tip = h("div", { class: "chart__tip", hidden: true });
+
+      function applyVisibility() {
+        data.forEach((s) => {
+          const vis = state[s.id];
+          lineNodes[s.id].style.display = vis ? "" : "none";
+          dotGroups[s.id].style.display = vis ? "" : "none";
+        });
+      }
+      applyVisibility();
+
+      // Hover: snap to nearest year, show all visible series
+      const overlay = svgEl("rect", { x: m.l, y: m.t, width: plotW, height: plotH, fill: "transparent", class: "chart__overlay" });
+      function handleMove(clientX, rect) {
+        const rel = (clientX - rect.left) / rect.width * W; // back to viewBox units
+        let i = Math.round((rel - m.l) / plotW * (T.years.length - 1));
+        i = Math.max(0, Math.min(T.years.length - 1, i));
+        guide.setAttribute("x1", x(i)); guide.setAttribute("x2", x(i)); guide.setAttribute("opacity", "1");
+        const rows = data.filter((s) => state[s.id]).map((s) =>
+          '<span class="chart__tiprow"><i style="background:' + s.color + '"></i>' + s.label + " <b>" + money(s.values[i]) + "</b></span>"
+        ).join("");
+        tip.innerHTML = '<div class="chart__tipyear">' + T.years[i] + "</div>" + rows;
+        tip.hidden = false;
+        // position tooltip within the wrap
+        const px = (x(i) / W) * rect.width;
+        tip.style.left = Math.max(8, Math.min(rect.width - 8, px)) + "px";
+      }
+      overlay.addEventListener("mousemove", (e) => handleMove(e.clientX, svg.getBoundingClientRect()));
+      overlay.addEventListener("mouseleave", () => { tip.hidden = true; guide.setAttribute("opacity", "0"); });
+      overlay.addEventListener("touchstart", (e) => { if (e.touches[0]) handleMove(e.touches[0].clientX, svg.getBoundingClientRect()); }, { passive: true });
+      overlay.addEventListener("touchmove", (e) => { if (e.touches[0]) handleMove(e.touches[0].clientX, svg.getBoundingClientRect()); }, { passive: true });
+      svg.appendChild(overlay);
+
+      // Filter chips (legend = toggles)
+      const noteEl = h("p", { class: "chart__note" });
+      function refreshNote() {
+        const active = data.filter((s) => state[s.id]);
+        const lead = active.length === 1 ? active[0] : (active.find((s) => s.id === "avg") || active[0]);
+        if (lead) {
+          const first = Math.round(T.base[0] * lead.mult), last = Math.round(T.base[T.base.length - 1] * lead.mult);
+          const pct = Math.round((last / first - 1) * 100);
+          noteEl.innerHTML = "<b>" + lead.label + ":</b> " + lead.note + " <span class='chart__delta'>(" + money(first) + " → " + money(last) + ", " + (pct >= 0 ? "+" : "") + pct + "% over 5 yrs)</span>";
+        } else { noteEl.textContent = "Select at least one profile to see the trend."; }
+      }
+      const chips = h("div", { class: "chart__chips", role: "group", "aria-label": "Filter profiles" });
+      data.forEach((s) => {
+        const chip = h("button", {
+          type: "button", class: "chip" + (state[s.id] ? " is-on" : ""),
+          "aria-pressed": String(state[s.id]),
+          onclick: () => {
+            state[s.id] = !state[s.id];
+            chip.classList.toggle("is-on", state[s.id]);
+            chip.setAttribute("aria-pressed", String(state[s.id]));
+            applyVisibility(); refreshNote();
+          },
+        }, [h("span", { class: "chip__dot", style: "background:" + s.color }), s.label]);
+        chips.appendChild(chip);
+      });
+      refreshNote();
+
+      return [
+        chips,
+        h("div", { class: "chart__wrap" }, [svg, tip]),
+        noteEl,
+        h("p", { class: "tbl-note", text: T.source }),
       ];
     },
 

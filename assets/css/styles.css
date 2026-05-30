@@ -140,6 +140,30 @@ strong { font-weight: 700; color: var(--ink); }
 .stat__num { font-size: 1.15rem; font-weight: 800; color: var(--ink); display: block; }
 .stat__lbl { font-size: .78rem; color: var(--muted); font-weight: 500; }
 
+/* ---- Trend chart ---- */
+.chart__chips { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1rem; }
+.chip { display: inline-flex; align-items: center; gap: .4rem; font-family: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; background: #fff; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: .35rem .7rem; transition: background .12s, color .12s, border-color .12s; }
+.chip:hover { border-color: var(--blue); }
+.chip__dot { width: 10px; height: 10px; border-radius: 50%; opacity: .35; flex: none; }
+.chip.is-on { color: var(--ink); border-color: var(--ink-2); background: var(--line-2); }
+.chip.is-on .chip__dot { opacity: 1; }
+.chart__wrap { position: relative; border: 1px solid var(--line); border-radius: var(--r); padding: .6rem .4rem .2rem; background: #fff; }
+.chart__svg { width: 100%; height: auto; display: block; touch-action: pan-y; }
+.chart__grid { stroke: var(--line); stroke-width: 1; }
+.chart__ylabel, .chart__xlabel { fill: var(--muted); font-size: 12px; font-family: var(--font); font-weight: 600; }
+.chart__line { transition: opacity .15s; }
+.chart__guide { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 4 3; }
+.chart__overlay { cursor: crosshair; }
+.chart__tip { position: absolute; top: .5rem; transform: translateX(-50%); pointer-events: none; background: var(--ink); color: #fff; border-radius: var(--r); padding: .5rem .65rem; font-size: .78rem; box-shadow: var(--shadow-md); min-width: 150px; z-index: 2; }
+.chart__tip[hidden] { display: none; }
+.chart__tipyear { font-weight: 800; margin-bottom: .25rem; font-size: .82rem; }
+.chart__tiprow { display: flex; align-items: center; gap: .4rem; line-height: 1.5; white-space: nowrap; }
+.chart__tiprow i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.chart__tiprow b { margin-left: auto; padding-left: .6rem; }
+.chart__note { font-size: .9rem; color: var(--ink-2); margin: .9rem 0 .3rem; }
+.chart__note b { color: var(--ink); }
+.chart__delta { color: var(--muted); font-weight: 600; white-space: nowrap; }
+
 /* ---- Situations ---- */
 .case { border: 1px solid var(--line); border-radius: var(--r); padding: .9rem 1rem; background: #fff; display: flex; flex-direction: column; }
 .case__who { font-weight: 700; font-size: .98rem; }

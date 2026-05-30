@@ -13,13 +13,14 @@ const CONTENT = {
     { id: "essentials", n: 1,  label: "California essentials",  type: "essentials" },
     { id: "situations", n: 2,  label: "Real situations",        type: "situations" },
     { id: "rate",       n: 3,  label: "What sets your rate",    type: "factors" },
-    { id: "bestrate",   n: 4,  label: "Get the best rate",      type: "bestrate" },
-    { id: "myths",      n: 5,  label: "7 common myths",         type: "myths" },
-    { id: "coverages",  n: 6,  label: "Coverages & terms",      type: "terms" },
-    { id: "choices",    n: 7,  label: "Smart coverage choices", type: "choices" },
-    { id: "profiles",   n: 8,  label: "Find your fit",          type: "profiles" },
-    { id: "accident",   n: 9,  label: "After an accident",      type: "accident" },
-    { id: "resources",  n: 10, label: "Help & resources",       type: "resources" },
+    { id: "trends",     n: 4,  label: "5-year premium trends",  type: "trend" },
+    { id: "bestrate",   n: 5,  label: "Get the best rate",      type: "bestrate" },
+    { id: "myths",      n: 6,  label: "7 common myths",         type: "myths" },
+    { id: "coverages",  n: 7,  label: "Coverages & terms",      type: "terms" },
+    { id: "choices",    n: 8,  label: "Smart coverage choices", type: "choices" },
+    { id: "profiles",   n: 9,  label: "Find your fit",          type: "profiles" },
+    { id: "accident",   n: 10, label: "After an accident",      type: "accident" },
+    { id: "resources",  n: 11, label: "Help & resources",       type: "resources" },
   ],
 
   /* ---- 1. California essentials ---- */
@@ -237,6 +238,26 @@ const CONTENT = {
       { id: "area", label: "Where you drive", options: [
         { v: "la", t: "Dense city (e.g. LA)" }, { v: "suburb", t: "Suburban" }, { v: "rural", t: "Rural" } ] },
     ],
+  },
+
+  /* ---- 5-year premium trend chart ---- */
+  trendIntro: "Average annual full-coverage premium in California over the past five years. Toggle a profile to see how a driver, vehicle, or violation changes the trajectory. Tap the legend chips to compare.",
+  trend: {
+    years: [2022, 2023, 2024, 2025, 2026],
+    // Base = CA statewide average full-coverage premium ($/yr). Other series are
+    // that base scaled by typical California multipliers (illustrative, sourced
+    // from 2026 CA averages — real rates vary by insurer, ZIP, and history).
+    base: [1900, 2120, 2417, 2540, 2719],
+    series: [
+      { id: "avg",     label: "CA average",            mult: 1.00, color: "#0f2747", on: true,  note: "Statewide full-coverage average. Up about 43% since 2022 — repair costs, theft, wildfire losses, and the 2025 30/60/15 minimums." },
+      { id: "teen",    label: "Teen / new driver",     mult: 2.65, color: "#e0792b", on: true,  note: "16–19 year-olds pay roughly 2.5–3× the average. Staying on a family policy and the good-student discount cut this sharply." },
+      { id: "dui",     label: "After a DUI",           mult: 2.30, color: "#b4434a", on: false, note: "A DUI raises a California premium by roughly 125–175%. It stays on your record 10 years, though rates ease after 3–5." },
+      { id: "points",  label: "Speeding ticket / 1 point", mult: 1.36, color: "#c98a1b", on: false, note: "One speeding ticket (1 point) adds about 25–44% for ~3 years in California." },
+      { id: "luxury",  label: "Luxury / high-value car", mult: 1.55, color: "#7c3aed", on: false, note: "Pricier parts, higher repair and theft costs, and (for EVs) costly battery repair push luxury-vehicle premiums well above average." },
+      { id: "safety",  label: "Strong safety features", mult: 0.88, color: "#1f7a4d", on: true,  note: "Automatic braking, blind-spot and lane-keep assist, and good crash-test ratings can earn discounts that pull the premium below average." },
+      { id: "good",    label: "Good Driver (clean 3+ yrs)", mult: 0.80, color: "#1f5fbf", on: false, note: "California's mandated Good Driver Discount is at least 20% off — the green-zone everyone should aim for." },
+    ],
+    source: "Illustrative California estimates built from 2026 averages (Bankrate, MoneyGeek, Insurify, The Zebra) and typical CA multipliers. Not quotes.",
   },
 
   /* ---- Get the best rate (secrets & what to avoid) ---- */
