@@ -10,13 +10,16 @@ const CONTENT = {
 
   /* Section registry (order = page order = menu order). No gating. */
   sections: [
-    { id: "essentials", n: 1, label: "California essentials",  type: "essentials" },
-    { id: "situations", n: 2, label: "Real situations",        type: "situations" },
-    { id: "rate",       n: 3, label: "What sets your rate",    type: "factors" },
-    { id: "coverages",  n: 4, label: "Coverages & terms",      type: "terms" },
-    { id: "choices",    n: 5, label: "Smart coverage choices", type: "choices" },
-    { id: "profiles",   n: 6, label: "Find your fit",          type: "profiles" },
-    { id: "resources",  n: 7, label: "Help & resources",       type: "resources" },
+    { id: "essentials", n: 1,  label: "California essentials",  type: "essentials" },
+    { id: "situations", n: 2,  label: "Real situations",        type: "situations" },
+    { id: "rate",       n: 3,  label: "What sets your rate",    type: "factors" },
+    { id: "bestrate",   n: 4,  label: "Get the best rate",      type: "bestrate" },
+    { id: "myths",      n: 5,  label: "7 common myths",         type: "myths" },
+    { id: "coverages",  n: 6,  label: "Coverages & terms",      type: "terms" },
+    { id: "choices",    n: 7,  label: "Smart coverage choices", type: "choices" },
+    { id: "profiles",   n: 8,  label: "Find your fit",          type: "profiles" },
+    { id: "accident",   n: 9,  label: "After an accident",      type: "accident" },
+    { id: "resources",  n: 10, label: "Help & resources",       type: "resources" },
   ],
 
   /* ---- 1. California essentials ---- */
@@ -236,7 +239,62 @@ const CONTENT = {
     ],
   },
 
-  /* ---- 7. Help & resources ---- */
+  /* ---- Get the best rate (secrets & what to avoid) ---- */
+  bestrateIntro: "How to get the lowest legitimate rate in California — built around the way Prop 103 actually prices policies. These are the moves that move the needle, plus the traps that quietly cost you.",
+  bestrateDo: [
+    { h: "Compare at least 3–5 real quotes", t: "California rates for identical coverage can differ by well over 100% between insurers. Comparison shopping is the single biggest lever — re-quote every 1–2 years and after any life change." },
+    { h: "Always claim the Good Driver Discount", t: "Prop 103 guarantees ≥20% off for ~3 years' clean driving (no more than one point). It's the law — make sure every quote applies it." },
+    { h: "Report your true (low) mileage", t: "Miles driven is the #2 mandatory factor in California. If you drive less than you used to — remote work, a short commute — update it. Verified-mileage and telematics programs can cut more." },
+    { h: "Raise your deductible to 'oops' money", t: "Going from $250 to $1,000 can drop collision/comp 15–30%. Pick the highest deductible you could comfortably pay tomorrow and pocket the savings." },
+    { h: "Right-size coverage to the car", t: "On a paid-off car worth under ~$4k, dropping collision/comprehensive often beats paying for them (the 10% rule). Keep strong liability + UM regardless." },
+    { h: "Stack every discount you qualify for", t: "Bundle auto with renters/home, multi-car, good-student (B average), driver-training, paperless/auto-pay, and defensive-driving course credits. Ask explicitly — they aren't always automatic." },
+    { h: "Keep continuous coverage", t: "Even one lapse raises your rate and can suspend your registration. If you sell a car, keep a non-owner policy or transfer coverage rather than going bare." },
+    { h: "Pay in full and go paperless", t: "Many California insurers offer a paid-in-full discount and small e-billing credits. If you pay monthly, compare the installment fees." },
+  ],
+  bestrateAvoid: [
+    { h: "Auto-renewing for years", t: "'Loyalty' often means price creep. Insurers bank on inertia — the renewal quote is rarely your best quote." },
+    { h: "Buying only the state minimum by default", t: "30/60/15 is cheap but thin; one serious injury blows past it and you pay the rest. Don't confuse 'cheapest premium' with 'best value'." },
+    { h: "Waiving uninsured-motorist coverage", t: "California lets you reject UM/UIM in writing. Don't — roughly 1 in 6 California drivers is uninsured, and UM is inexpensive." },
+    { h: "Letting a small claim raise your rate", t: "Filing a claim that's barely above your deductible can cost you more in surcharges than it pays. For minor damage, get an estimate first." },
+    { h: "Guessing your mileage too high", t: "Overstating annual miles inflates your premium under California's rules. Use your real odometer trend." },
+    { h: "Ignoring the car you buy", t: "Insurance cost varies hugely by model (repair cost, theft rates, EV battery repair). Get a quote before you buy the car, not after." },
+  ],
+  bestrateNote: "What you can't be charged for in California: your credit score and your gender — both are banned. Be skeptical of any 'tip' or quote that leans on those.",
+
+  /* ---- 7 common myths ---- */
+  mythsIntro: "Misconceptions cost California drivers real money. Here are seven of the most common — and the truth, with the California angle.",
+  myths: [
+    { myth: "Red cars cost more to insure.", truth: "Color is not a rating factor anywhere — and California can't even use it. Insurers rate on make, model, trim, engine, repair cost, and theft rates, never paint color." },
+    { myth: "My credit score affects my California rate.", truth: "Not here. California is one of a handful of states (with MA, HI, MI) that bans credit-based insurance scores for auto. Your credit can't legally raise your premium." },
+    { myth: "Men always pay more than women (or vice-versa).", truth: "California banned gender as an auto rating factor in 2019. Two otherwise-identical drivers can't be priced differently on gender here." },
+    { myth: "The state minimum means I'm fully protected.", truth: "30/60/15 is the legal floor, not real protection. A single ER visit or a totaled newer car can exceed it — and you personally owe the rest." },
+    { myth: "Older / low-value cars don't need any coverage.", truth: "You still must carry liability to drive legally in California, even on a $500 beater. You can drop collision/comp on it — but never liability." },
+    { myth: "My insurer automatically gives me every discount.", truth: "Often not. The Good Driver Discount is mandated, but good-student, mileage, bundling, and course credits frequently require you to ask and provide proof." },
+    { myth: "One ticket or claim ruins my rate forever.", truth: "Surcharges fade over time, and a clean ~3-year record restores the Good Driver Discount. Shopping around after an incident usually finds a better-priced insurer." },
+  ],
+
+  /* ---- After an accident (step-by-step) ---- */
+  accidentIntro: "If you're in a crash in California, what you do in the first minutes and days matters — for safety, for the law, and for your claim. Here's exactly what to do.",
+  accidentSteps: [
+    { n: "1", h: "Stop and stay safe", t: "Never leave the scene — leaving an injury crash is a felony in California. If the cars are drivable and it's safe, move them out of traffic and turn on hazards. Check everyone for injuries." },
+    { n: "2", h: "Call 911 if anyone's hurt or roads are blocked", t: "Get medical help and police on scene for any injury, death, or major damage. A police report is invaluable for your claim even when officers don't always respond to minor fender-benders." },
+    { n: "3", h: "Exchange information", t: "Get the other driver's name, phone, address, driver's license number, license plate, and insurance company + policy number. Note the car's make/model/color." },
+    { n: "4", h: "Document everything", t: "Photograph all vehicles, damage, positions, skid marks, street signs, and the overall scene. Get names and numbers of any witnesses. Write down the time, location, and what happened while it's fresh." },
+    { n: "5", h: "Don't admit fault or over-share", t: "Be polite but don't say 'it was my fault' or speculate — fault is for the insurers and, in California's at-fault system, can be shared. Stick to facts when speaking with the other driver or police." },
+    { n: "6", h: "Report it to your insurer promptly", t: "Call your own insurer (or use its app) as soon as you safely can, even if you weren't at fault. Prompt notice is usually required by your policy. Give facts; let them handle liability." },
+    { n: "7", h: "Get medical attention — and keep records", t: "See a doctor even if you feel fine; some injuries surface later. Keep all bills and records. In California, MedPay (if you bought it) helps regardless of fault, since the state has no PIP." },
+    { n: "8", h: "Know the California reporting rules", t: "You must file form SR-1 with the DMV within 10 days if anyone is injured/killed or property damage exceeds $1,000 (nearly every crash). This is separate from any police or insurance report." },
+  ],
+  accidentKit: ["Insurance card (in the glovebox + a photo on your phone)", "Driver's license & registration", "Phone for photos and calls", "Pen & paper or a notes app", "Emergency contacts", "Roadside/tow number"],
+  accidentAvoid: [
+    "Don't leave the scene — it can turn a fender-bender into a crime.",
+    "Don't admit fault or apologize in a way that assigns blame.",
+    "Don't accept cash to 'skip insurance' — hidden injuries and damage can cost you later.",
+    "Don't sign anything from the other driver or a non-police party at the scene.",
+    "Don't forget the SR-1 — the DMV deadline is 10 days and missing it can suspend your license.",
+  ],
+
+  /* ---- Help & resources ---- */
   resourcesIntro: "Official California programs and help. These are the places to verify requirements, find low-cost options, and get assistance.",
   resources: [
     { name: "California Department of Insurance", what: "Regulator under Prop 103. Compare rates, check a company or agent's license, and file a complaint. Consumer hotline 1-800-927-4357.", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/", link: "insurance.ca.gov" },

@@ -58,9 +58,12 @@
       case "essentials": return { title: CONTENT.essentials.title, sub: CONTENT.essentials.lead };
       case "situations": return { title: "Real California situations", sub: CONTENT.situationsIntro };
       case "factors":    return { title: "What sets your rate in California", sub: CONTENT.rateIntro };
+      case "bestrate":   return { title: "Get the best rate (and what to avoid)", sub: CONTENT.bestrateIntro };
+      case "myths":      return { title: "7 common myths", sub: CONTENT.mythsIntro };
       case "terms":      return { title: "Coverages & key terms", sub: CONTENT.termsIntro };
       case "choices":    return { title: "Smart coverage choices", sub: CONTENT.choicesIntro };
       case "profiles":   return { title: "Find your fit", sub: CONTENT.profilesIntro };
+      case "accident":   return { title: "What to do after an accident", sub: CONTENT.accidentIntro };
       case "resources":  return { title: "Help & resources", sub: CONTENT.resourcesIntro };
       default:           return { title: s.label, sub: "" };
     }
@@ -109,6 +112,36 @@
         banned,
         h("p", { class: "min-note", text: CONTENT.rateNote }),
       ];
+    },
+
+    bestrate() {
+      const doList = h("div", { class: "rules" });
+      CONTENT.bestrateDo.forEach((r) => doList.appendChild(h("div", { class: "rule" }, [
+        h("div", { class: "rule__h", html: "✓ " + r.h }), h("p", { class: "rule__t", text: r.t }),
+      ])));
+      const avoidList = h("div", { class: "rules" });
+      CONTENT.bestrateAvoid.forEach((r) => avoidList.appendChild(h("div", { class: "rule rule--avoid" }, [
+        h("div", { class: "rule__h", html: "✕ " + r.h }), h("p", { class: "rule__t", text: r.t }),
+      ])));
+      return [
+        h("h3", { text: "Do this — the moves that lower your rate" }),
+        doList,
+        h("h3", { text: "Avoid this — the quiet money-wasters", style: "margin-top:1.4rem" }),
+        avoidList,
+        calloutEl(CONTENT.bestrateNote),
+      ];
+    },
+
+    myths() {
+      const wrap = h("div", { class: "myths" });
+      CONTENT.myths.forEach((m, i) => wrap.appendChild(h("div", { class: "myth" }, [
+        h("div", { class: "myth__head" }, [
+          h("span", { class: "myth__badge", text: "Myth " + (i + 1) }),
+          h("span", { class: "myth__claim", text: m.myth }),
+        ]),
+        h("p", { class: "myth__truth", html: "<b>Truth:</b> " + m.truth }),
+      ])));
+      return [wrap];
     },
 
     terms() {
@@ -202,6 +235,30 @@
       ]);
 
       return [cards, rec, builder];
+    },
+
+    accident() {
+      const steps = h("ol", { class: "steps" });
+      CONTENT.accidentSteps.forEach((s) => steps.appendChild(h("li", { class: "step" }, [
+        h("div", { class: "step__n", text: s.n }),
+        h("div", { class: "step__body" }, [h("div", { class: "step__h", text: s.h }), h("p", { class: "step__t", text: s.t })]),
+      ])));
+
+      const avoid = h("ul", { class: "donts" });
+      CONTENT.accidentAvoid.forEach((d) => avoid.appendChild(h("li", { text: d })));
+
+      const kit = h("ul", { class: "kit" });
+      CONTENT.accidentKit.forEach((k) => kit.appendChild(h("li", { text: k })));
+
+      return [
+        h("h3", { text: "Step by step" }),
+        steps,
+        h("div", { class: "grid grid-2", style: "margin-top:1.2rem" }, [
+          h("div", { class: "panel-sub" }, [h("h3", { text: "Don't" }), avoid]),
+          h("div", { class: "panel-sub" }, [h("h3", { text: "Keep in your glovebox" }), kit]),
+        ]),
+        calloutEl("California law: file DMV form SR-1 within 10 days of any crash with injury, death, or property damage over $1,000. Missing it can suspend your license — even if you weren't at fault."),
+      ];
     },
 
     resources() {
