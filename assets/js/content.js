@@ -1,333 +1,248 @@
 /* ============================================================
-   Coverage Quest — content
-   All educational copy, data, profiles, and quiz live here so
-   the rest of the app stays render-only. Figures are 2026 U.S.
-   averages and are illustrative — they vary by person & state.
+   California Car Insurance Guide — content
+   All copy and data. California-specific. Figures are 2026
+   estimates and program facts; they change — always verify with
+   the California Department of Insurance and real quotes.
    ============================================================ */
 
 const CONTENT = {
+  meta: { state: "California", year: "2026" },
 
-  /* ---- The 7 trail stops (each maps to a badge) ---- */
+  /* Section registry (order = page order = menu order). No gating. */
   sections: [
-    { id: "start",     n: 1, emoji: "🚦", label: "Start Here",            type: "intro",
-      badge: { id: "first-steps",  name: "First Steps",        medal: "🚦", desc: "Began the journey" } },
-    { id: "stories",   n: 2, emoji: "📖", label: "Real Stories",          type: "stories",
-      badge: { id: "storyteller",  name: "Storyteller",        medal: "📖", desc: "Learned from real drivers" } },
-    { id: "rate",      n: 3, emoji: "🔍", label: "What Sets Your Rate",   type: "factors",
-      badge: { id: "rate-detective", name: "Rate Detective",   medal: "🔍", desc: "Cracked the pricing code" } },
-    { id: "terms",     n: 4, emoji: "📘", label: "Key Terms",             type: "terms",
-      badge: { id: "word-wizard",  name: "Word Wizard",        medal: "📘", desc: "Decoded the jargon" } },
-    { id: "tradeoffs", n: 5, emoji: "⚖️", label: "Coverage Trade-offs",   type: "tradeoffs",
-      badge: { id: "tradeoff-master", name: "Trade-off Master", medal: "⚖️", desc: "Balanced cost vs. risk" } },
-    { id: "profile",   n: 6, emoji: "🎯", label: "Find Your Profile",     type: "profiles",
-      badge: { id: "profile-pro",  name: "Profile Pro",        medal: "🎯", desc: "Found ideal coverage" } },
-    { id: "quiz",      n: 7, emoji: "🎓", label: "Final Quiz",            type: "quiz",
-      badge: { id: "graduate",     name: "Insurance Graduate", medal: "🎓", desc: "Passed the final quiz" } },
+    { id: "essentials", n: 1, label: "California essentials",  type: "essentials" },
+    { id: "situations", n: 2, label: "Real situations",        type: "situations" },
+    { id: "rate",       n: 3, label: "What sets your rate",    type: "factors" },
+    { id: "coverages",  n: 4, label: "Coverages & terms",      type: "terms" },
+    { id: "choices",    n: 5, label: "Smart coverage choices", type: "choices" },
+    { id: "profiles",   n: 6, label: "Find your fit",          type: "profiles" },
+    { id: "resources",  n: 7, label: "Help & resources",       type: "resources" },
   ],
 
-  /* ---- Section 1: Start Here ---- */
-  intro: {
-    kicker: "Stop 1 · Welcome",
-    title: "Why this matters (more than you'd think)",
-    lead: "Car insurance is the one purchase almost every driver makes but almost nobody understands. Learn it once, and you'll save money for the rest of your life.",
+  /* ---- 1. California essentials ---- */
+  essentials: {
+    title: "What California requires",
+    lead: "Every driver in California must carry proof of financial responsibility — almost always an auto liability policy. As of January 1, 2025, the state minimum limits rose for the first time since 1967.",
+    minimums: [
+      { k: "$30,000", v: "Bodily injury / death — one person" },
+      { k: "$60,000", v: "Bodily injury / death — per accident" },
+      { k: "$15,000", v: "Property damage" },
+    ],
+    minNote: "Written as <strong>30/60/15</strong> (SB 1107, the “Protect California Drivers Act”). The old 15/30/5 minimums are no longer compliant.",
     html: `
-      <h3>Three reasons to care</h3>
+      <h3>The basics</h3>
       <ul>
-        <li><strong>It's the law.</strong> Nearly every U.S. state requires at least basic liability coverage to drive legally.</li>
-        <li><strong>It protects your money.</strong> One serious crash can cost tens of thousands. Insurance stands between an accident and your savings.</li>
-        <li><strong>New drivers overpay the most.</strong> Teens average around <strong>$5,700 a year</strong>, and the gap between the cheapest and priciest company can top <strong>$7,000</strong>. Knowing the rules is real money.</li>
-      </ul>
-      <h3>How the trail works</h3>
-      <ul>
-        <li>🧭 <strong>Seven stops.</strong> Stories → the numbers → the lingo → the trade-offs → your custom plan → a final quiz.</li>
-        <li>🏅 <strong>Finish a stop, earn a badge.</strong> Your progress saves automatically on this device.</li>
-        <li>📰 <strong>Fresh news at the bottom</strong>, refreshed automatically every day.</li>
+        <li><strong>Liability only is the legal minimum.</strong> It pays for injuries and damage you cause to others — not your own car.</li>
+        <li><strong>California is an at-fault (tort) state.</strong> The driver who causes a crash is responsible. There is no “no-fault” / PIP requirement here; personal-injury protection is not part of a California policy.</li>
+        <li><strong>Insurers report to the DMV electronically.</strong> Carry your insurance card; a lapse can trigger a registration suspension.</li>
+        <li><strong>Driving uninsured is costly.</strong> Fines start around $100–$200 but climb past $450 with penalty assessments, and your vehicle can be impounded.</li>
       </ul>`,
-    callout: { kind: "tip", icon: "💡", text: "No sign-up, no tracking, no sales pitch. This is a free study guide — not a quote engine. Tap “Complete” at the bottom of each stop to bank your badge." },
+    callout: "Minimum limits are a floor, not a goal. A single serious injury can blow past $30,000 in minutes — most California drivers should carry higher liability limits.",
   },
 
-  /* ---- Section 2: Real Stories ---- */
-  storiesIntro: "Five short, true-to-life situations that teens and new drivers actually hit. Each one shows which coverage did the heavy lifting.",
-  stories: [
-    { who: "Maya, 17", tag: "New driver · at-fault", emoji: "🚗",
-      body: "Maya backed into a parked SUV at the mall — an $1,800 dent. Her family's liability and collision fixed both cars; she paid her $500 deductible. At renewal, her premium ticked up.",
-      lesson: "A deductible is what you pay first — and an at-fault claim can raise your future rate too." },
-    { who: "Jordan, 19", tag: "Hit-and-run · UM saved him", emoji: "🛑",
-      body: "A driver blew a red light into Jordan's car and sped off — no plate, no insurance to chase. His Uninsured/Underinsured Motorist coverage, about $60 a year, paid his medical bills and repairs.",
-      lesson: "UM/UIM is cheap and rescues you when the other driver can't — or won't — pay." },
-    { who: "Sam, 16", tag: "Teen · stacking discounts", emoji: "🎓",
-      body: "Sam kept a 3.5 GPA and finished a defensive-driving course. Combined with staying on his parents' policy, the good-student and course discounts cut hundreds off the family's bill.",
-      lesson: "Good grades + a driving course + a parent's policy = serious savings." },
-    { who: "Priya, 22", tag: "City · comprehensive", emoji: "🏙️",
-      body: "Someone smashed Priya's window overnight on a city street and grabbed her bag. Comprehensive coverage paid for the glass minus her $500 deductible — but she learned her downtown ZIP also raised her base rate.",
-      lesson: "Comprehensive covers theft & vandalism — and dense city ZIP codes cost more to insure." },
-    { who: "Tyler, 18", tag: "New car · cautionary tale", emoji: "💸",
-      body: "To save a few bucks, Tyler dropped collision on his financed car. Three months later he totaled it — and still owed $9,000 to the bank with zero payout.",
-      lesson: "Finance a car and you need full coverage — and often GAP insurance on top." },
+  /* ---- 2. Real situations ---- */
+  situationsIntro: "Four situations California teens and new drivers actually face, and the coverage that mattered.",
+  situations: [
+    { who: "At-fault rear-end, Sacramento", tag: "New driver · liability",
+      body: "A new driver rear-ended an SUV. The other party's repairs and a minor injury claim quickly approached the state minimum. With only 30/60/15, there was little room to spare.",
+      lesson: "California's minimums are low. Higher bodily-injury limits (e.g. 100/300) protect your savings if you're at fault." },
+    { who: "Uninsured driver, Los Angeles", tag: "Hit by uninsured · UM",
+      body: "A driver with no insurance ran a light and fled. About one in six California drivers is uninsured, so there was no one to bill. Uninsured-motorist coverage paid the medical bills and repairs.",
+      lesson: "California lets you waive uninsured-motorist coverage in writing — don't. It's inexpensive and common here." },
+    { who: "Teen on the family policy", tag: "Teen · discounts",
+      body: "Instead of a standalone policy (often $7,000+ a year), a 17-year-old was added to a parent's policy and kept a B average for the good-student discount, cutting the added cost substantially.",
+      lesson: "Stay on a parent's policy and stack the good-student discount. After three clean years, the 20% Good Driver Discount applies." },
+    { who: "Paid-off commuter car", tag: "Older car · trade-off",
+      body: "A 12-year-old car worth about $3,000 still carried collision and comprehensive. The premiums plus the deductible were nearing the car's value, so the owner dropped them and kept strong liability.",
+      lesson: "When collision + comprehensive cost more than ~10% of the car's value, dropping them often makes sense." },
   ],
 
-  /* ---- Section 3: What Sets Your Rate ---- */
-  rateIntro: "Insurers weigh a dozen-plus factors to predict risk. Some you can't change (your age today); many you can (your car, deductible, even your credit). Here's what moves the needle most.",
+  /* ---- 3. What sets your rate (Prop 103) ---- */
+  rateIntro: "California is unusual. Under Proposition 103 (1988), the Department of Insurance must approve rates in advance, and insurers must weight three mandatory factors most heavily — in this order.",
+  mandatory: [
+    { n: "1", name: "Driving safety record", desc: "Accidents and violations carry the most weight. A clean record is the single biggest lever you control." },
+    { n: "2", name: "Annual miles driven", desc: "California explicitly rewards lower mileage. Fewer miles means lower risk and a lower rate." },
+    { n: "3", name: "Years of driving experience", desc: "More experience lowers your rate over time — a major reason new drivers pay the most." },
+  ],
+  banned: [
+    { name: "Credit score", note: "Cannot be used for auto insurance in California." },
+    { name: "Gender", note: "Banned as a rating factor since 2019." },
+    { name: "ZIP code as the primary factor", note: "Location may be a secondary factor only — it can't outweigh the three mandatory ones." },
+  ],
   rateStats: [
-    { num: "~$2,200", lbl: "Avg. full-coverage / yr (2026)" },
-    { num: "~$5,700", lbl: "Avg. for a teen driver / yr" },
-    { num: "2.5×", lbl: "Rate gap between ZIP codes" },
-    { num: "7", lbl: "States banning gender in pricing" },
+    { num: "~$2,700/yr", lbl: "Avg. full coverage (2026)" },
+    { num: "~$700/yr", lbl: "Avg. minimum coverage" },
+    { num: "40–50%", lbl: "Rate rise over ~2 years" },
+    { num: "≥20%", lbl: "Mandated Good Driver Discount" },
   ],
-  factors: [
-    { icon: "🎂", name: "Age & experience", impact: "high",
-      desc: "The #1 driver of teen rates. Crash risk falls fast with experience — rates drop notably at 20, then around 25." },
-    { icon: "📋", name: "Driving record", impact: "high",
-      desc: "Tickets, at-fault crashes, and DUIs raise rates for years. A clean record is the best discount there is." },
-    { icon: "📍", name: "Location / ZIP code", impact: "high",
-      desc: "Theft, vandalism, weather, traffic density, and repair costs are local. Two ZIPs can differ by 2.5×. (Banned in CA & MI.)" },
-    { icon: "💳", name: "Credit-based insurance score", impact: "high",
-      desc: "In most states, weaker credit can nearly double full-coverage rates. Banned in California, Hawaii, Massachusetts & Michigan." },
-    { icon: "🚙", name: "Vehicle make & model", impact: "med",
-      desc: "Sports cars, high-horsepower, and pricey-to-repair models cost more. Safe, common, cheap-to-fix cars cost less." },
-    { icon: "🛡️", name: "Coverage & deductible choices", impact: "med",
-      desc: "More coverage and lower deductibles raise the premium. This is the lever you control most directly." },
-    { icon: "🛣️", name: "Annual mileage & usage", impact: "med",
-      desc: "Fewer miles = less exposure = lower rates. Low-mileage and telematics (usage-based) programs reward light, safe driving." },
-    { icon: "🧾", name: "Coverage history & profile", impact: "low",
-      desc: "Continuous coverage, marital status, and (in most states) gender can nudge rates. Gender is banned in 7 states." },
-  ],
+  rateNote: "Rates have climbed sharply (rising repair costs, claims severity, and wildfire-driven losses across the market). Optional secondary factors insurers may use include vehicle type, marital status, and annual mileage bands — but never credit or gender.",
 
-  /* ---- Section 4: Key Terms ---- */
-  termsIntro: "The whole policy comes down to about a dozen words. Tap each card to flip it open. The amber note is the trade-off to remember.",
+  /* ---- 4. Coverages & terms ---- */
+  termsIntro: "The coverages on a California policy, in plain terms. The note on each is the California-specific point to remember.",
   terms: [
-    { emoji: "💵", term: "Premium", def: "The price you pay for the policy — monthly, every 6 months, or yearly.",
-      tradeoff: "A lower premium usually means less coverage or a higher deductible. Cheapest isn't always smartest." },
-    { emoji: "🧾", term: "Deductible", def: "What you pay out of pocket on a claim before insurance kicks in (e.g., $500).",
-      tradeoff: "Higher deductible → lower premium, but more cash from you after a crash. Pick one you could actually pay tomorrow." },
-    { emoji: "🛡️", term: "Liability (BI & PD)", def: "Pays for injuries (Bodily Injury) and property damage (Property Damage) you cause to others. Required almost everywhere.",
-      tradeoff: "State minimums are cheap but thin. If you have any assets, higher limits (like 100/300/100) protect you from a lawsuit." },
-    { emoji: "💥", term: "Collision", def: "Repairs or replaces YOUR car after a crash — no matter who's at fault.",
-      tradeoff: "Worth it on a valuable or financed car; often not worth it on an old beater." },
-    { emoji: "🌧️", term: "Comprehensive", def: "Covers your car for non-crash events: theft, vandalism, fire, hail, flood, falling trees, animal strikes.",
-      tradeoff: "Matters most in cities (theft) and storm-prone areas. Drop it when the car's value gets low." },
-    { emoji: "👻", term: "Uninsured / Underinsured Motorist (UM/UIM)", def: "Pays YOUR bills when an at-fault driver has no insurance or not enough — including hit-and-runs.",
-      tradeoff: "About 1 in 7 drivers is uninsured. UM is cheap (~$50–75/yr) and usually well worth it." },
-    { emoji: "🏥", term: "MedPay / PIP", def: "Medical Payments or Personal Injury Protection covers medical bills (and PIP, lost wages) for you & passengers, regardless of fault.",
-      tradeoff: "PIP is required in 'no-fault' states. If you have strong health insurance, you may need less MedPay." },
-    { emoji: "🪙", term: "GAP insurance", def: "If a financed/leased car is totaled, GAP pays the difference between what you owe and the car's depreciated value.",
-      tradeoff: "Vital for new cars that drop in value fast. Pointless once you owe less than the car is worth." },
-    { emoji: "📐", term: "Policy limits (e.g. 100/300/100)", def: "The max the insurer pays: $100k per person / $300k per accident for injuries / $100k for property.",
-      tradeoff: "Higher limits cost a little more but prevent a catastrophic out-of-pocket hit after a serious crash." },
-    { emoji: "🧰", term: "Full coverage", def: "Not an official product — shorthand for liability + collision + comprehensive together.",
-      tradeoff: "Required by lenders. Optional once you own the car — weigh it against the car's value." },
+    { term: "Bodily Injury & Property Damage liability", def: "Pays for injuries and property you cause others. The required 30/60/15 limits are the minimum.",
+      note: "Required statewide. Most drivers should buy more than the minimum." },
+    { term: "Collision", def: "Repairs or replaces your own car after a crash, regardless of fault.",
+      note: "Optional, but required by lenders. Weigh it against your car's value." },
+    { term: "Comprehensive", def: "Covers your car for theft, vandalism, fire, falling objects, and weather.",
+      note: "Worth more in cities (theft) and wildfire/storm-exposed areas." },
+    { term: "Uninsured / Underinsured Motorist (UM/UIM)", def: "Pays your bills when an at-fault driver has no insurance or too little — including hit-and-runs.",
+      note: "Insurers must offer it; you can reject it only in writing. With ~1 in 6 drivers uninsured, keep it." },
+    { term: "Medical Payments (MedPay)", def: "Covers medical bills for you and your passengers regardless of fault.",
+      note: "Optional. California has no no-fault/PIP, so MedPay is the main first-party medical add-on." },
+    { term: "GAP", def: "If a financed car is totaled, pays the difference between the loan balance and the car's value.",
+      note: "Useful on new, financed, or leased cars that depreciate quickly." },
+    { term: "Deductible", def: "What you pay out of pocket on a collision or comprehensive claim before coverage applies.",
+      note: "A higher deductible lowers your premium — pick an amount you could pay today." },
+    { term: "Good Driver Discount", def: "A California-mandated discount of at least 20% for qualifying drivers.",
+      note: "Requires ~3 years' experience and a clean record (no more than one point)." },
   ],
 
-  /* ---- Section 5: Coverage Trade-offs ---- */
-  tradeoffsIntro: "Insurance is one long balancing act: pay more now for peace of mind, or keep cash and carry more risk. Play with the deductible slider, then steal the rules of thumb.",
-  deductibleTool: {
-    // Illustrative comprehensive + collision annual premium by deductible.
-    levels: [
-      { d: 250,  premium: 1240 },
-      { d: 500,  premium: 1080 },
-      { d: 1000, premium: 880 },
-      { d: 1500, premium: 780 },
-      { d: 2000, premium: 720 },
+  /* ---- 5. Smart coverage choices ---- */
+  choicesIntro: "Coverage is a balance between premium and risk. Here is how the main trade-offs play out in California.",
+  deductibleTable: {
+    head: ["Deductible", "Collision + comp premium", "You pay per claim"],
+    rows: [
+      ["$250", "Highest", "$250"],
+      ["$500", "Baseline", "$500"],
+      ["$1,000", "~15–25% lower", "$1,000"],
+      ["$2,000", "~30–40% lower", "$2,000"],
     ],
-    baselineIndex: 1, // compare savings against the $500 deductible
+    note: "Illustrative. Raising your deductible lowers the premium but increases what you pay after a claim.",
   },
   rules: [
-    { icon: "🔟", text: "<strong>The 10% rule.</strong> If your yearly collision + comprehensive premium plus the deductible is more than ~10% of the car's value, drop them and self-insure the car." },
-    { icon: "👻", text: "<strong>Almost always keep UM/UIM.</strong> It's cheap, and 1 in 7 drivers is uninsured. It protects <em>you</em>, not just your car." },
-    { icon: "📐", text: "<strong>Buy liability limits you can't outgrow.</strong> If you own a home or have savings, state-minimum liability is risky — 100/300/100 is a common sweet spot." },
-    { icon: "🧾", text: "<strong>Set the deductible at 'oops' money.</strong> Pick the highest deductible you could comfortably pay tomorrow; pocket the premium savings." },
-    { icon: "🪙", text: "<strong>Finance or lease? Add GAP.</strong> New cars lose value fast — GAP covers the loan if it's totaled early." },
-    { icon: "🛒", text: "<strong>Re-shop every 1–2 years.</strong> Loyalty rarely pays; the same coverage can vary by thousands between insurers." },
+    { h: "Buy more than 30/60/15.", t: "State minimums are low. If you have any assets, 100/300/100 bodily-injury limits are a common, affordable step up." },
+    { h: "Keep uninsured-motorist coverage.", t: "California lets you waive it in writing, but with so many uninsured drivers it's one of the best values on the policy." },
+    { h: "Use the 10% rule on older cars.", t: "If collision + comprehensive plus the deductible exceed ~10% of the car's value, consider dropping them." },
+    { h: "Lean on California's mileage factor.", t: "Because miles driven is a mandatory factor, low-mileage and verified-mileage programs can meaningfully cut your rate." },
+    { h: "Earn and keep the Good Driver Discount.", t: "Three clean years and you qualify for at least 20% off — protect it." },
+    { h: "Re-shop after any rate hike.", t: "Approved rate changes vary by insurer. The same coverage can differ by hundreds of dollars a year." },
   ],
-  umSpotlight: {
-    title: "Spotlight: is Uninsured Motorist worth it?",
-    yes: ["~1 in 7 drivers on the road is uninsured", "Covers hit-and-runs where you can't chase anyone", "Costs roughly $50–$75 a year", "The average crash hospital bill is huge vs. that price"],
-    skip: ["You already have strong health insurance AND collision", "Your state bundles similar protection (check locally)"],
-    verdict: "For most teens and new drivers: yes. It's one of the best dollar-for-dollar protections on the policy.",
-  },
 
-  /* ---- Section 6: Find Your Profile ---- */
-  profilesIntro: "Pick the driver who's most like you. You'll see three coverage options side-by-side, the optimal pick highlighted, and the deductible to ask for. Then build your own at the bottom.",
+  /* ---- 6. Find your fit (California profiles) ---- */
+  profilesIntro: "Pick the driver closest to you to see three coverage options, the recommended choice, and a deductible — all framed for California. Then build your own below.",
   profiles: [
     {
-      id: "veteran", emoji: "🧓", name: "The Thrifty Veteran", tag: "Experienced · rarely drives · old paid-off car",
-      cost: 1,
-      traits: ["15+ years driving", "Under ~6k miles/yr", "Owns an older car outright", "Clean record"],
+      id: "lowmile", name: "Low-mileage, experienced", tag: "Clean record · few miles · older paid-off car", cost: 1,
+      traits: ["10+ years' experience", "Low annual mileage", "Owns an older car outright", "Qualifies for Good Driver Discount"],
       options: [
-        { name: "State Minimum", price: "$ — cheapest", items: [
-          { t: "Legal to drive", ok: true }, { t: "Covers damage you cause", ok: true },
-          { t: "Nothing for your own car", ok: false }, { t: "No uninsured-driver protection", ok: false } ] },
-        { name: "Liability+ & UM", price: "$ — best value", items: [
-          { t: "Strong 100/300/100 liability", ok: true }, { t: "Uninsured/Underinsured Motorist", ok: true },
-          { t: "Low-mileage discount", ok: true }, { t: "Self-insures the low-value car", ok: true } ] },
-        { name: "Full Coverage", price: "$$ — overkill", items: [
-          { t: "Collision + comprehensive added", ok: true }, { t: "Premium + deductible > car's worth", ok: false },
-          { t: "Paying to protect a cheap car", ok: false } ] },
+        { name: "State minimum 30/60/15", price: "Lowest", items: [
+          { t: "Legal to drive", ok: true }, { t: "Nothing for your own car", ok: false }, { t: "Thin if you're at fault", ok: false } ] },
+        { name: "Higher liability + UM", price: "Best value", items: [
+          { t: "100/300/100 limits", ok: true }, { t: "Uninsured-motorist included", ok: true }, { t: "Low-mileage discount", ok: true }, { t: "Good Driver 20% off", ok: true } ] },
+        { name: "Add full coverage", price: "Often unnecessary", items: [
+          { t: "Collision + comprehensive", ok: true }, { t: "May exceed 10% of car's value", ok: false } ] },
       ],
       best: 1,
-      verdict: {
-        coverage: "Liability (100/300/100) + UM/UIM — skip collision & comprehensive",
-        deductible: "N/A for collision (dropped). Keep comp only if the car's still worth ~$4k+, then $1,000.",
-        liability: "100/300/100",
-        addons: ["UM/UIM", "Low-mileage / usage-based discount"],
-        why: "A paid-off, low-value car rarely justifies collision/comp. Redirect the savings into solid liability + cheap UM so other drivers can't hurt your finances.",
-      },
+      verdict: { coverage: "Liability at 100/300/100 + UM/UIM; skip collision/comp on a low-value car", deductible: "N/A (collision dropped); comprehensive only if car still worth ~$4k+, then $1,000",
+        liability: "100/300/100", addons: ["UM/UIM", "Low-mileage program", "Good Driver Discount"],
+        why: "Low mileage and a clean record are exactly what California rewards. Put the savings into stronger liability and keep UM rather than insuring a low-value car." },
     },
     {
-      id: "city", emoji: "🏙️", name: "The City Commuter", tag: "Lives downtown · street parking · newer car",
-      cost: 3,
-      traits: ["Dense urban ZIP", "Parks on the street", "Car is 0–6 years old", "Higher theft/vandalism risk"],
+      id: "la", name: "Los Angeles city driver", tag: "Urban · street parking · newer car", cost: 3,
+      traits: ["Dense urban ZIP", "Higher theft/vandalism risk", "Car is 0–6 years old", "More miles in traffic"],
       options: [
-        { name: "Liability Only", price: "$ — risky here", items: [
-          { t: "Cheapest monthly", ok: true }, { t: "No theft/vandalism cover", ok: false },
-          { t: "No payout if your car's hit", ok: false } ] },
-        { name: "Full + UM", price: "$$$ — best fit", items: [
-          { t: "Comprehensive (theft/vandalism)", ok: true }, { t: "Collision for fender-benders", ok: true },
-          { t: "UM/UIM (more uninsured in cities)", ok: true }, { t: "Anti-theft / garage discount", ok: true } ] },
-        { name: "Full + low deductible", price: "$$$ — pricey", items: [
-          { t: "$250 deductible", ok: true }, { t: "Highest premium", ok: false },
-          { t: "Small claims rarely worth filing", ok: false } ] },
+        { name: "Liability only", price: "Risky here", items: [
+          { t: "Cheapest", ok: true }, { t: "No theft/vandalism cover", ok: false }, { t: "No payout if your car's hit", ok: false } ] },
+        { name: "Full coverage + UM", price: "Best fit", items: [
+          { t: "Comprehensive (theft/vandalism)", ok: true }, { t: "Collision", ok: true }, { t: "UM/UIM", ok: true }, { t: "Anti-theft / garaging discount", ok: true } ] },
+        { name: "Full + $250 deductible", price: "Pricey", items: [
+          { t: "Lowest out-of-pocket", ok: true }, { t: "Highest premium in a high-rate metro", ok: false } ] },
       ],
       best: 1,
-      verdict: {
-        coverage: "Full coverage (liability + collision + comprehensive) + UM/UIM",
-        deductible: "$500 — break-ins and fender-benders are likelier in the city, so keep claims affordable.",
-        liability: "100/300/100 (more cars around = more risk)",
-        addons: ["Comprehensive", "UM/UIM", "Anti-theft device / secured-parking discount"],
-        why: "City ZIPs can cost up to 2.5× more from theft, vandalism, and crash frequency — so comprehensive is the star. A garage or alarm can claw back some cost.",
-      },
+      verdict: { coverage: "Full coverage (liability + collision + comprehensive) + UM/UIM", deductible: "$500",
+        liability: "100/300/100", addons: ["Comprehensive", "UM/UIM", "Anti-theft / secured-parking discount"],
+        why: "Los Angeles is among California's most expensive areas, with real theft and crash exposure. Comprehensive matters; a garage or alarm and verified low mileage help offset the cost." },
     },
     {
-      id: "teen", emoji: "🧑‍🎓", name: "The New Teen Driver", tag: "16–18 · learning · on the family plan",
-      cost: 3,
-      traits: ["16–18 years old", "Newly licensed", "Highest crash-risk group", "Eligible for student discounts"],
+      id: "teen", name: "New teen driver", tag: "16–18 · on the family policy", cost: 3,
+      traits: ["Newly licensed", "Highest crash risk", "Eligible for good-student discount", "Gender can't raise the rate in CA"],
       options: [
-        { name: "Standalone policy", price: "$$$ — ~$10k/yr", items: [
-          { t: "Full independence", ok: true }, { t: "Hugely expensive alone", ok: false },
-          { t: "Misses family multi-car discounts", ok: false } ] },
-        { name: "On parents + discounts", price: "$$$ — best value", items: [
-          { t: "~$7k/yr cheaper than standalone", ok: true }, { t: "Good-student discount (3.0 GPA)", ok: true },
-          { t: "Defensive-driving & telematics", ok: true }, { t: "Full coverage to stay protected", ok: true } ] },
-        { name: "Minimum only", price: "$$ — exposed", items: [
-          { t: "Lower premium", ok: true }, { t: "Family assets exposed if at-fault", ok: false },
-          { t: "No help fixing the teen's car", ok: false } ] },
+        { name: "Standalone policy", price: "$7k+ /yr", items: [
+          { t: "Independent", ok: true }, { t: "Very expensive alone", ok: false }, { t: "Misses family multi-car discount", ok: false } ] },
+        { name: "On parents + discounts", price: "Best value", items: [
+          { t: "Far cheaper than standalone", ok: true }, { t: "Good-student discount", ok: true }, { t: "Driver-training credit", ok: true }, { t: "Full coverage", ok: true } ] },
+        { name: "Minimum only", price: "Exposed", items: [
+          { t: "Lower premium", ok: true }, { t: "Family assets exposed if at fault", ok: false } ] },
       ],
       best: 1,
-      verdict: {
-        coverage: "Add the teen to a parent's policy with full coverage",
-        deductible: "$500 — new drivers crash more, so keep out-of-pocket reachable.",
-        liability: "100/300/100 to protect family assets",
-        addons: ["Good-student discount", "Defensive-driving course", "Telematics / safe-driver app", "Assign teen to the cheapest car"],
-        why: "Staying on a parent's policy saves roughly $7,000/yr vs. standalone. Stack good-student + course + telematics (each 5–25%). Don't skimp on liability — new drivers are the highest risk.",
-      },
+      verdict: { coverage: "Add the teen to a parent's policy with full coverage", deductible: "$500",
+        liability: "100/300/100 to protect family assets", addons: ["Good-student discount", "Driver-training course", "Assign teen to the cheapest car"],
+        why: "A standalone teen policy is far costlier than being added to the family policy. Because California bans gender as a factor, young men in particular fare better here than in most states. The 20% Good Driver Discount arrives after three clean years." },
     },
     {
-      id: "newcar", emoji: "🚙", name: "The New-Car Owner", tag: "Financed or leased · brand-new ride",
-      cost: 2,
-      traits: ["Has a loan or lease", "Car loses value fast", "Lender requires coverage", "Wants it protected"],
+      id: "financed", name: "New or financed car", tag: "Loan or lease · depreciates fast", cost: 2,
+      traits: ["Has a loan or lease", "Lender requires coverage", "Car loses value quickly", "Wants it protected"],
       options: [
-        { name: "Liability Only", price: "$ — not allowed", items: [
-          { t: "Cheapest", ok: true }, { t: "Lender won't permit it", ok: false },
-          { t: "You'd owe on a totaled car", ok: false } ] },
-        { name: "Full + GAP", price: "$$ — best fit", items: [
-          { t: "Collision + comprehensive", ok: true }, { t: "GAP covers the loan gap", ok: true },
-          { t: "$500 deductible", ok: true }, { t: "New-car replacement (if offered)", ok: true } ] },
-        { name: "Full, high deductible", price: "$$ — risky", items: [
-          { t: "Slightly lower premium", ok: true }, { t: "$1,500+ out of pocket on a pricey repair", ok: false } ] },
+        { name: "Liability only", price: "Not allowed", items: [
+          { t: "Cheapest", ok: true }, { t: "Lender won't permit it", ok: false }, { t: "You'd owe on a wreck", ok: false } ] },
+        { name: "Full + GAP", price: "Best fit", items: [
+          { t: "Collision + comprehensive", ok: true }, { t: "GAP covers the loan gap", ok: true }, { t: "$500 deductible", ok: true } ] },
+        { name: "Full, high deductible", price: "Risky early", items: [
+          { t: "Lower premium", ok: true }, { t: "High out-of-pocket on a costly repair", ok: false } ] },
       ],
       best: 1,
-      verdict: {
-        coverage: "Full coverage (lenders require collision + comprehensive)",
-        deductible: "$500 — a new car is costly to repair, so keep out-of-pocket low.",
-        liability: "100/300/100",
-        addons: ["GAP insurance", "New-car replacement (if offered)"],
-        why: "Lenders and leasing companies require full coverage, and a new car can be 'underwater' early — GAP bridges what you owe vs. the depreciated value if it's totaled.",
-      },
+      verdict: { coverage: "Full coverage (required by the lender)", deductible: "$500",
+        liability: "100/300/100", addons: ["GAP insurance", "New-car replacement if offered"],
+        why: "Lenders require full coverage, and a new car can be worth less than you owe early on — GAP bridges that. The state minimum 30/60/15 is too thin for a driver with assets and a loan." },
     },
     {
-      id: "beater", emoji: "🚜", name: "The Budget Beater", tag: "Cheap old car · tight budget",
-      cost: 1,
+      id: "budget", name: "Tight budget, older car", tag: "Cheap car · keep it legal & cheap", cost: 1,
       traits: ["Car worth under ~$4k", "Owns it outright", "Tight monthly budget", "Could absorb losing the car"],
       options: [
-        { name: "Liability + high deductible", price: "$ — best value", items: [
-          { t: "Lowest legal premium", ok: true }, { t: "Self-insures a low-value car", ok: true },
-          { t: "Add cheap UM if you can", ok: true } ] },
-        { name: "Balanced Full", price: "$$ — wasteful", items: [
-          { t: "Collision + comprehensive", ok: true }, { t: "Costs may exceed the car's value", ok: false } ] },
-        { name: "Full + low deductible", price: "$$ — worst value", items: [
-          { t: "Maximum protection", ok: true }, { t: "Paying a lot to protect very little", ok: false } ] },
+        { name: "Liability + high deductible", price: "Best value", items: [
+          { t: "Lowest legal premium", ok: true }, { t: "Self-insures a low-value car", ok: true }, { t: "Keep UM if you can", ok: true } ] },
+        { name: "Balanced full coverage", price: "Wasteful here", items: [
+          { t: "Collision + comprehensive", ok: true }, { t: "Cost can exceed the car's value", ok: false } ] },
+        { name: "Check CLCA eligibility", price: "May be lowest", items: [
+          { t: "State Low-Cost Auto program", ok: true }, { t: "Income & vehicle-value limits apply", ok: false } ] },
       ],
       best: 0,
-      verdict: {
-        coverage: "Liability only — drop collision & comprehensive",
-        deductible: "High ($1,000+) on anything you keep; otherwise self-insure the car.",
-        liability: "At least state minimum; step up to 50/100/50 if you have any assets.",
-        addons: ["UM/UIM if you can squeeze it in — it's cheap and protects you, not the car"],
-        why: "By the 10% rule, paying for collision/comp on a sub-$4k car usually isn't worth it. Keep liability legal and add cheap UM so an uninsured driver can't wipe you out.",
-      },
+      verdict: { coverage: "Liability only — drop collision & comprehensive", deductible: "High ($1,000+), or self-insure the car",
+        liability: "At least 30/60/15; step up if you have assets", addons: ["UM/UIM if affordable", "Check the California Low Cost Auto (CLCA) program"],
+        why: "On a sub-$4k car, paying for collision/comp rarely pays off. Keep liability legal, add cheap UM, and if your income qualifies, the state CLCA program may beat any standard quote." },
     },
     {
-      id: "commuter", emoji: "🛣️", name: "The High-Mileage Commuter", tag: "Long commute · newer car · good credit",
-      cost: 2,
-      traits: ["15k+ miles a year", "Lots of highway time", "Newer car", "Good credit & clean record"],
+      id: "clca", name: "Income-eligible driver", tag: "Good record · lower income · car ≤ $25k", cost: 1,
+      traits: ["Household income within program limits", "Valid California license, 16+", "Good driving record", "Vehicle valued ≤ $25,000"],
       options: [
-        { name: "Minimum", price: "$ — too thin", items: [
-          { t: "Cheapest", ok: true }, { t: "Heavy road exposure unprotected", ok: false } ] },
-        { name: "Full + higher limits", price: "$$ — best fit", items: [
-          { t: "Full coverage + UM/UIM", ok: true }, { t: "Higher liability limits", ok: true },
-          { t: "Good-credit & clean-record discounts", ok: true }, { t: "Roadside assistance", ok: true } ] },
-        { name: "Full + every add-on", price: "$$$ — diminishing", items: [
-          { t: "Accident forgiveness, rental, etc.", ok: true }, { t: "Extras add up fast", ok: false } ] },
+        { name: "Standard minimum policy", price: "Market rate", items: [
+          { t: "Widely available", ok: true }, { t: "Often pricier than CLCA", ok: false } ] },
+        { name: "California Low Cost Auto (CLCA)", price: "~$300–500/yr typical", items: [
+          { t: "State-backed liability", ok: true }, { t: "Satisfies CA financial-responsibility law", ok: true }, { t: "Add-on UM & MedPay available", ok: true } ] },
+        { name: "Go uninsured", price: "Never", items: [
+          { t: "No cost", ok: true }, { t: "Illegal; fines + impound", ok: false } ] },
       ],
       best: 1,
-      verdict: {
-        coverage: "Full coverage + UM/UIM",
-        deductible: "$500–$1,000 — balance a slightly higher deductible against your discounts.",
-        liability: "100/300/100 or higher — more miles means more exposure.",
-        addons: ["Accident forgiveness", "Roadside assistance", "Telematics only if your driving is genuinely safe"],
-        why: "More time on the road = more crash exposure, so raise liability. Good credit and a clean record unlock the best rates; telematics can help, but lots of night or hard-braking miles may not pay off.",
-      },
+      verdict: { coverage: "California Low Cost Automobile (CLCA) liability policy", deductible: "N/A (liability program)",
+        liability: "Program limits (lower than standard, but legally compliant)", addons: ["Optional UM/UIM", "Optional MedPay"],
+        why: "CLCA (mylowcostauto.com) is a state program for income-eligible good drivers. Typical premiums run a few hundred dollars a year — often the cheapest legal option for those who qualify." },
     },
   ],
 
-  /* ---- Build-your-own (simple rules engine inputs) ---- */
+  /* Build-your-own (California-tuned) */
   builder: {
     fields: [
-      { id: "exp",   label: "Experience", options: [
+      { id: "record", label: "Driving record", options: [
+        { v: "clean", t: "Clean (3+ yrs)" }, { v: "one", t: "One incident" }, { v: "multi", t: "Multiple incidents" } ] },
+      { id: "miles", label: "Annual mileage", options: [
+        { v: "low", t: "Low (under 7,500)" }, { v: "avg", t: "Average (7,500–12k)" }, { v: "high", t: "High (12k+)" } ] },
+      { id: "exp", label: "Experience", options: [
         { v: "new", t: "New (under 3 yrs)" }, { v: "some", t: "Some (3–10 yrs)" }, { v: "vet", t: "Experienced (10+ yrs)" } ] },
-      { id: "miles", label: "Yearly mileage", options: [
-        { v: "low", t: "Low (under 6k)" }, { v: "avg", t: "Average (6–12k)" }, { v: "high", t: "High (12k+)" } ] },
       { id: "value", label: "Your car", options: [
-        { v: "beater", t: "Beater (under $4k, owned)" }, { v: "mid", t: "Mid-value ($4k–$20k, owned)" }, { v: "financed", t: "New / financed / leased" } ] },
-      { id: "park",  label: "Where you park", options: [
-        { v: "city", t: "City street" }, { v: "suburb", t: "Suburb driveway" }, { v: "rural", t: "Rural / garage" } ] },
+        { v: "beater", t: "Older, under ~$4k (owned)" }, { v: "mid", t: "Mid-value (owned)" }, { v: "financed", t: "New / financed / leased" } ] },
+      { id: "area", label: "Where you drive", options: [
+        { v: "la", t: "Dense city (e.g. LA)" }, { v: "suburb", t: "Suburban" }, { v: "rural", t: "Rural" } ] },
     ],
   },
 
-  /* ---- Section 7: Final Quiz ---- */
-  quizIntro: "Seven questions. Get 5 right to graduate and bank the 🎓 badge. You can retake it any time.",
-  quizPass: 5,
-  quiz: [
-    { q: "What is a deductible?",
-      opts: ["The monthly price of your policy", "What you pay out of pocket before insurance covers a claim", "A discount for good drivers", "The most insurance will ever pay"],
-      a: 1, why: "A deductible is what you pay first on a claim. A higher one lowers your premium but costs more if you crash." },
-    { q: "About how many drivers on the road are uninsured?",
-      opts: ["1 in 50", "1 in 20", "1 in 7", "1 in 100"],
-      a: 2, why: "Roughly 1 in 7 U.S. drivers is uninsured — exactly why UM/UIM coverage is so valuable." },
-    { q: "Which usually saves a teen the MOST money?",
-      opts: ["Buying their own standalone policy", "Staying on a parent's policy", "Skipping liability coverage", "Driving a new sports car"],
-      a: 1, why: "Staying on a parent's policy saves about $7,000/yr versus a standalone teen policy." },
-    { q: "Liability coverage pays for…",
-      opts: ["Repairs to your own car", "Injuries & damage you cause to others", "Theft of your car", "Hail damage"],
-      a: 1, why: "Liability covers other people when you're at fault. Your own car is collision; theft/hail is comprehensive." },
-    { q: "You drive a paid-off car worth $2,500. What's usually smartest?",
-      opts: ["Full coverage with a $250 deductible", "Drop collision/comp; keep good liability + UM", "Cancel insurance entirely", "Buy GAP insurance"],
-      a: 1, why: "By the 10% rule, collision/comp isn't worth it on a low-value car. Keep liability legal and add cheap UM." },
-    { q: "Which is NOT typically a rating factor in most states?",
-      opts: ["Your ZIP code", "Your credit-based insurance score", "Your car's color", "Your driving record"],
-      a: 2, why: "Car color is a myth — it doesn't affect your rate. ZIP, credit (most states), and record all do." },
-    { q: "You finance a new car. Which add-on covers you if it's totaled while you still owe more than it's worth?",
-      opts: ["Roadside assistance", "GAP insurance", "Rental reimbursement", "Uninsured motorist"],
-      a: 1, why: "GAP insurance pays the difference between your loan balance and the car's depreciated value." },
+  /* ---- 7. Help & resources ---- */
+  resourcesIntro: "Official California programs and help. These are the places to verify requirements, find low-cost options, and get assistance.",
+  resources: [
+    { name: "California Department of Insurance", what: "Regulator under Prop 103. Compare rates, check a company or agent's license, and file a complaint. Consumer hotline 1-800-927-4357.", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/", link: "insurance.ca.gov" },
+    { name: "California Low Cost Auto (CLCA)", what: "State program providing affordable liability insurance to income-eligible good drivers with a vehicle valued at $25,000 or less.", url: "https://www.mylowcostauto.com/", link: "mylowcostauto.com" },
+    { name: "Good Driver Discount", what: "Prop 103 guarantees at least 20% off for drivers with ~3 years' experience and a clean record. Ask every insurer if you qualify.", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/prop103.cfm", link: "Prop 103 guide" },
+    { name: "California DMV — insurance requirements", what: "Proof-of-insurance rules, electronic reporting, and what happens to your registration if coverage lapses.", url: "https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/", link: "dmv.ca.gov" },
+    { name: "Consumer Watchdog", what: "The nonprofit behind Prop 103. Tracks rate filings and challenges increases on behalf of California drivers.", url: "https://consumerwatchdog.org/insurance/proposition-103/", link: "consumerwatchdog.org" },
   ],
 };

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /* ============================================================
-   Coverage Quest — daily news fetcher
-   Pulls recent car-insurance headlines from Google News RSS
-   (no API key needed), cleans them, dedupes, and merges with a
-   curated evergreen set so the feed is never empty. Writes
+   California Car Insurance Guide — daily news fetcher
+   Pulls recent California car-insurance headlines from Google
+   News RSS (no API key needed), cleans them, dedupes, and merges
+   with a curated evergreen set so the feed is never empty. Writes
    data/news.json, which the static site loads in the browser.
 
    Run by .github/workflows/update-news.yml on a daily schedule.
@@ -19,26 +19,26 @@ const OUT = resolve(__dirname, "../data/news.json");
 const MAX_ARTICLES = Number(process.env.NEWS_LIMIT || 42);
 const RECENCY = process.env.NEWS_WHEN || "30d"; // Google News "when:" window
 
-/* Searches we blend together for good coverage of the topic. */
+/* California-focused searches we blend together. */
 const QUERIES = [
-  "car insurance",
-  "auto insurance rates",
-  "car insurance new drivers",
-  "teen driver car insurance",
-  "car insurance deductible coverage",
+  "California car insurance",
+  "California car insurance rates",
+  "California auto insurance Proposition 103",
+  "California minimum car insurance 30/60/15",
+  "California car insurance new drivers",
 ];
 
-/* Curated, evergreen, stable links — always available as a fallback
+/* Curated, evergreen California links — always available as a fallback
    and as a depth-filler so the page always has plenty to page through. */
 const EVERGREEN = [
-  { title: "Car Insurance Basics: Understanding Your Policy", url: "https://www.iii.org/article/what-covered-basic-auto-insurance-policy", source: "Insurance Information Institute", date: "2026-01-15", snippet: "The III explains the standard parts of an auto policy — liability, collision, comprehensive, MedPay/PIP, and uninsured-motorist — in plain English." },
-  { title: "A Consumer's Guide to Auto Insurance", url: "https://content.naic.org/consumer/auto-insurance.htm", source: "NAIC", date: "2026-01-10", snippet: "The national association of state regulators walks through coverages, how rates are set, and your rights as a policyholder." },
-  { title: "How To Shop for Car Insurance", url: "https://www.consumerreports.org/cars/car-insurance/", source: "Consumer Reports", date: "2026-01-20", snippet: "Consumer Reports' independent guide to comparing quotes, picking limits and deductibles, and avoiding overpaying." },
-  { title: "Teen Driving: Risk and Insurance", url: "https://www.iihs.org/topics/teenagers", source: "IIHS", date: "2026-01-12", snippet: "Why new and teen drivers face the highest crash risk — and the proven steps (and graduated licensing) that reduce it." },
-  { title: "What Affects Car Insurance Rates? Factors, Data and How To Save", url: "https://www.moneygeek.com/insurance/auto/factors-affecting-car-insurance-cost/", source: "MoneyGeek", date: "2026-02-19", snippet: "A data-driven rundown of the dozen-plus factors insurers weigh — and which ones you can actually control." },
-  { title: "Cheapest Liability-Only Car Insurance (2026)", url: "https://www.valuepenguin.com/cheap-liability-only-car-insurance", source: "ValuePenguin", date: "2026-04-22", snippet: "For older, paid-off cars, liability-only can start around $36 a month. See when dropping full coverage makes sense." },
-  { title: "What Is Uninsured Motorist Coverage? Guide for 2026", url: "https://wallethub.com/edu/ci/uninsured-motorist-coverage/9647", source: "WalletHub", date: "2026-03-18", snippet: "With roughly 1 in 7 drivers uninsured, this guide explains how UM/UIM works, what it costs, and when it's worth adding." },
-  { title: "Top Ways To Save on Car Insurance in 2026", url: "https://www.insurance.com/auto-insurance/auto-insurance-basics/top-ways-to-save-on-car-insurance/", source: "Insurance.com", date: "2026-05-01", snippet: "From raising your deductible to stacking discounts and going usage-based, the highest-impact moves to cut your premium." },
+  { title: "Proposition 103 and California Auto Insurance", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/prop103.cfm", source: "CA Dept. of Insurance", date: "2026-02-01", snippet: "How California's prior-approval system works and who qualifies for the mandated 20% Good Driver Discount." },
+  { title: "California Low Cost Automobile Insurance Program", url: "https://www.mylowcostauto.com/", source: "mylowcostauto.com", date: "2026-03-01", snippet: "State-backed affordable liability coverage for income-eligible good drivers with a vehicle valued at $25,000 or less." },
+  { title: "Vehicle Insurance Requirements", url: "https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/", source: "California DMV", date: "2026-01-15", snippet: "Proof-of-insurance rules, electronic reporting, and registration consequences if coverage lapses." },
+  { title: "California's New Minimum Liability Requirements (30/60/15)", url: "https://www.einsurance.com/blog/california-minimum-liability-requirements/", source: "eInsurance", date: "2026-01-08", snippet: "The 2025 increase to 30/60/15 under SB 1107 — California's first minimum change since 1967." },
+  { title: "What Determines Your California Car Insurance Rates", url: "https://www.nerdwallet.com/article/insurance/california-car-insurance-rates", source: "NerdWallet", date: "2026-04-20", snippet: "The three mandatory Prop 103 factors — record, mileage, experience — and the factors California bans." },
+  { title: "Average Cost of Car Insurance in California", url: "https://www.bankrate.com/insurance/car/california-car-insurance/", source: "Bankrate", date: "2026-05-18", snippet: "Average California premiums by city and insurer, and why rates have climbed." },
+  { title: "California Car Insurance Laws and Requirements", url: "https://www.valuepenguin.com/california-car-insurance-laws", source: "ValuePenguin", date: "2026-03-22", snippet: "California's minimums, uninsured-motorist rules, and key laws in plain language." },
+  { title: "Proposition 103: How California Regulates Insurance Rates", url: "https://consumerwatchdog.org/insurance/proposition-103/", source: "Consumer Watchdog", date: "2026-03-10", snippet: "The nonprofit behind Prop 103 tracks filings and challenges rate increases on behalf of drivers." },
 ];
 
 /* ----------------------- helpers ----------------------- */
@@ -97,7 +97,7 @@ async function fetchQuery(q) {
     "&hl=en-US&gl=US&ceid=US:en";
   try {
     const res = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0 (CoverageQuest news bot; +https://github.com)" },
+      headers: { "User-Agent": "Mozilla/5.0 (CA car-insurance news bot; +https://github.com)" },
     });
     if (!res.ok) throw new Error("HTTP " + res.status);
     const xml = await res.text();
@@ -110,11 +110,43 @@ async function fetchQuery(q) {
   }
 }
 
+/* California relevance gate. This site is California-only, but Google News
+   returns national and other-state stories for broad queries. Keep an item
+   only if it clearly references California, and drop it if it's anchored to a
+   different state (and doesn't also mention California). */
+const CA_TERMS = [
+  "california", "californ", " ca ", "(ca)", " ca.", " ca,", "calif",
+  "proposition 103", "prop 103", "prop. 103", "sb 1107", "clca",
+  "low cost auto", "consumer watchdog", "ricardo lara", "dept. of insurance",
+  "los angeles", "san francisco", "san diego", "sacramento", "oakland",
+  "san jose", "fresno", "long beach", "bay area", "inland empire",
+  "orange county", "silicon valley", "socal", "norcal",
+];
+/* Other states/cities that signal an out-of-state story. */
+const OTHER_STATES = [
+  "illinois", "chicago", "new york", "nyc", "nys", "new jersey", "florida",
+  "texas", "georgia", "michigan", "ohio", "pennsylvania", "washington state",
+  "massachusetts", "colorado", "arizona", "nevada", "oregon", "louisiana",
+  "north carolina", "south carolina", "virginia", "minnesota", "wisconsin",
+  "missouri", "tennessee", "maryland", "connecticut", "new hampshire",
+];
+function isCalifornia(a) {
+  const hay = ((a.title || "") + " " + (a.snippet || "") + " " + (a.source || "")).toLowerCase();
+  const mentionsCA = CA_TERMS.some((t) => hay.includes(t));
+  if (!mentionsCA) return false;
+  // If it leads with another state and never says "california" explicitly, drop it.
+  const mentionsOther = OTHER_STATES.some((s) => hay.includes(s));
+  if (mentionsOther && !hay.includes("california")) return false;
+  return true;
+}
+
 /* ----------------------- main ----------------------- */
 async function main() {
-  console.log("Fetching car-insurance news from Google News RSS…");
+  console.log("Fetching California car-insurance news from Google News RSS…");
   const batches = await Promise.all(QUERIES.map(fetchQuery));
-  const fresh = batches.flat();
+  const fetched = batches.flat();
+  const fresh = fetched.filter(isCalifornia);
+  console.log(`  California-relevant: ${fresh.length} of ${fetched.length} fetched`);
 
   // Merge fresh + evergreen, dedupe by normalized title and by URL.
   const seenTitle = new Set();
@@ -135,16 +167,16 @@ async function main() {
   const articles = merged.slice(0, MAX_ARTICLES);
   const payload = {
     updatedAt: new Date().toISOString(),
-    generatedBy: `Google News RSS + curated (${articles.length} articles, when:${RECENCY})`,
+    generatedBy: `California Google News RSS + curated (${articles.length} articles, when:${RECENCY})`,
     articles,
   };
 
   await mkdir(dirname(OUT), { recursive: true });
   await writeFile(OUT, JSON.stringify(payload, null, 2) + "\n", "utf8");
-  console.log(`Wrote ${articles.length} articles → ${OUT}`);
+  console.log(`Wrote ${articles.length} California articles → ${OUT}`);
 
   if (fresh.length === 0) {
-    console.warn("No fresh items fetched — wrote curated fallback only.");
+    console.warn("No fresh California items fetched — wrote curated fallback only.");
   }
 }
 
@@ -158,4 +190,4 @@ if (invokedDirectly) {
   });
 }
 
-export { parseItems, clean, decodeEntities, normTitle };
+export { parseItems, clean, decodeEntities, normTitle, isCalifornia };

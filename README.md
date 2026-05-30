@@ -1,123 +1,118 @@
-# 🛡️ Coverage Quest
+# California Car Insurance Guide
 
-A free, **gamified, Duolingo-style web app that teaches car insurance** to teens and new
-drivers. Follow a 7-stop learning trail, earn a badge at each stop, decode the jargon, find the
-coverage that fits your situation, and read fresh insurance news that refreshes automatically
-every day.
+A clear, **California-only** guide to car insurance — built for California drivers, especially
+teens and new drivers. It explains what the state requires, how **Proposition 103** shapes your
+rate, the coverages and key terms, smart coverage choices, profile-based recommendations, and
+where to get official help. California insurance news at the bottom refreshes automatically every
+day.
 
-It's a **100% static site** — no build step, no backend, no sign-up — designed to be hosted for
-free on **GitHub Pages**.
+It's a **100% static site** — no build step, no backend, no sign-up — hosted free on **GitHub
+Pages**. The design is intentionally serious and compact, with a **floating menu** for navigation.
+There is **no gamification and nothing is locked** — every section is freely accessible.
 
-👉 **Live site:** once Pages is enabled (see below) it will be at
-`https://<your-username>.github.io/car-insurance/`
+👉 **Live site:** `https://<your-username>.github.io/car-insurance/`
 
 ---
 
-## ✨ What's inside
+## What's inside
 
-| Stop | Section | What you learn | Badge |
-|----|----------------------|------------------------------------------------|------|
-| 1 | Start Here | Why insurance matters + how the trail works | 🚦 First Steps |
-| 2 | Real Stories | 5 true-to-life scenarios for teens/new drivers | 📖 Storyteller |
-| 3 | What Sets Your Rate | The factors & 2026 stats behind your premium | 🔍 Rate Detective |
-| 4 | Key Terms | Plain-English glossary with the trade-off on each | 📘 Word Wizard |
-| 5 | Coverage Trade-offs | Interactive deductible slider, UM spotlight, rules of thumb | ⚖️ Trade-off Master |
-| 6 | Find Your Profile | Pick a driver profile → optimal coverage & deductible, plus a build-your-own matcher | 🎯 Profile Pro |
-| 7 | Final Quiz | 7-question quiz; pass to graduate | 🎓 Insurance Graduate |
-
-Finish all seven to unlock the **🏆 Coverage Champion** celebration.
+| # | Section | Focus |
+|---|------------------------|------------------------------------------------------------|
+| 1 | California essentials | The 2025 **30/60/15** minimums (SB 1107), at-fault rules, proof of insurance |
+| 2 | Real situations | Four California scenarios for teens and new drivers |
+| 3 | What sets your rate | **Prop 103**'s three mandatory factors; what California bans (credit, gender, ZIP-as-primary) |
+| 4 | Coverages & terms | Plain-English glossary with the California-specific note on each |
+| 5 | Smart coverage choices | Deductible trade-offs and rules of thumb |
+| 6 | Find your fit | Profile matcher → recommended coverage & deductible, plus a build-your-own tool |
+| 7 | Help & resources | CA Dept. of Insurance, CLCA low-cost program, DMV, Consumer Watchdog |
 
 Other features:
 
-- **Two ways to navigate** — a Duolingo-style winding **trail** *and* a **floating quick menu** (🧭).
-- **Gamification** — badges, progress bar, confetti, and toasts. Progress saves in `localStorage`
-  (per device, no account needed).
-- **Driver profiles** — *Thrifty Veteran, City Commuter, New Teen Driver, New-Car Owner, Budget
-  Beater, High-Mileage Commuter* — each shows three coverage options, the **optimal pick**, the
-  recommended **deductible**, and why.
-- **Daily news feed** — 10 articles at a time with previews and "load more" pagination, plus a
-  filter box. Refreshed every day by a GitHub Action.
-- **Accessible & responsive** — semantic HTML, keyboard friendly, honors `prefers-reduced-motion`,
-  works great on phones.
+- **Floating menu** with scroll-spy that highlights the section you're reading.
+- **Profile matcher** — *Low-mileage experienced, Los Angeles city driver, New teen driver, New/financed
+  car, Tight budget older car, Income-eligible (CLCA)* — each shows three options, the recommended
+  choice, the deductible, and why, all framed for California.
+- **Daily California news** — 10 articles per page with "load more" pagination and a filter box.
+- **Accessible & responsive** — semantic HTML, keyboard friendly, honors `prefers-reduced-motion`.
 
 ---
 
-## 📁 Project structure
+## California specifics baked in
+
+- **Minimum limits: 30/60/15** ($30k bodily injury per person / $60k per accident / $15k property
+  damage), effective Jan 1, 2025 under SB 1107 (the "Protect California Drivers Act"). Scheduled to
+  rise to 50/100/25 in 2035.
+- **At-fault (tort) state** — California has no no-fault/PIP requirement.
+- **Proposition 103 (1988)** — prior-approval rate regulation. The three mandatory rating factors,
+  in order of weight, are **driving record → annual miles → years of experience**.
+- **Banned from auto rating:** credit-based insurance scores, gender, and ZIP code as a primary
+  factor (territorial rating).
+- **Good Driver Discount** — at least **20%** for drivers with ~3 years' experience and a clean
+  record.
+- **California Low Cost Automobile (CLCA)** program for income-eligible good drivers.
+
+> Figures are 2026 estimates and program details that change over time — always verify with the
+> California Department of Insurance and compare real quotes.
+
+---
+
+## Project structure
 
 ```
 .
-├── index.html                     # the whole page (skeleton; content rendered by JS)
+├── index.html                     # page skeleton; content rendered by JS
 ├── assets/
-│   ├── css/styles.css             # all styling
+│   ├── css/styles.css             # serious, compact styling (navy/slate, Inter)
 │   └── js/
-│       ├── content.js             # all educational copy, profiles, quiz (edit content here)
-│       └── app.js                 # rendering, gamification, profile matcher, quiz, news
+│       ├── content.js             # all California copy, profiles, resources (edit here)
+│       └── app.js                 # rendering, floating menu + scroll-spy, matcher, news
 ├── data/
-│   └── news.json                  # news feed (seeded now, auto-refreshed daily)
+│   └── news.json                  # California news feed (seeded, auto-refreshed daily)
 ├── scripts/
-│   └── fetch-news.mjs             # pulls + cleans Google News RSS, writes data/news.json
+│   └── fetch-news.mjs             # pulls + cleans California Google News RSS
 ├── .github/workflows/
-│   └── update-news.yml            # daily schedule that runs the fetcher and commits
-└── .nojekyll                      # serve files as-is (skip Jekyll processing)
+│   ├── update-news.yml            # daily California news refresh
+│   └── deploy-pages.yml           # auto-deploy to GitHub Pages
+└── .nojekyll                      # serve files as-is (skip Jekyll)
 ```
 
-To change the lessons, edit **`assets/js/content.js`** — it's structured data, no HTML required for
-most of it.
+To change content, edit **`assets/js/content.js`** — it's structured data.
 
 ---
 
-## 🚀 Deploy on GitHub Pages (automated)
+## Deploy on GitHub Pages
 
-This repo ships a GitHub Actions workflow
-([`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml)) that builds and
-publishes the site automatically — no manual branch setup required.
+A workflow ([`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml)) publishes
+the site automatically. Ensure **Settings → Actions → General → Workflow permissions** is set to
+**Read and write permissions**, then it deploys on every push to `main` and after each daily news
+refresh, auto-enabling Pages on the first run.
 
-1. Make sure the code is on the default branch (`main`).
-2. In **Settings → Actions → General → Workflow permissions**, choose **Read and write
-   permissions** (this also lets the daily news job commit).
-3. The deploy workflow runs on every push to `main` (and after each daily news refresh). On its
-   first run it auto-enables Pages and publishes to
-   `https://<your-username>.github.io/car-insurance/`.
-4. Trigger it any time from **Actions → "Deploy to GitHub Pages" → Run workflow**.
-
-> Prefer no Actions? Instead use **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**
-> — the site is plain static files at the repo root and serves as-is. If you go this route you can
-> delete `deploy-pages.yml`.
-
+Prefer manual setup instead? **Settings → Pages → Deploy from a branch → `main` / `/ (root)`** —
+the static files at the repo root serve as-is.
 
 ---
 
-## 📰 How the daily news refresh works
+## How the daily California news refresh works
 
-- The workflow [`.github/workflows/update-news.yml`](.github/workflows/update-news.yml) runs
-  **every day at 11:00 UTC** (and on demand via the **Actions → Run workflow** button).
-- It runs [`scripts/fetch-news.mjs`](scripts/fetch-news.mjs), which queries **Google News RSS**
-  (no API key needed) for several car-insurance topics, cleans and de-duplicates the results, and
-  blends them with a curated set of evergreen guides so the feed is never empty.
-- If `data/news.json` changed, the Action commits it, and the **Deploy to GitHub Pages** workflow
-  republishes the site automatically (the browser also cache-busts daily).
-
-**Enable it:** make sure **Settings → Actions → General → Workflow permissions** is set to
-**Read and write permissions** so the bot can commit the updated `data/news.json`. Scheduled
-Actions run on the **default branch**, so this kicks in once the code is on `main`.
-
-You can trigger it immediately from the **Actions** tab → *Update car-insurance news* → *Run
-workflow*.
+- [`.github/workflows/update-news.yml`](.github/workflows/update-news.yml) runs **daily at 11:00
+  UTC** (and on demand).
+- It runs [`scripts/fetch-news.mjs`](scripts/fetch-news.mjs), which queries **Google News RSS** for
+  several **California-specific** car-insurance searches, keeps only California-relevant results,
+  cleans and de-duplicates them, and blends in a curated set of California evergreen links (CA DOI,
+  CLCA, DMV, Consumer Watchdog) so the feed is never empty.
+- If `data/news.json` changed, the Action commits it and the deploy workflow republishes the site.
 
 ---
 
-## 🧑‍💻 Run locally
+## Run locally
 
-Because the news feed is fetched with `fetch()`, open the site through a local web server (not
-`file://`):
+Because the news feed is fetched with `fetch()`, serve over HTTP (not `file://`):
 
 ```bash
-# from the repo root
-python3 -m http.server 8000
-# then open http://localhost:8000
+python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-Refresh the news data locally (needs Node 18+):
+Refresh the news data locally (Node 18+):
 
 ```bash
 node scripts/fetch-news.mjs
@@ -125,10 +120,9 @@ node scripts/fetch-news.mjs
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-Coverage Quest is an **educational study guide**, not financial, legal, or insurance advice. The
-dollar figures are **2026 U.S. averages** and vary widely by person, vehicle, and state. Always
-compare real quotes, read your actual policy, and check requirements with your state insurance
-department. News headlines are aggregated from public sources for convenience and are not
-endorsements.
+Educational content for California drivers only — **not** financial, legal, or insurance advice.
+Figures are 2026 estimates and may change. Verify current requirements, limits, and programs with
+the [California Department of Insurance](https://www.insurance.ca.gov/) and compare real quotes
+before you buy. News headlines are aggregated from public sources and are not endorsements.
