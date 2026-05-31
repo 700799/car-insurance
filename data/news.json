@@ -1,118 +1,300 @@
 {
-  "updatedAt": "2026-05-30T11:00:00Z",
-  "generatedBy": "seed (California-only; auto-refreshed daily by GitHub Actions)",
+  "updatedAt": "2026-05-31T12:06:07.719Z",
+  "generatedBy": "California Google News RSS + curated (42 articles, when:30d)",
   "articles": [
     {
-      "title": "State Farm Receives Approval for 6.2% Auto Rate Reduction in California",
-      "url": "https://newsroom.statefarm.com/state-farm-seeks-62-auto-rate-reduction-for-california-drivers/",
-      "source": "State Farm Newsroom",
-      "date": "2026-05-08",
-      "snippet": "The California Department of Insurance approved State Farm's 6.2% auto rate cut for new and renewing policies — less than a year after a 17.7% increase in the state."
+      "title": "4 suspects arrested, accused of staging Inland Empire crashes in alleged insurance fraud scheme",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZUQ5bFF5ekpvYkVCWG4yOGxMRlZJR2JNdlBjYndoZTZvdGtwX1dZRndxTTVmcWNFTHpVLVNnc2F4NUdTdzhlb2NUUW5ONmliTDl3cEdZMkpDVFFyenJlY3hTV2h5NEV0U2hIenN4QlFhb2NmMVR5REwwUDZnYXczRmoyR1V3cTJTVldUaFpUU0VqQ2hQSk9nZXp2SzZaUVUzUmdRYldtUlFMYmJ0QUFyMkpQd2l5bERyY0xCbtIBwgFBVV95cUxNOHh5Qm5Mck8tbl9fcWxicjNCZkxUdlJ0ekpRdExEVF8wd0VfaXVYLXNXejVlSTRFbFZPcE93V2FnME5vWGE0MEVTaVdlOVJaZjJhY2tRQ1YxTUZ4d0ZjV3JrbUV2dEtVejBMYXljSE5DajEwMm9Ka2hOMWxHNVBxNU5ZWkVJbU5JTHVPa2J0d2ZmRnlDSTZGNVU0ODdzVkNRU1JFcHE5U2g0TElqcnN1enFUdVp6YlZkdkdjZExkeHlrZw?oc=5",
+      "source": "ABC7 Los Angeles",
+      "date": "2026-05-28",
+      "snippet": ""
     },
     {
-      "title": "Why CA Auto Insurance Rates Spiked in 2026 (And How to Lower Yours)",
-      "url": "https://www.starwestinsurance.com/ca-auto-insurance-rate-increase-2026/",
-      "source": "Starwest Insurance",
-      "date": "2026-05-20",
-      "snippet": "California premiums are rising about 6% in 2026 — driven by the new 30/60/15 minimums, costlier EV repairs, and wildfire-related losses. Here's how California drivers can push back."
+      "title": "Four Southern Californians charged with staging fake crashes in insurance fraud scheme",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNNjdjdVRPZ1Q3b0UyNGNBZkU1N3AyNlVfM21IV0tvVGNteGMwcHRYcUhLV1NnMzBKd3ZfVFlqRDNQZ2VUZFBLeU90UWJKNG1OMGowTjVhd1VtS01lMXlfLVdrZGNBUXdYSXZLdWViSFR1ZmpsbHd1OEZXckkzYy1SSG51V002T1RmWFZPMDlYOTNEMFZyd1E5aXp1T0hUVk4tbmlhQ1ln?oc=5",
+      "source": "CBS News",
+      "date": "2026-05-28",
+      "snippet": ""
     },
     {
-      "title": "Average Cost of Car Insurance in California for 2026",
-      "url": "https://www.bankrate.com/insurance/car/average-cost-of-car-insurance-in-california/",
-      "source": "Bankrate",
-      "date": "2026-05-18",
-      "snippet": "Full coverage in California now averages roughly $2,719 a year — up about 12% from 2025. Bankrate breaks down rates by city and insurer."
+      "title": "What to Expect When Driving in California During Major Event Weekends",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPbWh1LTlkMDNLdFBUYktXXzlxeXF6WG9ndXkzdjBKQzlWREN1bzVHVXNETjBjLVZLTllVNWNKTkpLTUk4MnpDMU8xaHN4dTZ3MVhKLTk5b1BubmdtMkRfaXpRRG5YT045LWtaZ1Fob19JVGMtcXFWa2U3MHNqQU9kblE5Y3FvZGxvSUp3czFXMGdpcERuN1pfUTJn0gGfAUFVX3lxTE1WWjRFeE45NDBxaHA0eVZ6SXFRYW95ckxyT1FCMVozMDBKdWNsXzU5UzdFUGRZNnVYUWZ1Y0RHMWlDZUgydzhXa2VqdUdSY1FNQXdrOThveVFQbTFfTVFhUHQwRm5FZ21uSEVxWWNSNkIzODFMOUlTUXY5bzZMWlhJYjN3aGZnLTZCR0EzRXhGREQ5cFVDNWZkdUczQXc2UQ?oc=5",
+      "source": "Drift Travel Magazine",
+      "date": "2026-05-28",
+      "snippet": ""
     },
     {
-      "title": "California Faces Third-Highest Car Insurance Rate Hike",
-      "url": "https://kfiam640.iheart.com/content/2026-01-13-california-faces-third-highest-car-insurance-rate-hike/",
-      "source": "KFI AM 640",
-      "date": "2026-01-13",
-      "snippet": "Despite a national slowdown, California posted the third-largest auto insurance increase in the country, with Southern California drivers hit hardest."
-    },
-    {
-      "title": "California's New Minimum Liability Requirements (30/60/15)",
-      "url": "https://www.dolanlawfirm.com/blog/2025/06/26/california-raises-auto-insurance-minimums-220204/",
-      "source": "Dolan Law Firm",
-      "date": "2026-02-10",
-      "snippet": "Effective January 1, 2025 under SB 1107, California raised its minimums to 30/60/15 — the first change since 1967, with another increase to 50/100/25 set for 2035."
-    },
-    {
-      "title": "California Low Cost Auto Insurance Program (CLCA): Who Qualifies in 2026",
-      "url": "https://www.quotemoto.com/en/learn/california-low-cost-auto-insurance-program-clca-2026",
-      "source": "QuoteMoto",
-      "date": "2026-05-04",
-      "snippet": "CLCA premiums run from about $232 a year in rural counties to $887 in Los Angeles County for income-eligible good drivers — far below the state market average."
-    },
-    {
-      "title": "Why Is Car Insurance So Expensive in California? (2026)",
-      "url": "https://insurify.com/car-insurance/california/why-is-car-insurance-so-expensive/",
-      "source": "Insurify",
-      "date": "2026-04-26",
-      "snippet": "Inflation in repair costs, EV claims, wildfire risk, and the higher 2025 minimums all push California rates up — even though Prop 103 keeps them regulated."
+      "title": "What’s required when renewing your California driver’s license if you’re over 70?",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMFd0WXRLM25kanByOWhFY1lDVm80T2MybThCVDBKcWR4OWh4LVpLOTUyUExwZGZJQnJlNDVnZ3FkNTJGMXYyM2lqM2h5ajdqSkdzNzB1bE9aTmFoclY1SEo4OEgyT2NlblQzcWV5Mk9XYzBnRm4wNk5nT05sczZoVXRQQlhKcFVvNU5CR2dlQThyOU5QcWFoUUwybElGVDhKZlE0Y2ZlenE5N1XSAbABQVVfeXFMUHRmbGxJQ1RueXJ0Q1A5eXlha1pJeENOd2ZHSC12ZGtlMjd3QmVQYm9CbnBLWklCdHVVNWEyWUIzTW5zdmM0ZktDZkRfeGRPbVdlclB6cFkzclJCcU14YkhNVF8zU0E4U2RRTmh5UHJKTFhESjQwWV9NYTA2dHN4akV3SHM0WlRRaEdXV1Q0NHFOYWhZa2cwTllZNFcwQ2ZNS2lFYnRIWFRIWEt0VThzSlg?oc=5",
+      "source": "East Bay Times",
+      "date": "2026-05-28",
+      "snippet": ""
     },
     {
       "title": "Cheapest Car Insurance in California for 2026",
-      "url": "https://www.nerdwallet.com/insurance/auto/cheap-car-insurance-california",
-      "source": "NerdWallet",
-      "date": "2026-05-12",
-      "snippet": "A comparison of the cheapest widely available insurers for California drivers, for both 30/60/15 minimum and full coverage."
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1pOVFhQU55MmhQUEhObndLaDRFd2k2Qy1SM2NnWGU1YmJUMVBuTTBkZ2s5M3RCcnBpX3Vjc2w0R05qOVpKbVdwNHZwQTZCUDNJR1M2dllnZFlHUnNFSmg0U2thU09rRktoNVp6WXgwTGxMc0Jvank0?oc=5",
+      "source": "U.S. News & World Report",
+      "date": "2026-05-27",
+      "snippet": ""
     },
     {
-      "title": "How Much Is Car Insurance for a 16-Year-Old in California?",
-      "url": "https://insurify.com/car-insurance/california/16-year-old/",
-      "source": "Insurify",
-      "date": "2026-05-09",
-      "snippet": "A 16-year-old in California averages around $2,500+ a year — but a family policy can cost roughly 44% less than two separate policies, before good-student discounts."
+      "title": "4 Southern California drivers accused in staged crash scheme targeting innocent motorists",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYXRBRHhQdU4xQnlpTC0xUUNLMlRHTGFoemhHa2FscEIyY29NZTVGY2RlcTFUaXpJSUxGQVd0V2wwWnl2eFVSUk9Jc2NlYm1DbGVGcVY3ZUFUUnFtWjZaN00zZ0R6bGtQd1FFVTBHQ0xUTHM5YjBDUF9vYm5EaXFtbW1hUXJoZERCSHZDNnk2OENZdUpvVjJVNG5NS2VDSHBuSjR4a0pGYzdmUUxoT05KUmlVSHNzZXA2N2wxNNIBwgFBVV95cUxQaXJUYXFxQWhJMnpKaEZJamtTbzI2Q1h0Xzl4ZTVURzV1Y3FxOEdadjJFSXJTNkRMaVluaEoyZ01kM2Eydkc2V2tPOGEwMUtqN1VDOU4zTFlUTGFiNy1yWG1fZEJFNFlWZDZqZkFOZ1hBLU5jOE1oQm85OUc4c2kzVUg1TVZLeGtFUDRLanp6NWJaQW5yM0FPb044bm1ualgxWGVzTjJTLXgzZTNhUTRHVDl1U0NnX2ZuUEhSanN1a2ZRQQ?oc=5",
+      "source": "KTLA",
+      "date": "2026-05-27",
+      "snippet": ""
+    },
+    {
+      "title": "Who’s running for California Insurance Commissioner — and what does the job do?",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYkl5enZPc29tNzVMSko5V1NCLVo5dU04NmtUV3BISURvUENReWhrMHB0a0hrckNQdzAyUkdyS252QVJfWUtxWm0zVXM1SGE0NUdRWE8wUE1vMlZTWUx6NzdldE9WUXJXT1p5WXppQXpsWUFDV1BvVi1Ja21GaDAzZWgxMlBpeHowd2pSdXd3WlJNY2tp0gGaAUFVX3lxTFBSZFBMSURuWFJGWkNHN1V3SE1OVThrczNucHpJNEY5Z2ExOU1zZjlVd21qMzVrSks1RDBEQ3NPNk1CMXp6Q0JkX1R1M0RlZXlBdERNRW9Rb0ZRWVRBZEk3ZlBWMkZMQnhIelBScV9Hc0YzX2Z3ZjlxYmJSeWFqbW81azRHRk1WUG9Xal92dWllb1Nial9jbmR0eHc?oc=5",
+      "source": "FOX40",
+      "date": "2026-05-27",
+      "snippet": ""
+    },
+    {
+      "title": "An Obscure Political Race With Big Consequences for California",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxORmhOZWg5MjF6ZGd2dm9vcEFKQnktN3hLSkE2MjZkRjMxVVhCVWRoRFUzbEtES2ZST0R6MDhncm9PMm1fbkFjM1N6bXdEclNYLTc5MjJrWlRHRHp2NVJVeVlyV09uemU0MVRkSDg2eko4cE1NNzk1dFpMcmRKVnEzMUFoOE1WMWdaSVg3dlhKb2FSdTlBM0oyMFV3?oc=5",
+      "source": "Governing",
+      "date": "2026-05-27",
+      "snippet": ""
+    },
+    {
+      "title": "Editorial: Wrong choice will burn down California’s insurance market",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWnUzY3ZrbkFOOTI4aFp0cnRIRzJsT05QMjl3b0lxY243QU9Od1NlaW14LVMyWGlXMWZDdnFkeUhxNzJ5N0txMzJVbnJyQ0ppZFhDMjdLaTB5NjN4RHdrUVlrZHlOMk1DYjJvS05WczFONWxvVzJPblNrd1g2YlQ2UW1nQTRrWXduNHk1bGhyVjRyb0dlZm9ZRTZFWGtEcDNfemdqdVZPcnY?oc=5",
+      "source": "Orange County Register",
+      "date": "2026-05-26",
+      "snippet": ""
+    },
+    {
+      "title": "I’m 38 and live in California with $180K in savings and $260K invested. But my husband is ‘spending money lavishly’ on his family. How do I make it stop?",
+      "url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxONkp6NDdieXBsMjhmb2dGTHVKMmFSTXowbk5nTk14bWtPck1feGdkZk1HQnhpUWUwOHVlOHc1VXplYl9WaU55SmxsaGM1bjZ0TzNEempMckprMVE3dl9hVWxpNkVUYVNfd19WVFZYTF91SkpJUUVsVU5VMTE0blRLcHlXRHc3c1J4UW96Qm91bXZFZ2NmZW9jS3ZSSlczZVhBa3VTaXFNRlhYTHYyc3pNUXFWNUs3QklkdGQwa3NoZUJfM25ieHlUbHV6WmU5MmJhYm1MY2tNbWhMUHVRV2JoWkE0TlZLZERMTVptb0hBR3lvcmNwLUNBQzM2WmJLLVcySnpVbndja1gxdVpDS2ZxX3A5cWJmem8?oc=5",
+      "source": "MarketWatch",
+      "date": "2026-05-24",
+      "snippet": ""
+    },
+    {
+      "title": "PD Editorial: Ben Allen is the best pick to be California’s next insurance commissioner",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSkVuRWw1bWxNcVNRTEdlT3c5SEt3WU5oVHdxbVRNSEVlQk5xTVZiZFVvbFJsNUI5S1ZtR2VWMDdwZzJ6dnE0ekpuc0xXbFdfb0J4eF9QSkpiS2g1Sll6X2FXSmJBb0RYOXZ1aUxrODRsVVhBOTBOOHNHUUZhQVVYNGtVTF82aWQ1SlZUQ2tGc3U2SXkwTUlJWXhzSzY?oc=5",
+      "source": "The Press Democrat",
+      "date": "2026-05-22",
+      "snippet": ""
+    },
+    {
+      "title": "Leno's Law Passes Major Milestone, Advances Out of California Senate",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOX2ZHaDUtZkswMzVwV3hCdk1qQnMxUF9SQ0E1YVJ2cVNoUFQ5LTVtNl9yUHMzUlpCMHhSLXNWcFBjZXlJTDdpVWEwMjQzUWp4cVgyZUxxNXluSmg3LTJCWE1Ma0RuUVBXdHl2Wnp6dGktOEt3M2d2UFBVdGdydEVKby1Fek1JSWZKUmcxVnBSUTVsV2swNUhURHZCVkktdUh5WlBBWUZDWl9uWTJZNEE?oc=5",
+      "source": "Specialty Equipment Market Association (SEMA)",
+      "date": "2026-05-21",
+      "snippet": ""
+    },
+    {
+      "title": "Man killed in two-car collision in coastal Orange County",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSHNZRzl0dzhDSW4zYmhLR25TRjBuUkZ5TTAyM2RabDlrQkQxVlJzd0trOTRFTlJETzdxa1NXUmFIRk9tSVFoMWhOSjBZdUtyLTJ5WTM0N05RQi1fV0c1TkR2UEJ0OGxwNXAzZTNKblZ3aWkzZGgyTlQtclRDRzFMRzY2YUhnTVhW?oc=5",
+      "source": "New Santa Ana",
+      "date": "2026-05-21",
+      "snippet": ""
+    },
+    {
+      "title": "Is Oklahoma about to walk into the insurance trap California has been trying escape?",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQNzBKVkJrZ0MydUlROTZHOFdYSWNlRXhJVFo0MzgtZFRSczZwVXY1cEFMSFQ5OHdIMFhyeHRoc1ZpTHFUekZsUmQwd29rZmh3amEwUzAxWmJ4UWEtaWdKeEI2Qm00djUzSzJwYTdRNlJXcTg5MDlwX0w5UlM1Q1F4MjhnbTkyMTNNczdTd203M3ZwZVNuWXdOdE8xQ01Bd2FGakwxOHdPUThlUVJ2Q1ZRa1A0bmtZMlZvMGhXc0NnSWQzeWJ2YnE4YjZXaEc5cGc5X3NKd1YyTWt2NlpvRHFGUzZXdDZLS0hfd3c?oc=5",
+      "source": "Insurance Business",
+      "date": "2026-05-20",
+      "snippet": ""
+    },
+    {
+      "title": "Leno's Law Advances: Effort to Protect California Car Culture Continues",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQN3hyZm4telJMcUZHWVBHa0VXMTJtTzRybkpRWHhtbGFwaVl1TFFtMFNqRWFoVGNRaU1lODZodjdvMmxLRE1XRHlqSmtkWmNXVHhBaEd4ZVpCS0o1Rlpjb1FGT0U3MThNSE9VRnVqajlEQldZdlZpeTZhSHIxRGFwS2VfZ1ZkcC05Tlc5M0Zha1JVOGRobDFvWmpwSjFCMGN6bEEyMkRUalE0R1hhY2hkeWxB?oc=5",
+      "source": "Specialty Equipment Market Association (SEMA)",
+      "date": "2026-05-19",
+      "snippet": ""
+    },
+    {
+      "title": "Best Car Insurance in California for 2026",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5xOU1nSUtvckZ1N25iS2JaNVI5RThKWlZFNVY4djhPZTg3czV0c2RFeW1GaEN2OGl4WUk4dkRhUzFRN08xeDZXN1lFdUJldkVsWmhNSXRXTWlRVGU4?oc=5",
+      "source": "FinanceBuzz",
+      "date": "2026-05-18",
+      "snippet": ""
+    },
+    {
+      "title": "What California’s New, Higher Liability Limits Mean for Auto Premiums | Insurify",
+      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOWHZJVDdvUUhMWUI5eElVNWs3azlRWV9MVk1MNnJlU0lZbUprZTZJb1VMc0dXTDhpNkwyeHVkTFdJLXR2b2tmemRVX2lFMUl1Y3cxVkMzVkR1ell0QU1OVklycTNrdnQzb1V5MUwyTUNnOXpkY0JIM0F5MEFXekduZURsaFk1cXFBYWZUa1RORl80V3BCUnpSTnRfSmt3TDFXb1hLYTVSNVNBdTFiS0tIMVV5VS1RYkxEWUQ5Vl9heS1pQXZ3UEozS25oTElXTXZsMUQ5aDB5TjAwZEJCNVRsenVHdndSLXRORm5peHFycF84aXZNUTVB?oc=5",
+      "source": "Nonstop Local News",
+      "date": "2026-05-18",
+      "snippet": ""
     },
     {
       "title": "Average Cost of Car Insurance in California for 2026",
-      "url": "https://www.experian.com/blogs/ask-experian/average-cost-car-insurance-california/",
-      "source": "Experian",
-      "date": "2026-04-30",
-      "snippet": "Experian's look at California averages by coverage level and city, with Northern California generally cheaper than the Southern California metros."
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1zSUs1cnNKQzdhYkV3N1VENjdzTGJOOGt2b01GcVN2cmNveHA2QUZodEpybzBPajBBOTV0WHU5VWtKSW0yUFpsS1JXeWVnakIxZzg3dGZ2WGJ4R1MxZmRIUEhvdjBTQllGNUY4?oc=5",
+      "source": "FinanceBuzz",
+      "date": "2026-05-18",
+      "snippet": ""
     },
     {
-      "title": "Best Car Insurance for New Drivers in California (2026)",
-      "url": "https://insurify.com/car-insurance/california/new-driver-car-insurance/",
+      "title": "Insurance commissioner candidates float bigger California role",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOXzktNVh4QU9sbUowSmcxRzZhYU5VeVZwY0pIU2dHazRoUUt0bkVnRHh3dndlSnZNQnVYN19GWU1uTzVfNFQzT3A0SWdDYzJQQUhyUlhjdDdzWXpnZF95cVZRVjdpZER3U0hLX000V0c4Q0tXMWxaQWhNbG9tTFFXZjBKaEJIRm5tMllzV3J0MVg3MXpZSHFzd2lDanRFdlRoVUJJbWUtaUlIVVU1?oc=5",
+      "source": "KPBS",
+      "date": "2026-05-18",
+      "snippet": ""
+    },
+    {
+      "title": "Average Cost of Car Insurance in California",
+      "url": "https://www.bankrate.com/insurance/car/california-car-insurance/",
+      "source": "Bankrate",
+      "date": "2026-05-18",
+      "snippet": "Average California premiums by city and insurer, and why rates have climbed."
+    },
+    {
+      "title": "California hits General Motors with $12.75M privacy settlement over driver data",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1TczdEbnpPLTQ5eXdFLV8yUW5JZVU0ajJhc3l5MzZXeG9MdjRJMm45S19vaWlLTmNtOXZKUXg5aDlydnJQRy10ZXktbG5aWk1MRzRfb0ZhU1h3SmR5aGl2UEY3TVQwVThzME00X3M1YlpJQ25TbzAzaQ?oc=5",
+      "source": "Cybernews",
+      "date": "2026-05-15",
+      "snippet": ""
+    },
+    {
+      "title": "General Motors to pay out $12.75M after selling California driver data",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNGZ4Ump4cDdQN1drZ05lX2p6LVVhcmp6cGRzS0ZqM1RldVRneXRQaElCZTF1TDg2MTdHa3Nsdm16eDJNb01kVC1CX1BZc29RaHhjRzdzNkZuVmRuQUNfbU1Ua29oT01aLWV0T3hOMERFbHRPSmkwV0lqYTRoU015RXlnZ1NUZVk3SlJXN3JaLUl3Yk8wclBaUDlEUzBabDg?oc=5",
+      "source": "New York Post",
+      "date": "2026-05-12",
+      "snippet": ""
+    },
+    {
+      "title": "Cheapest Car Insurance in California for May 2026",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOalljYkM5SHRJV3ZKbWRzU2J4MjhWdW1XaFZ3XzlHMWpyUS1EOUpuTFpqQ1ZSb2dILWplTGhienVfdlZleG9VRm95SHg0VnhPai1pZEl1NVFRVEl4REQ5aG1GVHpmSzA5eF82Q1RrQXh1TFF1RlY1QWRSdXUtbTYxT1NEaldFY3dBeHYzZlkzMV9iNlhXeHpFSk1wWUg?oc=5",
+      "source": "MarketWatch",
+      "date": "2026-05-11",
+      "snippet": ""
+    },
+    {
+      "title": "California Scammers Hit With Jail Time Over Bizarre Car Insurance Scheme Involving A Man In A Bear Suit",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOekdJZDdHTE9TWU1ReEVXZ2JXYjFfR3psYWUwZE9pLTJFRk5KR214MVB6cUFtUnJEay1LMnNxRzZhMURxZkQ5RTh5RFhTeXVFb1UwUkdDVHFPZnAyR1l1TnBiUGpjdW1IREttN1VYOU1DX3A3UjkzVjNyNTVTUHduMU1SQ0NwWmxLek9YcTEwbUVKeGFGUldqNWtVVHFhUTdHcXl4V01B?oc=5",
+      "source": "BroBible",
+      "date": "2026-05-11",
+      "snippet": ""
+    },
+    {
+      "title": "California's second-largest home insurer to raise rates this fall",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQS0FEejNxQ3ROeC1WbnZxRGVBV1BFYUxDaU9sd1piZThIYXoxNC1HMHVIQVVYb2twdnZjOTJYMXRuUFhWdUg1QWpVcjhEazlZTTE0NE1GdnU1a2xybmxkUm4wTVNwaGMxUVUzSE1wd0o2NjRpd09zdVZTQTBMQkhoQm1pRXNaS2NLVHN3ZHUwYWFOeWg4QjE2WC1kSWIwWmRpQl9HWnhtaw?oc=5",
+      "source": "Yahoo Finance",
+      "date": "2026-05-11",
+      "snippet": ""
+    },
+    {
+      "title": "California authorities announce largest CCPA fine to date",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQnpxNUU1RkFIbktIbGduTEpMSHVOdEQ5eG5yX1JtcFZ1eW1DSjk0XzdNSnFSbUgyZmN1bW5wWHlZRkdzMmY4Q042cVNQTXdZaFZObVh6SjRpaDVMTUxTQlNpc2MyRFRHZTQ0ZWNpS1dneXBIMFRLWVY2ZHhONksxaFFVSWsyQ0JU?oc=5",
+      "source": "IAPP",
+      "date": "2026-05-11",
+      "snippet": ""
+    },
+    {
+      "title": "GM Agrees to $12.75 Million California Settlement Over Driver Data Collection",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcWxoRlNiNzlCbHozWHdmWk4zWFpFMEtiRTZPaTI4NUtPUHZaYldwX0FHTkFMZUN4NGxxS21yQVRWLWJtWGMzR0c3dXl3Zko5bWcyWEJvcUt3X0dZZWh3enA1eF9abDh2bF9WMm1FU3dlQnRra1NTS3FmSVNRSXNmNU1ZY1ZDSDFjcGxkV212QXU1bHdwZG5kNVhNU1Z0NERtdkJNOURNanFNTWhUZTB4eGJ5MnE?oc=5",
+      "source": "Law Commentary",
+      "date": "2026-05-11",
+      "snippet": ""
+    },
+    {
+      "title": "Why Is Car Insurance So Expensive in California? (2026)",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUVk5TmpuOF9xSmZkd3NpQU1tTWRrY01vMVpici02UDViOGphZXYzVlEzbzhlRnZCUDFqTy1mQzBPVk9CaHZENjZKc08yQ2ZDVEo1ZHRKR2lNNmZRM3lEeEVxTHZ5cmFpSUQyekZNU1NkcFJ5bjN4VzdhdnJWTV9GbzR6YllWWHM?oc=5",
       "source": "Insurify",
-      "date": "2026-04-18",
-      "snippet": "Which California insurers treat new drivers best, plus how the state's ban on gender as a rating factor changes the math for young men."
+      "date": "2026-05-10",
+      "snippet": ""
     },
     {
-      "title": "Settlement Reached on State Farm's California Rate Request",
-      "url": "https://www.insurance.ca.gov/0400-news/0100-press-releases/2026/release012-2026.cfm",
-      "source": "CA Dept. of Insurance",
-      "date": "2026-03-14",
-      "snippet": "The Department of Insurance, Consumer Watchdog, and State Farm reached a three-party settlement in the proceeding reviewing State Farm's emergency rate request."
+      "title": "State senator demands California escalate war with State Farm by hitting it where it hurts most",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNQ2lHbFdGZTdnOVhLcG9aZVNrQk56dHFfSEgwTHFvM3BSMnB1SlBqd0d1dlJQR3dvVWdhU21GbDE2S0pQelVlWE9KT2lLMi01bHhMNVhiMXA0cjlIckxSeXdCT2V5Y20tbFFNSW1KczZmTzc5VWhlWTJ1UFFRWi1NQ0F1Ukc2T1hPbnI1cFhOV2RvdXBUcWU1LUthTndxakVUNmtaOTlQME1wSGdvLXZSUmpiRm1rUHVUSV9KTW5aYkItaGtMUUNXbFFXSXNXODA?oc=5",
+      "source": "New York Post",
+      "date": "2026-05-10",
+      "snippet": ""
     },
     {
-      "title": "California Auto Insurance Rates Jump Over 30% Since 2023",
-      "url": "https://beinsure.com/news/california-auto-insurance-rates-jump/",
-      "source": "Beinsure",
-      "date": "2026-02-22",
-      "snippet": "A multi-year view of how California premiums have climbed since 2023, and why regional differences across the state remain large."
+      "title": "California Flood Insurance: Complete Guide for Homeowners in 2026",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1fNWtEZUxfMm91Ylg5YU5yTC1jVjF0VF9HclVIV0E3NnFiWHNXTDdFV0taN2ZzZ1IxTkFLZkpEbzlyNTYxRFFhQnc1TUVHcXlVdmVxejJvejRob2hsYWJnal9lYmNOSGQzN29lZno5emYzWWg0UzVSeQ?oc=5",
+      "source": "Insurify",
+      "date": "2026-05-10",
+      "snippet": ""
     },
     {
-      "title": "Proposition 103 and California Auto Insurance",
-      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/prop103.cfm",
-      "source": "CA Dept. of Insurance",
-      "date": "2026-02-01",
-      "snippet": "The state regulator explains the prior-approval system and the mandated 20% Good Driver Discount for qualifying California drivers."
+      "title": "GM will pay California $12.75M for selling driver location and behavior data",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPckhXY0Q2RHV4MFBvTUxjUmlweS0xLXRNSk5LaWhyYU9lZE4xWjNIcjlBb3lnS1Z4b3IzdV84VlBMRFo1ZGpoN1laWjIzNS1QczBDWEZTcUNMbG5GSkNuT3JfQ3NBbVJBOHhzWlE2R1dTaDlJb0s2el9ZdWozNHQ4UmF0REZNUlkxYmhvUFdTSHhmSW1kaFo0NWM4OEFPM1hTVE15blQxMA?oc=5",
+      "source": "Spectrum News",
+      "date": "2026-05-08",
+      "snippet": ""
     },
     {
-      "title": "California Low Cost Automobile Insurance Program",
-      "url": "https://www.mylowcostauto.com/",
-      "source": "mylowcostauto.com",
-      "date": "2026-03-01",
-      "snippet": "The official CLCA program offers income-eligible good drivers affordable liability coverage that satisfies California's financial-responsibility law."
+      "title": "When It Comes to Data Privacy, Consumers Must Be in the Driver’s Seat: Attorney General Bonta, Partners Secure $12.75 Million General Motors Privacy Settlement",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMHFjNG9QV2tKRG5kM0VQdVJKYVUtTUJ5YXNWN0JlYkM0NENyakdnWV9PVlIySVVqU1F4WFVUbEdrSDZuaUFCZVJxWDEwdHhwZUc3SF9QMzFQdXNBMlI1RUw2Q2ozY0FrVHl1OFNWeEJqTVlXejRUcThKcHdQR09ZX0hwZEMycDcxZm95Yk1ZY3Y3bm91TlVXTFJ5aHJncmtMamYzV1IwY01vMnQwV0o5bFJqZUt4cEg1ZWpSd0k1OA?oc=5",
+      "source": "State of California - Department of Justice (.gov)",
+      "date": "2026-05-08",
+      "snippet": ""
     },
     {
-      "title": "Vehicle Insurance Requirements",
-      "url": "https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/",
-      "source": "California DMV",
-      "date": "2026-01-15",
-      "snippet": "How California verifies insurance electronically, the proof you must carry, and what happens to your registration if coverage lapses."
+      "title": "California penalizes General Motors $12.75M for selling drivers’ data",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNRTlNTkd1dzFOVDEwVlBaUk1GYXZkWXVaTHZRSWpKT3cwZENFd2lOdUJBdmQ5M01MNTBvazZoT094cndUaE5kMGx3YXQ5ZXcyNFo1ZTBTR0NTTFJPTDRPS0pCSVIzdlhPeGVJRm9kY0o1SHcwVV9PM2NqYlM2cGxFdHJJRGkyc1l5TVJfNzh4VmNrUWZ3SzdWNjJBVTc1U05xZXJTRnAzdFYydW8?oc=5",
+      "source": "Yahoo Finance",
+      "date": "2026-05-08",
+      "snippet": ""
+    },
+    {
+      "title": "General Motors to pay $12.5 million to settle claims that it illegally sold California driver data",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNanFQTGR3TWRKN0poNk5zanZDOVBBZm9CUml6YVdXempxMUJnQzdNbFkyREh0RHZZYUgtMGtHSmdRdWxHQ0hiaGR2YUUtdW85d3M5ald6NTdKZERmMUJSS3d3VGlPVWNaM2RtSzNPdm4xa1ZRSUk1Tmk2YXpUYWhvbG1lMFFrbGNmdEVhSF91UFZ1RFAzOS1qdnZodVA3OEdEOF9EOFEyVkVjRktNRDlfaWxYTXZvaGN4RjdUS3c1WGxkM0ZTMlB6cGpOV0xobFVUaUNGcU5DWHF2QQ?oc=5",
+      "source": "Los Angeles Times",
+      "date": "2026-05-08",
+      "snippet": ""
+    },
+    {
+      "title": "GM just paid a record penalty for breaking California privacy law",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNSHNqaEVqWVdOTGotNGZMbXRHWGRZeVBlS25hVUNYMDJ0UGVTWEJIaDZjWklScTVYa3RfLUE3RmVycVY1cmZLUHJnQjc0Qjh0TktweVRGMzRBVV9CTExsd2Q0aXRfN1I1WDNtVjhXQkxNX0F6R29ObTVwM0lMN1JSSndsS2YxdlFIZHZMUldBenBFSXB6bGc?oc=5",
+      "source": "CalMatters",
+      "date": "2026-05-08",
+      "snippet": ""
+    },
+    {
+      "title": "GM to pay over $12 million in California privacy settlement involving driver data",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBhWVdXM3FPeEFRWU5YaWtXYm5GOUdpTWo3dnVfVjJHVVlOTk5hTDdDdE52amJXM2Z0dm5KZmJTSThfWGhHZU5oYTk4YjRhLUtLdGpIV29BSGJsWnUxZlFuem52MWtOYzNEa0M0VnE4R2Q1RW1KQ3FoMjRzMVMzU2c?oc=5",
+      "source": "The Record from Recorded Future News",
+      "date": "2026-05-08",
+      "snippet": ""
+    },
+    {
+      "title": "The Best Car Insurance In California Of 2026",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPUUVUb29qNjB2d0kxYkM0NTIwX3hHbG96QXc2b2JwZ0lhWldUME5iVVk4N3JoeXlHUU96VnhlRm9oY3hieVNNMXRibm0zdW1aa2VLd3ZJYXZTQXowQXJOTWl3MmJiMTQyVFVrRkJRUE1uSXBWTnhYS3NlTmcyb3dmdQ?oc=5",
+      "source": "Forbes",
+      "date": "2026-05-07",
+      "snippet": ""
+    },
+    {
+      "title": "Robert Howell, California insurance commissioner candidate, 2026 primary election questionnaire",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPb1J3emFxLWRsZ1NrQWVOdFFGa1psbjktQlBaRmY3SEYzSVBEdmRHWV9keTdVQ2gxQ042N1J3VXNURGNhcWhQeUxwbVVxVXhpQUZMRzJlaVl1d2JyZ1FDX0FSMTBTaWNLRjFtaFV3b0pkSHFzRjJqYnd3RWdIR1ZISEhRcVdGc3I5OWRjbTlrbnAwY3RLREZlY2lZU3p3alcxbUpldGJpLS1VRFl0VHJJc1lYWWlaVUlLZGhCOHZtWm92YWZrRFVual9qVW8?oc=5",
+      "source": "Orange County Register",
+      "date": "2026-05-06",
+      "snippet": ""
+    },
+    {
+      "title": "California Dept of Insurance Takes Legal Action Against State Farm -",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQbW9yYjlWdHBGVGZVanBFSTZabEhSWDZXeWtzQzhDN1EzUXlENmpuck14cDBHeGh5ZXIyTVVVOG9OTnNWaUtRMjJzd2Fqczc0M1Y1MjV3WnJVYnE5azI2bVZNM25MNHZFOVNQbHY4QmdNNGwzcDVnSExRd1ZhYlVGa09mNGk3MzcyX011dE1FMTh6bjhiUngzVU92YlhlZm9uRUlBeGZxZlo?oc=5",
+      "source": "Insurance Edge",
+      "date": "2026-05-06",
+      "snippet": ""
+    },
+    {
+      "title": "Driving in the Bay Area is only getting more expensive",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOYjF5bG5rTGRNc19abHhEaGh0bnB3ai1OME53bks2eE1CVEJnWEw4ZUV6VFFqRExjS0I3X1daSEpzTUI3N25jWHBlYkIwTlI1eGR6MHJGcmxmV2o5Rm10NG0wUTZPN29nZF9uYldVejZaczFKbENfWVFoQW45NjZPU0p4Y3VEaVZ3bEhiUjVxRmdzcS1xWFl5STR3?oc=5",
+      "source": "Berkeleyside",
+      "date": "2026-05-06",
+      "snippet": ""
+    },
+    {
+      "title": "Eduardo Vargas, California insurance commissioner candidate, 2026 primary election questionnaire",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOUUZMYkxfSWN3c1hOUmRnc2czckpHUDV5LW5kX3ZlbHc3WlpBRUR4NGJaLWFDY0Mzbkp2OERscGpyaW4tVG9lV01tTk1wVUpzR0hiTXZIMWtUSmdQaVZhZVJiZmxVVmlmR2JPNUNOUTB3RHJOaVVkdi1IcEJzSnZTa1pFMGVlV2VYa3NnUDY4ZE9zejBHS09KQS0zT21DNGQxYkZnT0RTcHpzSkVBTm5ZcklZSXBPODJkY1dzbWRvNUplaFUtNHM3LTIzTHFSQQ?oc=5",
+      "source": "Orange County Register",
+      "date": "2026-05-05",
+      "snippet": ""
+    },
+    {
+      "title": "Patrick Wolff, California insurance commissioner candidate, 2026 primary election questionnaire",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQaVhuaWw2X1BCcDQ0VnNndnkwbTBwRHY5aE5kRWlWYmlrU2ZqT1UxcVJvV1BaeG9aa3RmQm5BVkxZcUk4SzdPOG9FNklKVEJDcTVMN1VvcHVqSmtKUDhfR2hNUWcwbXc3cGtQVDFTR1ZzT01OZm9YREM2blluX3phSGJOWHg5QmhHTTB2VTFvdE9WQ1FBWlE3eVhPVUQyNGswcUw0ZTkwcFBEbFFkVGFvel9hZzlaMlp5eEVFNS1iMnM2OXBvZkhBWU1HSFI?oc=5",
+      "source": "Orange County Register",
+      "date": "2026-05-05",
+      "snippet": ""
     }
   ]
 }
