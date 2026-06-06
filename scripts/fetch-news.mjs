@@ -140,13 +140,45 @@ function isCalifornia(a) {
   return true;
 }
 
+/* Car-insurance topical gate. Google News returns lots of California +
+   "insurance" stories that are NOT about car insurance (the insurance-
+   commissioner election, unemployment/health/home/life insurance, extended
+   warranties, etc.). Keep an item only if it signals auto/car insurance AND
+   doesn't match the noise list. */
+const CAR_TERMS = [
+  "car insurance", "auto insurance", "auto-insurance", "automobile insurance",
+  "vehicle insurance", "car-insurance", "motor insurance", "driver",
+  "30/60/15", "uninsured motorist", "good driver discount", "sr-1", "sr1",
+  "collision coverage", "comprehensive coverage", "auto policy", "car policy",
+  "auto premium", "auto rate", "proposition 103", "prop 103", "clca",
+  "low cost auto", "dmv", "staged crash", "staged crashes", "insurance fraud",
+  "fake crash", "totaled", "fender bender", "at-fault", "telematics",
+];
+/* Topics that look insurance-y but aren't car insurance — drop these. */
+const NOISE_TERMS = [
+  "insurance commissioner", "commissioner race", "commissioner primary",
+  "unemployment insurance", "health insurance", "homeowners insurance",
+  "home insurance", "fire insurance", "life insurance", "renters insurance",
+  "flood insurance", "title insurance", "deposit insurance", "crop insurance",
+  "pet insurance", "travel insurance", "medicare", "medicaid", "covered california",
+  "extended warranty", "extended car warranty", "ballot", "endorses", "endorsement",
+  "controller", "primary election", "statewide office",
+];
+function isCarInsurance(a) {
+  const hay = ((a.title || "") + " " + (a.snippet || "") + " " + (a.source || "")).toLowerCase();
+  // Exclude obvious non-car-insurance topics first.
+  if (NOISE_TERMS.some((t) => hay.includes(t)) && !/(car|auto|vehicle|driver)\s*insurance/.test(hay)) return false;
+  // Require an explicit auto/car-insurance signal.
+  return CAR_TERMS.some((t) => hay.includes(t));
+}
+
 /* ----------------------- main ----------------------- */
 async function main() {
   console.log("Fetching California car-insurance news from Google News RSS…");
   const batches = await Promise.all(QUERIES.map(fetchQuery));
   const fetched = batches.flat();
-  const fresh = fetched.filter(isCalifornia);
-  console.log(`  California-relevant: ${fresh.length} of ${fetched.length} fetched`);
+  const fresh = fetched.filter((a) => isCalifornia(a) && isCarInsurance(a));
+  console.log(`  California car-insurance: ${fresh.length} of ${fetched.length} fetched`);
 
   // Merge fresh + evergreen, dedupe by normalized title and by URL.
   const seenTitle = new Set();
@@ -190,4 +222,4 @@ if (invokedDirectly) {
   });
 }
 
-export { parseItems, clean, decodeEntities, normTitle, isCalifornia };
+export { parseItems, clean, decodeEntities, normTitle, isCalifornia, isCarInsurance };

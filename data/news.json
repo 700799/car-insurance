@@ -1,82 +1,12 @@
 {
-  "updatedAt": "2026-06-05T13:46:18.790Z",
-  "generatedBy": "California Google News RSS + curated (42 articles, when:30d)",
+  "updatedAt": "2026-06-06T03:25:12.179Z",
+  "generatedBy": "cleaned seed (California car-insurance only, 22 articles)",
   "articles": [
-    {
-      "title": "Democrat Jane Kim advances in California's insurance commissioner primary amid state coverage crisis, AP projects",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQakZXbXFKN3NKdDU3LUNFaHFsOERxMTNPYkprSFRIaFNKX0VlN1VNNm9BLVJOTEpqYnJObjd4U3pqS1VLQ1ZwWUMzMDdqY0sxQ1FoUWluNm9qYUhfOWQ2ckVGYk1mRkY3RHV3SnVBdE9TUWU4X2FCS2FPb1JzbXV2eFFhaTZISHg1VThoLVR0c1lmdVFDVXBRNGt0SV9OWVdPMXBFd1U2SQ?oc=5",
-      "source": "CBS News",
-      "date": "2026-06-05",
-      "snippet": ""
-    },
-    {
-      "title": "Is bottled water safe in a hot car during California summer heat?",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNalZlUXFJWFlfeXFHMHBRMkswUE9LaG9CS2tNSUlmbzNfWGRmaU81U2ltM0s5WWp4dFY4WVVma0M3TzNNTWRHMVdNb040OUx6RXB3VEZrN3hPT3dkbGVFQzdNaEo0MnRZcTdmdFYycDBWQ3N3dDZxRVB5UXlwaVRadUtuY0xQR2wtYzlZWlMwNzZVNnY0WHB2XzBsaEc2MFZQTmE4UzRzS3otSWZ4MUlTa05QQV9BamN3SHc?oc=5",
-      "source": "The Stockton Record",
-      "date": "2026-06-04",
-      "snippet": ""
-    },
     {
       "title": "California’s New Tire Rule Promises Fuel Savings, But the Real Cost Could Hit Drivers Hard",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPb21GUkl6Y3d1djNjNmpSaXpRTFlQRlhDc19FUVhqc0EyU2RuN1pVbWR1YmlaTTFZeThxcEtDSUZCbUZVNU53YnVRTnJFWUdHX0lvWUN1cG1ta21NcUp1Y2JhQXFuOGItb3JVQ0pDLThRZFNZN1NaSWo4bDFvVVdrX3prZG5XU3hPVmhr?oc=5",
       "source": "The Auto Wire -",
       "date": "2026-06-04",
-      "snippet": ""
-    },
-    {
-      "title": "Lara Forced To Redo Anti-Consumer Intervenor Proposal, Says Consumer Watchdog",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNRU9vYWl5a3FlbWx2dTQtT3d4cFJ6SnlPZHRjUWE5TWljNmp3TVBVU0tmNURxdWF2WlpxdzY5emhCcGVHSDNGOGUzLXcxWV94cFhkbmpCZWg0V2JndzBqamNxd0FaZ1I0ZHQtMkVmbllwaGhNUlA2TEdrV2lSV09WbzV3M3RtNmRlRHhLa1IzZkZaeDQ3LUxOSGNIQ3VfU0JiUFl0emJHN1JOclliM1l3akE4NEhSMmhLMGR6TC1td1FOZGtscEpTaVQxQlQ?oc=5",
-      "source": "PR Newswire",
-      "date": "2026-06-04",
-      "snippet": ""
-    },
-    {
-      "title": "Two Democrats lead California insurance commissioner primary",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNV2JMY3dmcFJrVjM5amhMN3VTa3RnUUV5dk5NWjhLNnI3aDZLeUo4QWhxekVOMlJoaWh6NGQ1TDV5Njh4SlRlbnlYOXJINTd3MGxDbzhsRWhZTmRlVjFwa2xlak9fcmJHNmxpREJfdGQtRUtnNVBhODJmd255SWM0aTA5Z0VCaF9BMzgxbHg3d2ExYWM4Y2RkcG5KX2dLd3Zx?oc=5",
-      "source": "San Francisco Chronicle",
-      "date": "2026-06-03",
-      "snippet": ""
-    },
-    {
-      "title": "Walters: California’s unemployment insurance morass will become the next governor’s problem",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQOThMU2R0ZEx0YW0zb1lQUnZRNF9jcnNIYUV3dEJfODZscnl1T0tsY0Ezc1BRV2pza1dTdklLWS1nMmlVc0xOMTgzOUwwVlY4S1FNQmx1aEZiNDU0TVh4LUotdnFuRVdGemhZUU9KaGNrLUZGTnpZcjlLU2JSMmdtelV6WjlnTjM5OHNaVEN0ODlnRWlEbjh4N3RTbWczd3JmZ21sNlBWemtrb0h2LVk3LUt3NldlZlVBY2dVZjZmSExIN041NVRZa9IBzgFBVV95cUxNOXdERHFXR2ZOdk1lLTVrcVlkRDF3azNsOTVvazVYS3BRT0VrWFpwWjhKeEdDLXFyaHBLQ2pOSjBnM3EzZ0NlSDRSV1hBeUtUUG9rQy1fdkhLbGwzSnJ6X1FabDhwUFF5ZEE3TFExd0hzQmRCUk9DV1Z1dUZGcjl5eVhwUlFweXRXdFAyTnRiOEhzVXItQTZfeTRPVDgwN3puN0hsWVltdU41RUdMbHg2WVFFR3dKRzIwa2NWVUlxdHFZaGJmNlFFQzNwM2txdw?oc=5",
-      "source": "East Bay Times",
-      "date": "2026-06-03",
-      "snippet": ""
-    },
-    {
-      "title": "Your last-minute guide for California insurance commissioner, controller and other statewide offices",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPWEUybk1FMVIyeGQ0a0JMVE9NQ1YxeU9naTg5WldkVTdfZWU0ZElqQ1pWbGhQQTVQRlBFc1VkVFhDTmdDbGNkZnFUa0ZVMHpKbnl6ZWdhUUtHVUNQNzNWTE1nal9reWpsSW9FenM0WG80SUZMTWNwcjdOcFhTZ0pXOFAwRV9SRWlkWE11Vjk2Y0xGQUQ4M3d2aU1UaVAxTW53TnZ6ZWRZNA?oc=5",
-      "source": "Los Angeles Times",
-      "date": "2026-06-02",
-      "snippet": ""
-    },
-    {
-      "title": "California Voters Choose Insurance Commissioner on June 02",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMkpUbF9BTUFmVkFFdjM5djhQbjRoLVVpQVE0RWJGcnlDNUZwY2hlOFhmcGtoMnpLRWx4RVZCc3ktT29zYWFoeEh4ZC1DTU52WnRmcmwtNk11blBMQTdXUlZiZmZhUzkyTE1NM0Nja1M4UERGU0M1QW8wV1B6MUNrQzRzdmpNVmtnSUdwaGRvUmE?oc=5",
-      "source": "Meyka",
-      "date": "2026-06-02",
-      "snippet": ""
-    },
-    {
-      "title": "McClatchy Endorses Patrick Wolff for California Insurance Commissioner",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA3emtEb29FeEpKNHNiTTF6YkdpQmJGQnhhcjlTWl9icUotLWZXaWtEVlJ6eDQ4U3hwTWZnNmxILXpYSlVwbDhNTkh3UnlWSFJFR0ZhQ29fb1lXSS1iMEM4eFVzem1mb2hNZS11dGtJSTh2VVNQbTB0dVVEb0lFZw?oc=5",
-      "source": "HarianBasis.co",
-      "date": "2026-06-02",
-      "snippet": ""
-    },
-    {
-      "title": "Best Extended Car Warranty in California (2026)",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxON21ybTY3QklsbkpRcjlnTnFNUHdUWlNabmFoNV85bWx3VHhLbnZMQVpLZzVkTEFjQWdxem9WMDYzZGluTmlKUElKcFJYU3h5dGVUbDhkNjU5cU1SMmhaOGJrZGdmMlhybW1ZRk9LVmVodXdKYWduZW5KZ0dTMEtObVN4ZnoybWlhc3Y5Ng?oc=5",
-      "source": "MarketWatch",
-      "date": "2026-06-01",
-      "snippet": ""
-    },
-    {
-      "title": "McClatchy endorses Patrick Wolff for California insurance commissioner. Here's what to know",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQkluRVlkcl9CQVd0N0cwUlJtQ3JlMG01V1ljMG40OGtsV1VzcDJzMnpBSTFGV194MVF1ZEdPVVZ1UnR1VjZSTTVtcFRIcFVTaHh3MXpZM3Q5ZzE5YzRSb3lhczlvSHV5dW5QUURFR1I5S2FOZG4xeHdzQ2dyaHlxQXJxdXJaOU1JamVNT2x2MmtHVmVqeXBGNXNtYVRnY3VmUUMyUGNB?oc=5",
-      "source": "Yahoo",
-      "date": "2026-06-01",
       "snippet": ""
     },
     {
@@ -101,30 +31,9 @@
       "snippet": ""
     },
     {
-      "title": "What to Expect When Driving in California During Major Event Weekends",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPbWh1LTlkMDNLdFBUYktXXzlxeXF6WG9ndXkzdjBKQzlWREN1bzVHVXNETjBjLVZLTllVNWNKTkpLTUk4MnpDMU8xaHN4dTZ3MVhKLTk5b1BubmdtMkRfaXpRRG5YT045LWtaZ1Fob19JVGMtcXFWa2U3MHNqQU9kblE5Y3FvZGxvSUp3czFXMGdpcERuN1pfUTJn0gGfAUFVX3lxTE1WWjRFeE45NDBxaHA0eVZ6SXFRYW95ckxyT1FCMVozMDBKdWNsXzU5UzdFUGRZNnVYUWZ1Y0RHMWlDZUgydzhXa2VqdUdSY1FNQXdrOThveVFQbTFfTVFhUHQwRm5FZ21uSEVxWWNSNkIzODFMOUlTUXY5bzZMWlhJYjN3aGZnLTZCR0EzRXhGREQ5cFVDNWZkdUczQXc2UQ?oc=5",
-      "source": "Drift Travel Magazine",
-      "date": "2026-05-28",
-      "snippet": ""
-    },
-    {
-      "title": "Who’s running for California Insurance Commissioner — and what does the job do?",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYkl5enZPc29tNzVMSko5V1NCLVo5dU04NmtUV3BISURvUENReWhrMHB0a0hrckNQdzAyUkdyS252QVJfWUtxWm0zVXM1SGE0NUdRWE8wUE1vMlZTWUx6NzdldE9WUXJXT1p5WXppQXpsWUFDV1BvVi1Ja21GaDAzZWgxMlBpeHowd2pSdXd3WlJNY2tp0gGaAUFVX3lxTFBSZFBMSURuWFJGWkNHN1V3SE1OVThrczNucHpJNEY5Z2ExOU1zZjlVd21qMzVrSks1RDBEQ3NPNk1CMXp6Q0JkX1R1M0RlZXlBdERNRW9Rb0ZRWVRBZEk3ZlBWMkZMQnhIelBScV9Hc0YzX2Z3ZjlxYmJSeWFqbW81azRHRk1WUG9Xal92dWllb1Nial9jbmR0eHc?oc=5",
-      "source": "FOX40",
-      "date": "2026-05-27",
-      "snippet": ""
-    },
-    {
       "title": "4 Southern California drivers accused in staged crash scheme targeting innocent motorists",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYXRBRHhQdU4xQnlpTC0xUUNLMlRHTGFoemhHa2FscEIyY29NZTVGY2RlcTFUaXpJSUxGQVd0V2wwWnl2eFVSUk9Jc2NlYm1DbGVGcVY3ZUFUUnFtWjZaN00zZ0R6bGtQd1FFVTBHQ0xUTHM5YjBDUF9vYm5EaXFtbW1hUXJoZERCSHZDNnk2OENZdUpvVjJVNG5NS2VDSHBuSjR4a0pGYzdmUUxoT05KUmlVSHNzZXA2N2wxNNIBwgFBVV95cUxQaXJUYXFxQWhJMnpKaEZJamtTbzI2Q1h0Xzl4ZTVURzV1Y3FxOEdadjJFSXJTNkRMaVluaEoyZ01kM2Eydkc2V2tPOGEwMUtqN1VDOU4zTFlUTGFiNy1yWG1fZEJFNFlWZDZqZkFOZ1hBLU5jOE1oQm85OUc4c2kzVUg1TVZLeGtFUDRLanp6NWJaQW5yM0FPb044bm1ualgxWGVzTjJTLXgzZTNhUTRHVDl1U0NnX2ZuUEhSanN1a2ZRQQ?oc=5",
       "source": "KTLA",
-      "date": "2026-05-27",
-      "snippet": ""
-    },
-    {
-      "title": "An Obscure Political Race With Big Consequences for California",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxORmhOZWg5MjF6ZGd2dm9vcEFKQnktN3hLSkE2MjZkRjMxVVhCVWRoRFUzbEtES2ZST0R6MDhncm9PMm1fbkFjM1N6bXdEclNYLTc5MjJrWlRHRHp2NVJVeVlyV09uemU0MVRkSDg2eko4cE1NNzk1dFpMcmRKVnEzMUFoOE1WMWdaSVg3dlhKb2FSdTlBM0oyMFV3?oc=5",
-      "source": "Governing",
       "date": "2026-05-27",
       "snippet": ""
     },
@@ -133,62 +42,6 @@
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZUQ5bFF5ekpvYkVCWG4yOGxMRlZJR2JNdlBjYndoZTZvdGtwX1dZRndxTTVmcWNFTHpVLVNnc2F4NUdTdzhlb2NUUW5ONmliTDl3cEdZMkpDVFFyenJlY3hTV2h5NEV0U2hIenN4QlFhb2NmMVR5REwwUDZnYXczRmoyR1V3cTJTVldUaFpUU0VqQ2hQSk9nZXp2SzZaUVUzUmdRYldtUlFMYmJ0QUFyMkpQd2l5bERyY0xCbtIBwgFBVV95cUxNOHh5Qm5Mck8tbl9fcWxicjNCZkxUdlJ0ekpRdExEVF8wd0VfaXVYLXNXejVlSTRFbFZPcE93V2FnME5vWGE0MEVTaVdlOVJaZjJhY2tRQ1YxTUZ4d0ZjV3JrbUV2dEtVejBMYXljSE5DajEwMm9Ka2hOMWxHNVBxNU5ZWkVJbU5JTHVPa2J0d2ZmRnlDSTZGNVU0ODdzVkNRU1JFcHE5U2g0TElqcnN1enFUdVp6YlZkdkdjZExkeHlrZw?oc=5",
       "source": "ABC7 Los Angeles",
       "date": "2026-05-27",
-      "snippet": ""
-    },
-    {
-      "title": "Editorial: Wrong choice will burn down California’s insurance market",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWnUzY3ZrbkFOOTI4aFp0cnRIRzJsT05QMjl3b0lxY243QU9Od1NlaW14LVMyWGlXMWZDdnFkeUhxNzJ5N0txMzJVbnJyQ0ppZFhDMjdLaTB5NjN4RHdrUVlrZHlOMk1DYjJvS05WczFONWxvVzJPblNrd1g2YlQ2UW1nQTRrWXduNHk1bGhyVjRyb0dlZm9ZRTZFWGtEcDNfemdqdVZPcnY?oc=5",
-      "source": "Orange County Register",
-      "date": "2026-05-26",
-      "snippet": ""
-    },
-    {
-      "title": "Southern California chemical tank has a crack that could possibly lower risk of explosion",
-      "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxNMlBkNjV4M1FLNy1qRnlXYmpvZ2RaTjVhQno0TFpKLUZteENNTlFSSW4xbGljZjg5ZGV3WDhmS29zWFpKM2dtMVRrd0lsalk1RkNzR0xYYTZtTGFXemlfYWJxTmtNUkV4N1NMYjk0cWpIMUFMUm9vN0RaN1ZhM2d3RkdzNGcxZlBHUmtUWEhIa3lHLTg5YU5uYUZXYjVaOVY5Rmx0Z0tsRlNTVTBYREltaFdTVU9FS3NqSnJTZC1SNE5tcEJlSVhsM0k0U2VDMUFmNG1wak1mZWdyMlBJR2h3bDR5MnIyVDFiQ3VxZEFtV1N4NnI0UHZiRm1JdW1HVGtCU3JIZ2xORFcyanU3RFM5S2NZWUw3V09UT1E?oc=5",
-      "source": "WUSA9",
-      "date": "2026-05-24",
-      "snippet": ""
-    },
-    {
-      "title": "Understanding Health Insurance Coverage in California: Decoding the Differences",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObktBZjltdW53Q1daYVhnWF9pT3ZacVR1M01wemVnMktWZFFJd0lnMzhTLUVJZ052SWFma2RFWkcwNkJHR3pFTEl0dUFBMmhLZXRCSTJOYXpxZzhaT0llYnlSYWF5T0drUHdmeUdKSWZ2NGVNYkhxQWRJeWhDQXBYOU11QmJhVUgxcjVNY2pRdVJVSDFTY2NZSEh4YUR6SEhrMTB3eHZPazVMMGxOSkozemp4RHVvZm9H?oc=5",
-      "source": "Insurance Edge",
-      "date": "2026-05-23",
-      "snippet": ""
-    },
-    {
-      "title": "California Housing Market: Prices, Trends, Forecast 2026",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBtX1d2U29hRVJGbjZITlZMbFdRT1hHWExoN3pSQ3Z1ZGNpWTc4WmthWmJlSEpDTU56LW1VV3hwRlpUTUp3czlrelpLMUNRUXdfb2NiVkRBZTM1akhKMm03STRBSHRvNmgtQ09jRTBpeGFDdw?oc=5",
-      "source": "Norada Real Estate Investments",
-      "date": "2026-05-22",
-      "snippet": ""
-    },
-    {
-      "title": "PD Editorial: Ben Allen is the best pick to be California’s next insurance commissioner",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSkVuRWw1bWxNcVNRTEdlT3c5SEt3WU5oVHdxbVRNSEVlQk5xTVZiZFVvbFJsNUI5S1ZtR2VWMDdwZzJ6dnE0ekpuc0xXbFdfb0J4eF9QSkpiS2g1Sll6X2FXSmJBb0RYOXZ1aUxrODRsVVhBOTBOOHNHUUZhQVVYNGtVTF82aWQ1SlZUQ2tGc3U2SXkwTUlJWXhzSzY?oc=5",
-      "source": "The Press Democrat",
-      "date": "2026-05-22",
-      "snippet": ""
-    },
-    {
-      "title": "Leno's Law Passes Major Milestone, Advances Out of California Senate",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOX2ZHaDUtZkswMzVwV3hCdk1qQnMxUF9SQ0E1YVJ2cVNoUFQ5LTVtNl9yUHMzUlpCMHhSLXNWcFBjZXlJTDdpVWEwMjQzUWp4cVgyZUxxNXluSmg3LTJCWE1Ma0RuUVBXdHl2Wnp6dGktOEt3M2d2UFBVdGdydEVKby1Fek1JSWZKUmcxVnBSUTVsV2swNUhURHZCVkktdUh5WlBBWUZDWl9uWTJZNEE?oc=5",
-      "source": "Specialty Equipment Market Association (SEMA)",
-      "date": "2026-05-21",
-      "snippet": ""
-    },
-    {
-      "title": "Is Oklahoma about to walk into the insurance trap California has been trying escape?",
-      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQNzBKVkJrZ0MydUlROTZHOFdYSWNlRXhJVFo0MzgtZFRSczZwVXY1cEFMSFQ5OHdIMFhyeHRoc1ZpTHFUekZsUmQwd29rZmh3amEwUzAxWmJ4UWEtaWdKeEI2Qm00djUzSzJwYTdRNlJXcTg5MDlwX0w5UlM1Q1F4MjhnbTkyMTNNczdTd203M3ZwZVNuWXdOdE8xQ01Bd2FGakwxOHdPUThlUVJ2Q1ZRa1A0bmtZMlZvMGhXc0NnSWQzeWJ2YnE4YjZXaEc5cGc5X3NKd1YyTWt2NlpvRHFGUzZXdDZLS0hfd3c?oc=5",
-      "source": "Insurance Business",
-      "date": "2026-05-20",
-      "snippet": ""
-    },
-    {
-      "title": "Leno's Law Advances: Effort to Protect California Car Culture Continues",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQN3hyZm4telJMcUZHWVBHa0VXMTJtTzRybkpRWHhtbGFwaVl1TFFtMFNqRWFoVGNRaU1lODZodjdvMmxLRE1XRHlqSmtkWmNXVHhBaEd4ZVpCS0o1Rlpjb1FGT0U3MThNSE9VRnVqajlEQldZdlZpeTZhSHIxRGFwS2VfZ1ZkcC05Tlc5M0Zha1JVOGRobDFvWmpwSjFCMGN6bEEyMkRUalE0R1hhY2hkeWxB?oc=5",
-      "source": "Specialty Equipment Market Association (SEMA)",
-      "date": "2026-05-19",
       "snippet": ""
     },
     {
@@ -213,13 +66,6 @@
       "snippet": ""
     },
     {
-      "title": "'No season anymore': Viruses are running amok in Northern California",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQSjladzJUcTdkTVVMQnUydkZTQUV3eGdCdmNrdWFpeHR4MVJZQWpaSkh5a2F3SVhwaFhGczk3VDNETkNBUTdJSXRqNjRGQ3dZVjlOVk9jSmswdHg5cEF3dDc1X3RRZU03em9pQTFyOGpXRTVwcTZXSU9TSVRtMGpmbQ?oc=5",
-      "source": "SFGATE",
-      "date": "2026-05-18",
-      "snippet": ""
-    },
-    {
       "title": "Average Cost of Car Insurance in California",
       "url": "https://www.bankrate.com/insurance/car/california-car-insurance/",
       "source": "Bankrate",
@@ -227,38 +73,10 @@
       "snippet": "Average California premiums by city and insurer, and why rates have climbed."
     },
     {
-      "title": "Insurance commissioner candidates float bigger California role",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPdFU1Zjktb0JETUxXYjIwRy1nTXZMMUZkSzduTF9jWkgwV09ua0pEeFhDR050TGU4SnFZRExHMS1NbHhtMk9MWTNyZzJUWDBEMDIwYXZWNnZvY2hBd1FwZGktcVE5M3FDbVZnM09wUHNhbDdmeE5tSlpGMHFmV2xjeEdrRURYX0JFT3c3OXlWVQ?oc=5",
-      "source": "CalMatters",
-      "date": "2026-05-16",
-      "snippet": ""
-    },
-    {
-      "title": "Why Does California Need an Insurance Commissioner?",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNd3J2Y3Z0cnpRU0FxVmxzMlMwamE2N1JLS0JmNHpYNWxkN3RTbGVDNVlzWDZBV0ZJR3pCRkRwTzhzdkF3Smh6cEtPYzViN2JNM01mY3pYcGtHbVJTTU5SUGwyckxrbEVpRzNfRFBWWGhZMnFxTU1iZGNhUnJXZXJxVVVNVG43N3hCdXhwYUdzbkJRRWo3d3NoVXhmcmRNQlU?oc=5",
-      "source": "LA Progressive",
-      "date": "2026-05-15",
-      "snippet": ""
-    },
-    {
       "title": "California hits General Motors with $12.75M privacy settlement over driver data",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1TczdEbnpPLTQ5eXdFLV8yUW5JZVU0ajJhc3l5MzZXeG9MdjRJMm45S19vaWlLTmNtOXZKUXg5aDlydnJQRy10ZXktbG5aWk1MRzRfb0ZhU1h3SmR5aGl2UEY3TVQwVThzME00X3M1YlpJQ25TbzAzaQ?oc=5",
       "source": "Cybernews",
       "date": "2026-05-15",
-      "snippet": ""
-    },
-    {
-      "title": "California’s GM Settlement Reveals a New Era for Connected Car Privacy",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQYVJCRlpnWV83YXVneVdsZk9GcVBDNzVUeHZuVzVLMDRVWHowQVNKZlpyRG0tNHFBT083TjBVbzZjTlFTbWVYZlZWZlgwZ2F3a3VOQ3U5cXJCeXhhZ0pCRzFKR0ZmVkNxcnI4QmtETEs5UnlCWVFvSXE4MlVaRDlRSlVDUlhLcFdSdFVQRUx2UmFSSFl2VFlUa09tVy3SAaIBQVVfeXFMUDdmZFF0VXlaVEVDOFczNEo0dXFrOWh3Rjc1dTNIbllEUERkVzUybVN6UDE0X0NiVm9RZkNRb0ZiaVRfanUxNHB1czB5R0dRT2h4cW42VXRxRzAxLVpTdzFqWXV5Zmd4aHBLcE1yZDdpdy1wRHo4Q0ozSVJQWWVTRWtzWnVyUmY1bEdIVUFXcHE1ZWtZNHU2dkdTbUZISEpWUm1R?oc=5",
-      "source": "The National Law Review",
-      "date": "2026-05-14",
-      "snippet": ""
-    },
-    {
-      "title": "Nearly 1 Million Californians Face Home Insurance Spike in Coming Months",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOQTAtcW05REJOaHo0cjctUENoUDNscXV6SGVwTkpicGs5X1lpYWIzV3FuOXRlZWJydmpxcEw5Z1lVb2hkMDNROWpwUFBTdlFUME14a2ZjdUNaSmZ0RnR5Zko4d0FDcDk2NGxyZXBLTVIxb3h3cTdUc2xYVnV5ZmVyRGI0dFp1X2x3MzRJUEUxbHNpbXAzX1FwM2V2WHRsVjg?oc=5",
-      "source": "Newsweek",
-      "date": "2026-05-13",
       "snippet": ""
     },
     {
@@ -276,13 +94,6 @@
       "snippet": ""
     },
     {
-      "title": "Farmers Insurance Group drops another rate hike as 1M California customers despair",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOOWdjb3pOa1VDM0FhdHpYLUt5bUZJYzBXM09ITkJLNkRxSExra3BreE1vLU9aRi1xR3RIaTVYMlBiTDY4WHVRb0VvTE5DbWRscFVyNG0xdHFJZU1Pc0lsMU1ZUFJEVVlSeWtBdjR2ZFlmSU5oRkRoWmNUTGFVbTAxWHNUenp6aDlvb191MFRtaHhHUmZTQnpJd1Q5RkEyc0lrbXVCaUJB?oc=5",
-      "source": "New York Post",
-      "date": "2026-05-12",
-      "snippet": ""
-    },
-    {
       "title": "California Reaches $12.75 Million Settlement with GM Over OnStar Selling its ‘Smart Driver’ Customer Data to Insurance Brokers",
       "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNTnlGdVZUMWxtZEVweWluVzl3Ri15amtrT3RnNlRWYkxhZzRDalYwRmhUOTZfR2djV3NIZFpCYjdOTjF1Q2NGZVc3aWc1WHVOZDUtVThTNmZUR3BTT0NsWDU0Z2RkTGh4V3NLWkhFZU10V1lwaDBtTjZBRnAzekJmM3FjTjNpNmx6WUp5WHh0TTJSU194ejY3UVBsNWZqa3JJbE9tTEphUkc5NHVzd2hXcDQtRUVGbWxfVk1sc2xUaHBWbkJRVXhWQmF0SVlmd3J2MG1sQmlQS0RWWHl0a1JtUXpUNEF0TVJubnFDZk1tUlJVVUplUGdIWXc0QQ?oc=5",
       "source": "CorvetteBlogger",
@@ -295,6 +106,55 @@
       "source": "MarketWatch",
       "date": "2026-05-11",
       "snippet": ""
+    },
+    {
+      "title": "What Determines Your California Car Insurance Rates",
+      "url": "https://www.nerdwallet.com/article/insurance/california-car-insurance-rates",
+      "source": "NerdWallet",
+      "date": "2026-04-20",
+      "snippet": "The three mandatory Prop 103 factors — record, mileage, experience — and the factors California bans."
+    },
+    {
+      "title": "California Car Insurance Laws and Requirements",
+      "url": "https://www.valuepenguin.com/california-car-insurance-laws",
+      "source": "ValuePenguin",
+      "date": "2026-03-22",
+      "snippet": "California's minimums, uninsured-motorist rules, and key laws in plain language."
+    },
+    {
+      "title": "Proposition 103: How California Regulates Insurance Rates",
+      "url": "https://consumerwatchdog.org/insurance/proposition-103/",
+      "source": "Consumer Watchdog",
+      "date": "2026-03-10",
+      "snippet": "The nonprofit behind Prop 103 tracks filings and challenges rate increases on behalf of drivers."
+    },
+    {
+      "title": "California Low Cost Automobile Insurance Program",
+      "url": "https://www.mylowcostauto.com/",
+      "source": "mylowcostauto.com",
+      "date": "2026-03-01",
+      "snippet": "State-backed affordable liability coverage for income-eligible good drivers with a vehicle valued at $25,000 or less."
+    },
+    {
+      "title": "Proposition 103 and California Auto Insurance",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/prop103.cfm",
+      "source": "CA Dept. of Insurance",
+      "date": "2026-02-01",
+      "snippet": "How California's prior-approval system works and who qualifies for the mandated 20% Good Driver Discount."
+    },
+    {
+      "title": "Vehicle Insurance Requirements",
+      "url": "https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/",
+      "source": "California DMV",
+      "date": "2026-01-15",
+      "snippet": "Proof-of-insurance rules, electronic reporting, and registration consequences if coverage lapses."
+    },
+    {
+      "title": "California's New Minimum Liability Requirements (30/60/15)",
+      "url": "https://www.einsurance.com/blog/california-minimum-liability-requirements/",
+      "source": "eInsurance",
+      "date": "2026-01-08",
+      "snippet": "The 2025 increase to 30/60/15 under SB 1107 — California's first minimum change since 1967."
     }
   ]
 }
