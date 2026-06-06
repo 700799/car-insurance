@@ -414,30 +414,66 @@
     return { coverage, deductible, liability, addons, why };
   }
 
-  /* ---------- render sections ---------- */
+  /* ---------- render sections as drawers (accordion) ---------- */
+  const CHEVRON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
   function renderSections() {
     const wrap = byId("sections");
     wrap.innerHTML = "";
-    SECTIONS.forEach((s) => {
+
+    // Expand / collapse-all toolbar
+    wrap.appendChild(h("div", { class: "drawers__bar" }, [
+      h("span", { class: "drawers__hint", text: "Tap a section to open it." }),
+      h("button", { class: "drawers__toggle", type: "button", id: "expandAll", onclick: toggleAll, text: "Expand all" }),
+    ]));
+
+    SECTIONS.forEach((s, i) => {
       const head = headFor(s);
-      const panel = h("section", { class: "panel", id: s.id, "aria-labelledby": s.id + "-h" }, [
-        h("div", { class: "section__head" }, [
-          h("span", { class: "section__num", text: "Section " + s.n }),
-          h("h2", { class: "section__title", id: s.id + "-h", text: head.title }),
-          head.sub ? h("p", { class: "section__sub", text: head.sub }) : null,
+      const inner = h("div", { class: "drawer__inner" }, head.sub ? h("p", { class: "section__sub", text: head.sub }) : null);
+      builders[s.type]().forEach((node) => node && inner.appendChild(node));
+
+      const drawer = h("details", { class: "drawer", id: s.id }, [
+        h("summary", { class: "drawer__head", "aria-label": "Section " + s.n + ": " + head.title }, [
+          h("span", { class: "drawer__num", "aria-hidden": "true", text: s.n }),
+          h("span", { class: "drawer__title", text: head.title }),
+          h("span", { class: "drawer__chev", "aria-hidden": "true", html: CHEVRON }),
         ]),
+        h("div", { class: "drawer__body" }, inner),
       ]);
-      builders[s.type]().forEach((node) => node && panel.appendChild(node));
-      wrap.appendChild(panel);
+      if (i === 0) drawer.open = true; // first section open by default
+      drawer.addEventListener("toggle", () => { if (drawer.open) setActive(s.id); syncExpandAll(); });
+      wrap.appendChild(drawer);
     });
+    syncExpandAll();
   }
+
+  function toggleAll() {
+    const drawers = document.querySelectorAll(".drawer");
+    const anyClosed = Array.prototype.some.call(drawers, (d) => !d.open);
+    Array.prototype.forEach.call(drawers, (d) => { d.open = anyClosed; });
+    syncExpandAll();
+  }
+  function syncExpandAll() {
+    const btn = byId("expandAll");
+    if (!btn) return;
+    const drawers = document.querySelectorAll(".drawer");
+    const allOpen = drawers.length > 0 && Array.prototype.every.call(drawers, (d) => d.open);
+    btn.textContent = allOpen ? "Collapse all" : "Expand all";
+  }
+  function openSection(id) {
+    const el = byId(id);
+    if (!el) return;
+    if (el.tagName === "DETAILS") { el.open = true; syncExpandAll(); }
+    requestAnimationFrame(() => el.scrollIntoView({ behavior: prefersReduced() ? "auto" : "smooth", block: "start" }));
+  }
+  const prefersReduced = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- floating menu ---------- */
   function renderMenu() {
     const list = byId("fmenuList");
     list.innerHTML = "";
     SECTIONS.forEach((s) => {
-      const a = h("a", { class: "fmenu__link", href: "#" + s.id, onclick: closeMenu }, [
+      const a = h("a", { class: "fmenu__link", href: "#" + s.id, onclick: (e) => { e.preventDefault(); closeMenu(); openSection(s.id); } }, [
         h("span", { class: "n", "aria-hidden": "true", text: s.n }),
         h("span", { text: s.label }),
       ]);
@@ -445,7 +481,7 @@
       list.appendChild(h("li", {}, a));
     });
     const foot = document.querySelector(".fmenu__extra");
-    if (foot) { foot.dataset.id = "news"; foot.addEventListener("click", closeMenu); }
+    if (foot) { foot.dataset.id = "news"; foot.addEventListener("click", (e) => { e.preventDefault(); closeMenu(); openSection("news"); }); }
   }
   function wireMenu() {
     const fmenu = byId("fmenu"), btn = byId("fmenuBtn"), panel = byId("fmenuPanel");
@@ -547,6 +583,9 @@
     setupScrollSpy();
     wireNews();
     loadNews();
+    // Open a drawer if the page was loaded with a deep link (e.g. #trends).
+    const hash = (location.hash || "").replace(/^#/, "");
+    if (hash && byId(hash)) setTimeout(() => openSection(hash), 60);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
