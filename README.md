@@ -60,23 +60,115 @@ Other features:
 
 ```
 .
-├── index.html                     # page skeleton; content rendered by JS
+├── index.html                     # page skeleton; prerender markers + meta tags
 ├── assets/
 │   ├── css/styles.css             # serious, compact styling (navy/slate, Inter)
+│   ├── og-image.svg               # 1200×630 social-share image
 │   └── js/
 │       ├── content.js             # all California copy, profiles, resources (edit here)
-│       └── app.js                 # rendering, floating menu + scroll-spy, matcher, news
+│       ├── partners.js            # affiliate partner config (all disabled by default)
+│       └── app.js                 # rendering, floating menu + scroll-spy, matcher, news, CTAs
 ├── data/
 │   └── news.json                  # California news feed (seeded, auto-refreshed daily)
 ├── scripts/
-│   └── fetch-news.mjs             # pulls + cleans California Google News RSS
+│   ├── fetch-news.mjs             # pulls + cleans California Google News RSS
+│   ├── prerender.mjs              # bakes static HTML into index.html; generates sitemap+robots
+│   └── prerender.test.mjs         # assertions for prerender output
 ├── .github/workflows/
 │   ├── update-news.yml            # daily California news refresh
-│   └── deploy-pages.yml           # auto-deploy to GitHub Pages
+│   └── deploy-pages.yml           # auto-deploy to GitHub Pages (runs prerender first)
 └── .nojekyll                      # serve files as-is (skip Jekyll)
 ```
 
 To change content, edit **`assets/js/content.js`** — it's structured data.
+
+---
+
+## SEO pre-render
+
+The site content is 100% client-rendered by default, which means crawlers and social-share bots
+(that don't run JavaScript) would see an empty page. The pre-render build step bakes every section's
+text into the static HTML **at deploy time**, so crawlers and `<noscript>` users see real content.
+
+Run it locally (Node 18+):
+
+```bash
+node scripts/prerender.mjs
+```
+
+This **overwrites `index.html`** in place (injecting between `<!-- PRERENDER:START -->`/`<!-- PRERENDER:END -->`)
+and generates `sitemap.xml` + `robots.txt` in the repo root. The CI deploy workflow runs this
+automatically before uploading the artifact.
+
+Test the prerender output:
+
+```bash
+node scripts/prerender.test.mjs
+```
+
+`sitemap.xml` and `robots.txt` are excluded from source control (`.gitignore`) to avoid lastmod
+churn — they're always freshly generated at deploy time.
+
+---
+
+## Affiliate partners (how to enable)
+
+All quote-comparison CTAs are **hidden by default** — nothing renders until you join an affiliate
+program and flip the switch.
+
+1. Sign up for a program (e.g. [The Zebra](https://www.thezebra.com/), [Insurify](https://insurify.com/),
+   [NerdWallet](https://www.nerdwallet.com/), [Bankrate](https://www.bankrate.com/)).
+2. Get your tracked affiliate URL.
+3. Open **`assets/js/partners.js`**, find the matching partner object, set `enabled: true`, and
+   replace the `url` with your tracked link.
+
+```js
+{ id: "thezebra", name: "The Zebra",
+  url: "https://www.thezebra.com/?ref=YOUR_ID",   // ← your affiliate URL
+  blurb: "Compare 100+ carriers in 2 minutes.",
+  enabled: true },                                  // ← flip this
+```
+
+CTAs appear at four high-intent locations: after profile verdicts, at the end of the best-rate
+section, above the news grid, and in the resources section. Every CTA carries a visible
+**"Advertisement · we may earn a commission"** label as required by the FTC.
+
+---
+
+## Analytics (how to enable)
+
+Analytics are **off by default** (no tracking without consent tooling).
+
+### Plausible (recommended — cookieless, no consent banner needed)
+
+```html
+<!-- in index.html, replace the stub with: -->
+<script>window.ANALYTICS = { type: "plausible", domain: "yourdomain.com" };</script>
+```
+
+### Google Analytics 4
+
+```html
+<script>window.ANALYTICS = { type: "ga4", measurementId: "G-XXXXXXXXXX" };</script>
+```
+
+`app.js` reads `window.ANALYTICS` on init and dynamically loads the appropriate script. Neither
+provider is bundled — nothing loads when the stub is `null`.
+
+---
+
+## Monetization roadmap
+
+| Phase | What | When |
+|-------|------|------|
+| ✅ **1 — Foundation** | SEO prerender · affiliate CTA scaffolding · analytics config | Done |
+| **2 — Custom domain** | Register a CA-car-insurance domain; add `CNAME`; update canonical/og:url | Do this first — most affiliate/ad programs won't approve `github.io` subpaths |
+| **3 — Display ads** | Apply to **Google AdSense** at launch; graduate to **Mediavine/Raptive** at ~50k visits/mo. Requires a custom domain root for `ads.txt`. | After domain |
+| **4 — Sponsored placements** | Direct insurer/agency deals; reuse `partners.js`/`quoteCta` infrastructure. Build a media kit once traffic is measurable. | After traffic baseline |
+| **5 — Lead generation** | Highest payout, but requires a **California insurance license / legal review** before capturing or selling leads. Build a TCPA-compliant form only after that. | After licensing |
+
+> Insurance is a **YMYL** category. All revenue surfaces must carry visible advertising/affiliate
+> disclosure. Lead generation is deferred pending licensing and legal review.
 
 ---
 
@@ -109,13 +201,20 @@ the static files at the repo root serve as-is.
 Because the news feed is fetched with `fetch()`, serve over HTTP (not `file://`):
 
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+node scripts/prerender.mjs       # bake static HTML + generate sitemap.xml / robots.txt
+python3 -m http.server 8000      # then open http://localhost:8000
 ```
 
 Refresh the news data locally (Node 18+):
 
 ```bash
 node scripts/fetch-news.mjs
+```
+
+Run all tests:
+
+```bash
+node scripts/prerender.test.mjs  # 47+ assertions on prerender output
 ```
 
 ---

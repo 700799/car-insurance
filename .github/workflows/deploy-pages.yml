@@ -33,6 +33,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Prerender content + generate SEO files
+        run: node scripts/prerender.mjs # bakes sections into index.html; writes sitemap.xml + robots.txt
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
