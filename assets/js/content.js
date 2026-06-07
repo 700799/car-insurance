@@ -325,3 +325,8 @@ const CONTENT = {
     { name: "Consumer Watchdog", what: "The nonprofit behind Prop 103. Tracks rate filings and challenges increases on behalf of California drivers.", url: "https://consumerwatchdog.org/insurance/proposition-103/", link: "consumerwatchdog.org" },
   ],
 };
+
+/* Single source of truth: the browser uses the `CONTENT` global above; Node
+   tooling (the prerender build, tests) reads the same object via require().
+   Guarded so it is a no-op in the browser. */
+if (typeof module !== "undefined" && module.exports) module.exports = { CONTENT };

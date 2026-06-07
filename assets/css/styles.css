@@ -352,11 +352,40 @@ table.tbl td { color: var(--ink-2); }
 .fmenu__extra { display: block; padding: .4rem .5rem; font-size: .88rem; font-weight: 600; color: var(--blue-2); border-radius: 6px; }
 .fmenu__extra:hover { background: var(--line-2); text-decoration: none; }
 
+/* ---- Affiliate CTA (monetization) ---- */
+.cta { margin: 1.2rem 0 0; border: 1px solid var(--line); border-radius: var(--r-lg); background: linear-gradient(180deg, var(--blue-soft), #fff); padding: 1rem 1.1rem; }
+.cta__label { display: inline-block; font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: .12rem .5rem; }
+.cta__head { font-weight: 700; font-size: 1rem; margin: .5rem 0 .7rem; color: var(--ink); }
+.cta__links { display: flex; flex-wrap: wrap; gap: .5rem; }
+.cta__btn { display: inline-flex; align-items: center; gap: .35rem; font-weight: 700; font-size: .92rem; text-decoration: none; background: var(--navy); color: #fff; border-radius: var(--r); padding: .55rem 1rem; transition: background .15s; }
+.cta__btn:hover { background: var(--navy-2); text-decoration: none; }
+.cta__btn::after { content: "↗"; font-weight: 700; }
+.cta__fine { color: var(--muted); font-size: .75rem; margin: .7rem 0 0; }
+
+/* ---- Prerender (no-JS / crawler) static content ----
+   Visible only when JavaScript is off or before app.js runs; the app replaces
+   #sections with the interactive drawers. Kept clean and readable. */
+.pr-section { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 1.2rem 1.3rem; margin-bottom: .8rem; }
+.pr-h2 { font-size: 1.2rem; display: flex; align-items: center; gap: .6rem; }
+.pr-num { flex: none; width: 24px; height: 24px; border-radius: 6px; background: var(--navy); color: #fff; font-size: .8rem; display: inline-grid; place-items: center; }
+.pr-sub { color: var(--muted); font-size: .95rem; }
+.pr-section h3 { font-size: 1.02rem; margin: 1rem 0 .3rem; }
+.pr-section ul, .pr-section ol { padding-left: 1.2rem; }
+.pr-section li { margin: .25rem 0; color: var(--ink-2); }
+.pr-note { color: var(--muted); font-size: .85rem; }
+.pr-tag { color: var(--blue-2); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.pr-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.pr-table th, .pr-table td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); }
+.pr-terms dt { font-weight: 700; margin-top: .5rem; }
+.pr-terms dd { margin: 0 0 .2rem; color: var(--ink-2); }
+.pr-terms em, .pr-section em { color: var(--blue-2); font-style: normal; }
+
 /* ---- Footer ---- */
 .footer { margin-top: 2.4rem; border-top: 1px solid var(--line); background: #fff; }
 .footer__inner { max-width: var(--maxw); margin: 0 auto; padding: 1.6rem 1.1rem; }
 .footer__title { font-weight: 700; }
 .footer__disclaimer { color: var(--ink-2); font-size: .85rem; max-width: 75ch; }
+.footer__disclosure { color: var(--ink-2); font-size: .8rem; max-width: 75ch; background: var(--line-2); border: 1px solid var(--line); border-radius: var(--r); padding: .7rem .9rem; }
 .footer__meta { color: var(--muted); font-size: .8rem; }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }

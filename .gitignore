@@ -1,0 +1,5 @@
+# Generated at deploy time by scripts/prerender.mjs (see deploy-pages.yml).
+# Kept out of source control to avoid stale-lastmod churn; the deploy workflow
+# regenerates them into the published artifact on every build.
+/sitemap.xml
+/robots.txt

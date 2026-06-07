@@ -34,9 +34,53 @@
     return n;
   }
   const byId = (id) => document.getElementById(id);
+  const appendIf = (parent, node) => { if (node) parent.appendChild(node); };
+
+  /* Lightweight event tracking. No-op unless analytics is configured and the
+     provider exposes a global (e.g. Plausible's window.plausible, GA's gtag). */
+  function track(event, props) {
+    try {
+      if (typeof window.plausible === "function") window.plausible(event, { props: props || {} });
+      else if (typeof window.gtag === "function") window.gtag("event", event, props || {});
+    } catch (e) { /* never let analytics break the page */ }
+  }
 
   /* ---------- shared bits ---------- */
   function calloutEl(text) { return h("div", { class: "callout" }, h("div", { text })); }
+
+  /* ---------- affiliate CTA (monetization) ----------
+     Renders ONLY when at least one partner is enabled (assets/js/partners.js).
+     Otherwise returns null so the surface stays clean. Always carries a visible
+     "Advertisement" label for FTC/YMYL compliance. `context` tunes the heading. */
+  function getPartners() {
+    try { return (typeof activePartners === "function") ? activePartners() : []; }
+    catch (e) { return []; }
+  }
+  function quoteCta(context) {
+    const partners = getPartners();
+    if (!partners.length) return null;
+    const headings = {
+      verdict: "Ready to act on this? Compare California quotes",
+      bestrate: "Put these tips to work — compare California quotes",
+      news: "Compare California car-insurance quotes",
+      resources: "Compare quotes from our partners",
+      default: "Compare California car-insurance quotes",
+    };
+    const links = h("div", { class: "cta__links" });
+    partners.forEach((p) => {
+      links.appendChild(h("a", {
+        class: "cta__btn", href: p.url, target: "_blank", rel: "sponsored noopener noreferrer",
+        onclick: () => track("cta_click", { partner: p.id, context: context || "default" }),
+        title: p.blurb || p.name,
+      }, p.name));
+    });
+    return h("aside", { class: "cta", role: "complementary", "aria-label": "Advertisement — compare quotes" }, [
+      h("span", { class: "cta__label", text: "Advertisement · we may earn a commission" }),
+      h("p", { class: "cta__head", text: headings[context] || headings.default }),
+      links,
+      h("p", { class: "cta__fine", text: "We may be paid if you get a quote through a partner. This doesn't change our guidance, and official resources below are never paid links." }),
+    ]);
+  }
 
   function verdictBlock(v, title) {
     const dl = h("dl");
@@ -244,6 +288,7 @@
         h("h3", { text: "Avoid this — the quiet money-wasters", style: "margin-top:1.4rem" }),
         avoidList,
         calloutEl(CONTENT.bestrateNote),
+        quoteCta("bestrate"),
       ];
     },
 
@@ -324,6 +369,7 @@
         });
         rec.appendChild(opts);
         rec.appendChild(verdictBlock(p.verdict, "Optimal coverage & deductible"));
+        appendIf(rec, quoteCta("verdict"));
       }
 
       /* build-your-own */
@@ -342,6 +388,7 @@
         if (!ready) { out.innerHTML = ""; out.appendChild(h("p", { class: "rec__hint", text: "Answer all five to see a tailored California starting point." })); return; }
         out.innerHTML = "";
         out.appendChild(verdictBlock(buildRecommendation(v), "Your California starting point"));
+        appendIf(out, quoteCta("verdict"));
       }
       const builder = h("div", { class: "builder" }, [
         h("div", { class: "builder__title", text: "Build your own" }),
@@ -383,7 +430,9 @@
         h("p", { class: "resource__what", text: r.what }),
         h("a", { class: "resource__link ext", href: r.url, target: "_blank", rel: "noopener noreferrer", text: r.link }),
       ])));
-      return [wrap];
+      // Official resources above are never paid links; the CTA (if any partner
+      // is active) is clearly separated and labeled as advertising.
+      return [wrap, quoteCta("resources")];
     },
   };
 
@@ -527,6 +576,9 @@
       newsAll = Array.isArray(data.articles) ? data.articles : [];
       if (data.updatedAt) setUpdated(data.updatedAt);
       applyFilter("");
+      // Place a single quote CTA (if any partner is active) above the feed.
+      const cta = quoteCta("news");
+      if (cta) grid.parentNode.insertBefore(cta, grid);
     } catch (err) {
       grid.innerHTML = "";
       grid.appendChild(h("p", { class: "news__empty", text: "Couldn't load the latest articles right now — they refresh daily, so please check back soon." }));
@@ -575,8 +627,32 @@
     byId("newsSearch").addEventListener("input", (e) => { clearTimeout(deb); const val = e.target.value; deb = setTimeout(() => applyFilter(val), 180); });
   }
 
+  /* ---------- optional analytics ----------
+     Disabled unless window.ANALYTICS is set in index.html. Privacy-friendly
+     Plausible/Cloudflare recommended (cookieless, no consent banner). */
+  function initAnalytics() {
+    const cfg = window.ANALYTICS;
+    if (!cfg || !cfg.provider) return;
+    try {
+      if (cfg.provider === "plausible" && cfg.domain) {
+        const s = document.createElement("script");
+        s.defer = true; s.setAttribute("data-domain", cfg.domain);
+        s.src = cfg.src || "https://plausible.io/js/script.js";
+        document.head.appendChild(s);
+      } else if (cfg.provider === "ga4" && cfg.id) {
+        const s = document.createElement("script");
+        s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(cfg.id);
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag("js", new Date()); window.gtag("config", cfg.id);
+      }
+    } catch (e) { /* analytics must never break the page */ }
+  }
+
   /* ---------- init ---------- */
   function init() {
+    initAnalytics();
     renderSections();
     renderMenu();
     wireMenu();
