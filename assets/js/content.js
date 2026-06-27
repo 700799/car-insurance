@@ -1,26 +1,28 @@
 /* ============================================================
-   California Car Insurance Guide — content
-   All copy and data. California-specific. Figures are 2026
-   estimates and program facts; they change — always verify with
-   the California Department of Insurance and real quotes.
+   Bay Area Car Insurance Guide — content
+   All copy and data. California law is statewide; framing is
+   Bay Area–focused. Figures are 2026 estimates and program facts;
+   they change — always verify with the California Department of
+   Insurance and real quotes.
    ============================================================ */
 
 const CONTENT = {
-  meta: { state: "California", year: "2026" },
+  meta: { state: "California", region: "San Francisco Bay Area", year: "2026" },
 
   /* Section registry (order = page order = menu order). No gating. */
   sections: [
-    { id: "essentials", n: 1,  label: "California essentials",  type: "essentials" },
-    { id: "situations", n: 2,  label: "Real situations",        type: "situations" },
-    { id: "rate",       n: 3,  label: "What sets your rate",    type: "factors" },
-    { id: "trends",     n: 4,  label: "5-year premium trends",  type: "trend" },
-    { id: "bestrate",   n: 5,  label: "Get the best rate",      type: "bestrate" },
-    { id: "myths",      n: 6,  label: "7 common myths",         type: "myths" },
-    { id: "coverages",  n: 7,  label: "Coverages & terms",      type: "terms" },
-    { id: "choices",    n: 8,  label: "Smart coverage choices", type: "choices" },
-    { id: "profiles",   n: 9,  label: "Find your fit",          type: "profiles" },
-    { id: "accident",   n: 10, label: "After an accident",      type: "accident" },
-    { id: "resources",  n: 11, label: "Help & resources",       type: "resources" },
+    { id: "essentials", n: 1,  label: "California essentials",      type: "essentials" },
+    { id: "situations", n: 2,  label: "Real Bay Area situations",   type: "situations" },
+    { id: "rate",       n: 3,  label: "What sets your rate",        type: "factors" },
+    { id: "estimator",  n: 4,  label: "Estimate your rate",         type: "estimator" },
+    { id: "trends",     n: 5,  label: "5-year premium trends",      type: "trend" },
+    { id: "bestrate",   n: 6,  label: "Get the best rate",          type: "bestrate" },
+    { id: "myths",      n: 7,  label: "7 common myths",             type: "myths" },
+    { id: "coverages",  n: 8,  label: "Coverages & terms",          type: "terms" },
+    { id: "choices",    n: 9,  label: "Smart coverage choices",     type: "choices" },
+    { id: "profiles",   n: 10, label: "Find your fit",              type: "profiles" },
+    { id: "accident",   n: 11, label: "After an accident",          type: "accident" },
+    { id: "resources",  n: 12, label: "Help & resources",           type: "resources" },
   ],
 
   /* ---- 1. California essentials ---- */
@@ -41,28 +43,28 @@ const CONTENT = {
         <li><strong>Insurers report to the DMV electronically.</strong> Carry your insurance card; a lapse can trigger a registration suspension.</li>
         <li><strong>Driving uninsured is costly.</strong> Fines start around $100–$200 but climb past $450 with penalty assessments, and your vehicle can be impounded.</li>
       </ul>`,
-    callout: "Minimum limits are a floor, not a goal. A single serious injury can blow past $30,000 in minutes — most California drivers should carry higher liability limits.",
+    callout: "Minimum limits are a floor, not a goal. A single serious injury can blow past $30,000 in minutes — most Bay Area drivers should carry higher liability limits.",
   },
 
-  /* ---- 2. Real situations ---- */
-  situationsIntro: "Four situations California teens and new drivers actually face, and the coverage that mattered.",
+  /* ---- 2. Real Bay Area situations ---- */
+  situationsIntro: "Four situations Bay Area teens and new drivers actually face, and the coverage that mattered.",
   situations: [
-    { who: "At-fault rear-end, Sacramento", tag: "New driver · liability",
-      body: "A new driver rear-ended an SUV. The other party's repairs and a minor injury claim quickly approached the state minimum. With only 30/60/15, there was little room to spare.",
-      lesson: "California's minimums are low. Higher bodily-injury limits (e.g. 100/300) protect your savings if you're at fault." },
-    { who: "Uninsured driver, Los Angeles", tag: "Hit by uninsured · UM",
-      body: "A driver with no insurance ran a light and fled. About one in six California drivers is uninsured, so there was no one to bill. Uninsured-motorist coverage paid the medical bills and repairs.",
-      lesson: "California lets you waive uninsured-motorist coverage in writing — don't. It's inexpensive and common here." },
+    { who: "At-fault rear-end, Oakland / I-880", tag: "New driver · liability",
+      body: "A new driver rear-ended an SUV on I-880. The other party’s repairs and a minor injury claim quickly approached the state minimum. With only 30/60/15, there was little room to spare.",
+      lesson: "California’s minimums are low. Higher bodily-injury limits (e.g. 100/300) protect your savings if you’re at fault." },
+    { who: "Uninsured driver, San Francisco", tag: "Hit by uninsured · UM",
+      body: "A driver with no insurance ran a light in San Francisco and fled. About one in six California drivers is uninsured, so there was no one to bill. Uninsured-motorist coverage paid the medical bills and repairs.",
+      lesson: "California lets you waive uninsured-motorist coverage in writing — don’t. It’s inexpensive and especially valuable in dense Bay Area traffic." },
     { who: "Teen on the family policy", tag: "Teen · discounts",
-      body: "Instead of a standalone policy (often $7,000+ a year), a 17-year-old was added to a parent's policy and kept a B average for the good-student discount, cutting the added cost substantially.",
-      lesson: "Stay on a parent's policy and stack the good-student discount. After three clean years, the 20% Good Driver Discount applies." },
+      body: "Instead of a standalone policy (often $7,000+ a year), a 17-year-old was added to a parent’s policy and kept a B average for the good-student discount, cutting the added cost substantially.",
+      lesson: "Stay on a parent’s policy and stack the good-student discount. After three clean years, the 20% Good Driver Discount applies." },
     { who: "Paid-off commuter car", tag: "Older car · trade-off",
-      body: "A 12-year-old car worth about $3,000 still carried collision and comprehensive. The premiums plus the deductible were nearing the car's value, so the owner dropped them and kept strong liability.",
-      lesson: "When collision + comprehensive cost more than ~10% of the car's value, dropping them often makes sense." },
+      body: "A 12-year-old car worth about $3,000 still carried collision and comprehensive. The premiums plus the deductible were nearing the car’s value, so the owner dropped them and kept strong liability.",
+      lesson: "When collision + comprehensive cost more than ~10% of the car’s value, dropping them often makes sense." },
   ],
 
   /* ---- 3. What sets your rate (Prop 103) ---- */
-  rateIntro: "California is unusual. Under Proposition 103 (1988), the Department of Insurance must approve rates in advance, and insurers must weight three mandatory factors most heavily — in this order.",
+  rateIntro: "California is unusual. Under Proposition 103 (1988), the Department of Insurance must approve rates in advance, and insurers must weight three mandatory factors most heavily — in this order. Bay Area drivers tend to pay above the state average due to higher vehicle density and theft rates, but Prop 103’s protections apply statewide.",
   mandatory: [
     { n: "1", name: "Driving safety record", desc: "Accidents and violations carry the most weight. A clean record is the single biggest lever you control." },
     { n: "2", name: "Annual miles driven", desc: "California explicitly rewards lower mileage. Fewer miles means lower risk and a lower rate." },
@@ -71,7 +73,7 @@ const CONTENT = {
   banned: [
     { name: "Credit score", note: "Cannot be used for auto insurance in California." },
     { name: "Gender", note: "Banned as a rating factor since 2019." },
-    { name: "ZIP code as the primary factor", note: "Location may be a secondary factor only — it can't outweigh the three mandatory ones." },
+    { name: "ZIP code as the primary factor", note: "Location may be a secondary factor only — it can’t outweigh the three mandatory ones. Bay Area ZIPs often carry higher rates as a secondary factor." },
   ],
   rateStats: [
     { num: "~$2,700/yr", lbl: "Avg. full coverage (2026)" },
@@ -79,30 +81,30 @@ const CONTENT = {
     { num: "40–50%", lbl: "Rate rise over ~2 years" },
     { num: "≥20%", lbl: "Mandated Good Driver Discount" },
   ],
-  rateNote: "Rates have climbed sharply (rising repair costs, claims severity, and wildfire-driven losses across the market). Optional secondary factors insurers may use include vehicle type, marital status, and annual mileage bands — but never credit or gender.",
+  rateNote: "Rates have climbed sharply (rising repair costs, claims severity, and wildfire-driven losses across the market). Bay Area drivers typically pay 10–30% above the state average depending on city and ZIP. Optional secondary factors insurers may use include vehicle type, marital status, and annual mileage bands — but never credit or gender.",
 
-  /* ---- 4. Coverages & terms ---- */
-  termsIntro: "The coverages on a California policy, in plain terms. The note on each is the California-specific point to remember.",
+  /* ---- 8. Coverages & terms ---- */
+  termsIntro: "The coverages on a California policy, in plain terms. The note on each is the California-specific point to remember. Bay Area drivers should pay particular attention to comprehensive (theft is elevated in many cities) and UM/UIM.",
   terms: [
     { term: "Bodily Injury & Property Damage liability", def: "Pays for injuries and property you cause others. The required 30/60/15 limits are the minimum.",
       note: "Required statewide. Most drivers should buy more than the minimum." },
     { term: "Collision", def: "Repairs or replaces your own car after a crash, regardless of fault.",
-      note: "Optional, but required by lenders. Weigh it against your car's value." },
+      note: "Optional, but required by lenders. Weigh it against your car’s value." },
     { term: "Comprehensive", def: "Covers your car for theft, vandalism, fire, falling objects, and weather.",
-      note: "Worth more in cities (theft) and wildfire/storm-exposed areas." },
+      note: "Worth more in Bay Area cities (theft) and wildfire/storm-exposed areas." },
     { term: "Uninsured / Underinsured Motorist (UM/UIM)", def: "Pays your bills when an at-fault driver has no insurance or too little — including hit-and-runs.",
       note: "Insurers must offer it; you can reject it only in writing. With ~1 in 6 drivers uninsured, keep it." },
     { term: "Medical Payments (MedPay)", def: "Covers medical bills for you and your passengers regardless of fault.",
       note: "Optional. California has no no-fault/PIP, so MedPay is the main first-party medical add-on." },
-    { term: "GAP", def: "If a financed car is totaled, pays the difference between the loan balance and the car's value.",
+    { term: "GAP", def: "If a financed car is totaled, pays the difference between the loan balance and the car’s value.",
       note: "Useful on new, financed, or leased cars that depreciate quickly." },
     { term: "Deductible", def: "What you pay out of pocket on a collision or comprehensive claim before coverage applies.",
       note: "A higher deductible lowers your premium — pick an amount you could pay today." },
     { term: "Good Driver Discount", def: "A California-mandated discount of at least 20% for qualifying drivers.",
-      note: "Requires ~3 years' experience and a clean record (no more than one point)." },
+      note: "Requires ~3 years’ experience and a clean record (no more than one point)." },
   ],
 
-  /* ---- 5. Smart coverage choices ---- */
+  /* ---- 9. Smart coverage choices ---- */
   choicesIntro: "Coverage is a balance between premium and risk. Here is how the main trade-offs play out in California.",
   deductibleTable: {
     head: ["Deductible", "Collision + comp premium", "You pay per claim"],
@@ -116,26 +118,26 @@ const CONTENT = {
   },
   rules: [
     { h: "Buy more than 30/60/15.", t: "State minimums are low. If you have any assets, 100/300/100 bodily-injury limits are a common, affordable step up." },
-    { h: "Keep uninsured-motorist coverage.", t: "California lets you waive it in writing, but with so many uninsured drivers it's one of the best values on the policy." },
-    { h: "Use the 10% rule on older cars.", t: "If collision + comprehensive plus the deductible exceed ~10% of the car's value, consider dropping them." },
-    { h: "Lean on California's mileage factor.", t: "Because miles driven is a mandatory factor, low-mileage and verified-mileage programs can meaningfully cut your rate." },
+    { h: "Keep uninsured-motorist coverage.", t: "California lets you waive it in writing, but with so many uninsured drivers it’s one of the best values on the policy." },
+    { h: "Use the 10% rule on older cars.", t: "If collision + comprehensive plus the deductible exceed ~10% of the car’s value, consider dropping them." },
+    { h: "Lean on California’s mileage factor.", t: "Because miles driven is a mandatory factor, low-mileage and verified-mileage programs can meaningfully cut your rate." },
     { h: "Earn and keep the Good Driver Discount.", t: "Three clean years and you qualify for at least 20% off — protect it." },
     { h: "Re-shop after any rate hike.", t: "Approved rate changes vary by insurer. The same coverage can differ by hundreds of dollars a year." },
   ],
 
-  /* ---- 6. Find your fit (California profiles) ---- */
-  profilesIntro: "Pick the driver closest to you to see three coverage options, the recommended choice, and a deductible — all framed for California. Then build your own below.",
+  /* ---- 10. Find your fit (Bay Area profiles) ---- */
+  profilesIntro: "Pick the driver closest to you to see three coverage options, the recommended choice, and a deductible — all framed for Bay Area California drivers. Then build your own below.",
   profiles: [
     {
       id: "lowmile", name: "Low-mileage, experienced", tag: "Clean record · few miles · older paid-off car", cost: 1,
-      traits: ["10+ years' experience", "Low annual mileage", "Owns an older car outright", "Qualifies for Good Driver Discount"],
+      traits: ["10+ years’ experience", "Low annual mileage", "Owns an older car outright", "Qualifies for Good Driver Discount"],
       options: [
         { name: "State minimum 30/60/15", price: "Lowest", items: [
-          { t: "Legal to drive", ok: true }, { t: "Nothing for your own car", ok: false }, { t: "Thin if you're at fault", ok: false } ] },
+          { t: "Legal to drive", ok: true }, { t: "Nothing for your own car", ok: false }, { t: "Thin if you’re at fault", ok: false } ] },
         { name: "Higher liability + UM", price: "Best value", items: [
           { t: "100/300/100 limits", ok: true }, { t: "Uninsured-motorist included", ok: true }, { t: "Low-mileage discount", ok: true }, { t: "Good Driver 20% off", ok: true } ] },
         { name: "Add full coverage", price: "Often unnecessary", items: [
-          { t: "Collision + comprehensive", ok: true }, { t: "May exceed 10% of car's value", ok: false } ] },
+          { t: "Collision + comprehensive", ok: true }, { t: "May exceed 10% of car’s value", ok: false } ] },
       ],
       best: 1,
       verdict: { coverage: "Liability at 100/300/100 + UM/UIM; skip collision/comp on a low-value car", deductible: "N/A (collision dropped); comprehensive only if car still worth ~$4k+, then $1,000",
@@ -143,11 +145,11 @@ const CONTENT = {
         why: "Low mileage and a clean record are exactly what California rewards. Put the savings into stronger liability and keep UM rather than insuring a low-value car." },
     },
     {
-      id: "la", name: "Los Angeles city driver", tag: "Urban · street parking · newer car", cost: 3,
-      traits: ["Dense urban ZIP", "Higher theft/vandalism risk", "Car is 0–6 years old", "More miles in traffic"],
+      id: "sfba", name: "Bay Area / SF city driver", tag: "Urban Bay Area · street parking · newer car", cost: 3,
+      traits: ["Dense urban Bay Area ZIP", "Higher theft/vandalism risk", "Car is 0–6 years old", "More miles in Bay Area traffic"],
       options: [
         { name: "Liability only", price: "Risky here", items: [
-          { t: "Cheapest", ok: true }, { t: "No theft/vandalism cover", ok: false }, { t: "No payout if your car's hit", ok: false } ] },
+          { t: "Cheapest", ok: true }, { t: "No theft/vandalism cover", ok: false }, { t: "No payout if your car’s hit", ok: false } ] },
         { name: "Full coverage + UM", price: "Best fit", items: [
           { t: "Comprehensive (theft/vandalism)", ok: true }, { t: "Collision", ok: true }, { t: "UM/UIM", ok: true }, { t: "Anti-theft / garaging discount", ok: true } ] },
         { name: "Full + $250 deductible", price: "Pricey", items: [
@@ -156,11 +158,11 @@ const CONTENT = {
       best: 1,
       verdict: { coverage: "Full coverage (liability + collision + comprehensive) + UM/UIM", deductible: "$500",
         liability: "100/300/100", addons: ["Comprehensive", "UM/UIM", "Anti-theft / secured-parking discount"],
-        why: "Los Angeles is among California's most expensive areas, with real theft and crash exposure. Comprehensive matters; a garage or alarm and verified low mileage help offset the cost." },
+        why: "SF, Oakland, and San Jose rank among California’s most expensive areas for auto insurance, with real theft and crash exposure. Comprehensive matters; a garage, alarm, or BART commute can help offset the elevated Bay Area cost." },
     },
     {
       id: "teen", name: "New teen driver", tag: "16–18 · on the family policy", cost: 3,
-      traits: ["Newly licensed", "Highest crash risk", "Eligible for good-student discount", "Gender can't raise the rate in CA"],
+      traits: ["Newly licensed", "Highest crash risk", "Eligible for good-student discount", "Gender can’t raise the rate in CA"],
       options: [
         { name: "Standalone policy", price: "$7k+ /yr", items: [
           { t: "Independent", ok: true }, { t: "Very expensive alone", ok: false }, { t: "Misses family multi-car discount", ok: false } ] },
@@ -170,7 +172,7 @@ const CONTENT = {
           { t: "Lower premium", ok: true }, { t: "Family assets exposed if at fault", ok: false } ] },
       ],
       best: 1,
-      verdict: { coverage: "Add the teen to a parent's policy with full coverage", deductible: "$500",
+      verdict: { coverage: "Add the teen to a parent’s policy with full coverage", deductible: "$500",
         liability: "100/300/100 to protect family assets", addons: ["Good-student discount", "Driver-training course", "Assign teen to the cheapest car"],
         why: "A standalone teen policy is far costlier than being added to the family policy. Because California bans gender as a factor, young men in particular fare better here than in most states. The 20% Good Driver Discount arrives after three clean years." },
     },
@@ -179,7 +181,7 @@ const CONTENT = {
       traits: ["Has a loan or lease", "Lender requires coverage", "Car loses value quickly", "Wants it protected"],
       options: [
         { name: "Liability only", price: "Not allowed", items: [
-          { t: "Cheapest", ok: true }, { t: "Lender won't permit it", ok: false }, { t: "You'd owe on a wreck", ok: false } ] },
+          { t: "Cheapest", ok: true }, { t: "Lender won’t permit it", ok: false }, { t: "You’d owe on a wreck", ok: false } ] },
         { name: "Full + GAP", price: "Best fit", items: [
           { t: "Collision + comprehensive", ok: true }, { t: "GAP covers the loan gap", ok: true }, { t: "$500 deductible", ok: true } ] },
         { name: "Full, high deductible", price: "Risky early", items: [
@@ -197,7 +199,7 @@ const CONTENT = {
         { name: "Liability + high deductible", price: "Best value", items: [
           { t: "Lowest legal premium", ok: true }, { t: "Self-insures a low-value car", ok: true }, { t: "Keep UM if you can", ok: true } ] },
         { name: "Balanced full coverage", price: "Wasteful here", items: [
-          { t: "Collision + comprehensive", ok: true }, { t: "Cost can exceed the car's value", ok: false } ] },
+          { t: "Collision + comprehensive", ok: true }, { t: "Cost can exceed the car’s value", ok: false } ] },
         { name: "Check CLCA eligibility", price: "May be lowest", items: [
           { t: "State Low-Cost Auto program", ok: true }, { t: "Income & vehicle-value limits apply", ok: false } ] },
       ],
@@ -224,7 +226,7 @@ const CONTENT = {
     },
   ],
 
-  /* Build-your-own (California-tuned) */
+  /* Build-your-own (Bay Area–tuned) */
   builder: {
     fields: [
       { id: "record", label: "Driving record", options: [
@@ -236,17 +238,14 @@ const CONTENT = {
       { id: "value", label: "Your car", options: [
         { v: "beater", t: "Older, under ~$4k (owned)" }, { v: "mid", t: "Mid-value (owned)" }, { v: "financed", t: "New / financed / leased" } ] },
       { id: "area", label: "Where you drive", options: [
-        { v: "la", t: "Dense city (e.g. LA)" }, { v: "suburb", t: "Suburban" }, { v: "rural", t: "Rural" } ] },
+        { v: "city", t: "Dense city (SF, Oakland, SJ)" }, { v: "suburb", t: "Suburban" }, { v: "rural", t: "Rural" } ] },
     ],
   },
 
   /* ---- 5-year premium trend chart ---- */
-  trendIntro: "Average annual full-coverage premium in California over the past five years. Toggle a profile to see how a driver, vehicle, or violation changes the trajectory. Tap the legend chips to compare.",
+  trendIntro: "Average annual full-coverage premium in California and the Bay Area over the past five years. Toggle a profile to see how a driver, vehicle, or violation changes the trajectory. Tap the legend chips to compare.",
   trend: {
     years: [2022, 2023, 2024, 2025, 2026],
-    // Base = CA statewide average full-coverage premium ($/yr). Other series are
-    // that base scaled by typical California multipliers (illustrative, sourced
-    // from 2026 CA averages — real rates vary by insurer, ZIP, and history).
     base: [1900, 2120, 2417, 2540, 2719],
     series: [
       { id: "avg",     label: "CA average",            mult: 1.00, color: "#0f2747", on: true,  note: "Statewide full-coverage average. Up about 43% since 2022 — repair costs, theft, wildfire losses, and the 2025 30/60/15 minimums." },
@@ -255,74 +254,179 @@ const CONTENT = {
       { id: "points",  label: "Speeding ticket / 1 point", mult: 1.36, color: "#c98a1b", on: false, note: "One speeding ticket (1 point) adds about 25–44% for ~3 years in California." },
       { id: "luxury",  label: "Luxury / high-value car", mult: 1.55, color: "#7c3aed", on: false, note: "Pricier parts, higher repair and theft costs, and (for EVs) costly battery repair push luxury-vehicle premiums well above average." },
       { id: "safety",  label: "Strong safety features", mult: 0.88, color: "#1f7a4d", on: true,  note: "Automatic braking, blind-spot and lane-keep assist, and good crash-test ratings can earn discounts that pull the premium below average." },
-      { id: "good",    label: "Good Driver (clean 3+ yrs)", mult: 0.80, color: "#1f5fbf", on: false, note: "California's mandated Good Driver Discount is at least 20% off — the green-zone everyone should aim for." },
+      { id: "good",    label: "Good Driver (clean 3+ yrs)", mult: 0.80, color: "#1f5fbf", on: false, note: "California’s mandated Good Driver Discount is at least 20% off — the green-zone everyone should aim for." },
     ],
     source: "Illustrative California estimates built from 2026 averages (Bankrate, MoneyGeek, Insurify, The Zebra) and typical CA multipliers. Not quotes.",
   },
 
-  /* ---- Get the best rate (secrets & what to avoid) ---- */
-  bestrateIntro: "How to get the lowest legitimate rate in California — built around the way Prop 103 actually prices policies. These are the moves that move the needle, plus the traps that quietly cost you.",
+  /* ---- Get the best rate ---- */
+  bestrateIntro: "How to get the lowest legitimate rate in the Bay Area — built around the way Prop 103 actually prices policies. These are the moves that move the needle, plus the traps that quietly cost you.",
   bestrateDo: [
     { h: "Compare at least 3–5 real quotes", t: "California rates for identical coverage can differ by well over 100% between insurers. Comparison shopping is the single biggest lever — re-quote every 1–2 years and after any life change." },
-    { h: "Always claim the Good Driver Discount", t: "Prop 103 guarantees ≥20% off for ~3 years' clean driving (no more than one point). It's the law — make sure every quote applies it." },
+    { h: "Always claim the Good Driver Discount", t: "Prop 103 guarantees ≥20% off for ~3 years’ clean driving (no more than one point). It’s the law — make sure every quote applies it." },
     { h: "Report your true (low) mileage", t: "Miles driven is the #2 mandatory factor in California. If you drive less than you used to — remote work, a short commute — update it. Verified-mileage and telematics programs can cut more." },
-    { h: "Raise your deductible to 'oops' money", t: "Going from $250 to $1,000 can drop collision/comp 15–30%. Pick the highest deductible you could comfortably pay tomorrow and pocket the savings." },
+    { h: "Raise your deductible to ‘oops’ money", t: "Going from $250 to $1,000 can drop collision/comp 15–30%. Pick the highest deductible you could comfortably pay tomorrow and pocket the savings." },
     { h: "Right-size coverage to the car", t: "On a paid-off car worth under ~$4k, dropping collision/comprehensive often beats paying for them (the 10% rule). Keep strong liability + UM regardless." },
-    { h: "Stack every discount you qualify for", t: "Bundle auto with renters/home, multi-car, good-student (B average), driver-training, paperless/auto-pay, and defensive-driving course credits. Ask explicitly — they aren't always automatic." },
+    { h: "Stack every discount you qualify for", t: "Bundle auto with renters/home, multi-car, good-student (B average), driver-training, paperless/auto-pay, and defensive-driving course credits. Ask explicitly — they aren’t always automatic." },
     { h: "Keep continuous coverage", t: "Even one lapse raises your rate and can suspend your registration. If you sell a car, keep a non-owner policy or transfer coverage rather than going bare." },
     { h: "Pay in full and go paperless", t: "Many California insurers offer a paid-in-full discount and small e-billing credits. If you pay monthly, compare the installment fees." },
   ],
   bestrateAvoid: [
-    { h: "Auto-renewing for years", t: "'Loyalty' often means price creep. Insurers bank on inertia — the renewal quote is rarely your best quote." },
-    { h: "Buying only the state minimum by default", t: "30/60/15 is cheap but thin; one serious injury blows past it and you pay the rest. Don't confuse 'cheapest premium' with 'best value'." },
-    { h: "Waiving uninsured-motorist coverage", t: "California lets you reject UM/UIM in writing. Don't — roughly 1 in 6 California drivers is uninsured, and UM is inexpensive." },
-    { h: "Letting a small claim raise your rate", t: "Filing a claim that's barely above your deductible can cost you more in surcharges than it pays. For minor damage, get an estimate first." },
-    { h: "Guessing your mileage too high", t: "Overstating annual miles inflates your premium under California's rules. Use your real odometer trend." },
+    { h: "Auto-renewing for years", t: "‘Loyalty’ often means price creep. Insurers bank on inertia — the renewal quote is rarely your best quote." },
+    { h: "Buying only the state minimum by default", t: "30/60/15 is cheap but thin; one serious injury blows past it and you pay the rest. Don’t confuse ‘cheapest premium’ with ‘best value’." },
+    { h: "Waiving uninsured-motorist coverage", t: "California lets you reject UM/UIM in writing. Don’t — roughly 1 in 6 California drivers is uninsured, and UM is inexpensive." },
+    { h: "Letting a small claim raise your rate", t: "Filing a claim that’s barely above your deductible can cost you more in surcharges than it pays. For minor damage, get an estimate first." },
+    { h: "Guessing your mileage too high", t: "Overstating annual miles inflates your premium under California’s rules. Use your real odometer trend." },
     { h: "Ignoring the car you buy", t: "Insurance cost varies hugely by model (repair cost, theft rates, EV battery repair). Get a quote before you buy the car, not after." },
   ],
-  bestrateNote: "What you can't be charged for in California: your credit score and your gender — both are banned. Be skeptical of any 'tip' or quote that leans on those.",
+  bestrateNote: "What you can’t be charged for in California: your credit score and your gender — both are banned. Be skeptical of any ‘tip’ or quote that leans on those.",
 
   /* ---- 7 common myths ---- */
-  mythsIntro: "Misconceptions cost California drivers real money. Here are seven of the most common — and the truth, with the California angle.",
+  mythsIntro: "Misconceptions cost Bay Area drivers real money. Here are seven of the most common — and the truth, with the California angle.",
   myths: [
-    { myth: "Red cars cost more to insure.", truth: "Color is not a rating factor anywhere — and California can't even use it. Insurers rate on make, model, trim, engine, repair cost, and theft rates, never paint color." },
-    { myth: "My credit score affects my California rate.", truth: "Not here. California is one of a handful of states (with MA, HI, MI) that bans credit-based insurance scores for auto. Your credit can't legally raise your premium." },
-    { myth: "Men always pay more than women (or vice-versa).", truth: "California banned gender as an auto rating factor in 2019. Two otherwise-identical drivers can't be priced differently on gender here." },
-    { myth: "The state minimum means I'm fully protected.", truth: "30/60/15 is the legal floor, not real protection. A single ER visit or a totaled newer car can exceed it — and you personally owe the rest." },
-    { myth: "Older / low-value cars don't need any coverage.", truth: "You still must carry liability to drive legally in California, even on a $500 beater. You can drop collision/comp on it — but never liability." },
+    { myth: "Red cars cost more to insure.", truth: "Color is not a rating factor anywhere — and California can’t even use it. Insurers rate on make, model, trim, engine, repair cost, and theft rates, never paint color." },
+    { myth: "My credit score affects my California rate.", truth: "Not here. California is one of a handful of states (with MA, HI, MI) that bans credit-based insurance scores for auto. Your credit can’t legally raise your premium." },
+    { myth: "Men always pay more than women (or vice-versa).", truth: "California banned gender as an auto rating factor in 2019. Two otherwise-identical drivers can’t be priced differently on gender here." },
+    { myth: "The state minimum means I’m fully protected.", truth: "30/60/15 is the legal floor, not real protection. A single ER visit or a totaled newer car can exceed it — and you personally owe the rest." },
+    { myth: "Older / low-value cars don’t need any coverage.", truth: "You still must carry liability to drive legally in California, even on a $500 beater. You can drop collision/comp on it — but never liability." },
     { myth: "My insurer automatically gives me every discount.", truth: "Often not. The Good Driver Discount is mandated, but good-student, mileage, bundling, and course credits frequently require you to ask and provide proof." },
     { myth: "One ticket or claim ruins my rate forever.", truth: "Surcharges fade over time, and a clean ~3-year record restores the Good Driver Discount. Shopping around after an incident usually finds a better-priced insurer." },
   ],
 
   /* ---- After an accident (step-by-step) ---- */
-  accidentIntro: "If you're in a crash in California, what you do in the first minutes and days matters — for safety, for the law, and for your claim. Here's exactly what to do.",
+  accidentIntro: "If you’re in a crash in California, what you do in the first minutes and days matters — for safety, for the law, and for your claim. Here’s exactly what to do.",
   accidentSteps: [
-    { n: "1", h: "Stop and stay safe", t: "Never leave the scene — leaving an injury crash is a felony in California. If the cars are drivable and it's safe, move them out of traffic and turn on hazards. Check everyone for injuries." },
-    { n: "2", h: "Call 911 if anyone's hurt or roads are blocked", t: "Get medical help and police on scene for any injury, death, or major damage. A police report is invaluable for your claim even when officers don't always respond to minor fender-benders." },
-    { n: "3", h: "Exchange information", t: "Get the other driver's name, phone, address, driver's license number, license plate, and insurance company + policy number. Note the car's make/model/color." },
-    { n: "4", h: "Document everything", t: "Photograph all vehicles, damage, positions, skid marks, street signs, and the overall scene. Get names and numbers of any witnesses. Write down the time, location, and what happened while it's fresh." },
-    { n: "5", h: "Don't admit fault or over-share", t: "Be polite but don't say 'it was my fault' or speculate — fault is for the insurers and, in California's at-fault system, can be shared. Stick to facts when speaking with the other driver or police." },
-    { n: "6", h: "Report it to your insurer promptly", t: "Call your own insurer (or use its app) as soon as you safely can, even if you weren't at fault. Prompt notice is usually required by your policy. Give facts; let them handle liability." },
+    { n: "1", h: "Stop and stay safe", t: "Never leave the scene — leaving an injury crash is a felony in California. If the cars are drivable and it’s safe, move them out of traffic and turn on hazards. Check everyone for injuries." },
+    { n: "2", h: "Call 911 if anyone’s hurt or roads are blocked", t: "Get medical help and police on scene for any injury, death, or major damage. A police report is invaluable for your claim even when officers don’t always respond to minor fender-benders." },
+    { n: "3", h: "Exchange information", t: "Get the other driver’s name, phone, address, driver’s license number, license plate, and insurance company + policy number. Note the car’s make/model/color." },
+    { n: "4", h: "Document everything", t: "Photograph all vehicles, damage, positions, skid marks, street signs, and the overall scene. Get names and numbers of any witnesses. Write down the time, location, and what happened while it’s fresh." },
+    { n: "5", h: "Don’t admit fault or over-share", t: "Be polite but don’t say ‘it was my fault’ or speculate — fault is for the insurers and, in California’s at-fault system, can be shared. Stick to facts when speaking with the other driver or police." },
+    { n: "6", h: "Report it to your insurer promptly", t: "Call your own insurer (or use its app) as soon as you safely can, even if you weren’t at fault. Prompt notice is usually required by your policy. Give facts; let them handle liability." },
     { n: "7", h: "Get medical attention — and keep records", t: "See a doctor even if you feel fine; some injuries surface later. Keep all bills and records. In California, MedPay (if you bought it) helps regardless of fault, since the state has no PIP." },
     { n: "8", h: "Know the California reporting rules", t: "You must file form SR-1 with the DMV within 10 days if anyone is injured/killed or property damage exceeds $1,000 (nearly every crash). This is separate from any police or insurance report." },
   ],
-  accidentKit: ["Insurance card (in the glovebox + a photo on your phone)", "Driver's license & registration", "Phone for photos and calls", "Pen & paper or a notes app", "Emergency contacts", "Roadside/tow number"],
+  accidentKit: ["Insurance card (in the glovebox + a photo on your phone)", "Driver’s license & registration", "Phone for photos and calls", "Pen & paper or a notes app", "Emergency contacts", "Roadside/tow number"],
   accidentAvoid: [
-    "Don't leave the scene — it can turn a fender-bender into a crime.",
-    "Don't admit fault or apologize in a way that assigns blame.",
-    "Don't accept cash to 'skip insurance' — hidden injuries and damage can cost you later.",
-    "Don't sign anything from the other driver or a non-police party at the scene.",
-    "Don't forget the SR-1 — the DMV deadline is 10 days and missing it can suspend your license.",
+    "Don’t leave the scene — it can turn a fender-bender into a crime.",
+    "Don’t admit fault or apologize in a way that assigns blame.",
+    "Don’t accept cash to ‘skip insurance’ — hidden injuries and damage can cost you later.",
+    "Don’t sign anything from the other driver or a non-police party at the scene.",
+    "Don’t forget the SR-1 — the DMV deadline is 10 days and missing it can suspend your license.",
   ],
 
   /* ---- Help & resources ---- */
-  resourcesIntro: "Official California programs and help. These are the places to verify requirements, find low-cost options, and get assistance.",
+  resourcesIntro: "Official California programs and Bay Area resources. These are the places to verify requirements, find low-cost options, and get local assistance.",
   resources: [
-    { name: "California Department of Insurance", what: "Regulator under Prop 103. Compare rates, check a company or agent's license, and file a complaint. Consumer hotline 1-800-927-4357.", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/", link: "insurance.ca.gov" },
+    { name: "California Department of Insurance", what: "Regulator under Prop 103. Compare rates, check a company or agent’s license, and file a complaint. Consumer hotline 1-800-927-4357.", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/", link: "insurance.ca.gov" },
     { name: "California Low Cost Auto (CLCA)", what: "State program providing affordable liability insurance to income-eligible good drivers with a vehicle valued at $25,000 or less.", url: "https://www.mylowcostauto.com/", link: "mylowcostauto.com" },
-    { name: "Good Driver Discount", what: "Prop 103 guarantees at least 20% off for drivers with ~3 years' experience and a clean record. Ask every insurer if you qualify.", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/prop103.cfm", link: "Prop 103 guide" },
+    { name: "Good Driver Discount", what: "Prop 103 guarantees at least 20% off for drivers with ~3 years’ experience and a clean record. Ask every insurer if you qualify.", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/prop103.cfm", link: "Prop 103 guide" },
     { name: "California DMV — insurance requirements", what: "Proof-of-insurance rules, electronic reporting, and what happens to your registration if coverage lapses.", url: "https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/", link: "dmv.ca.gov" },
     { name: "Consumer Watchdog", what: "The nonprofit behind Prop 103. Tracks rate filings and challenges increases on behalf of California drivers.", url: "https://consumerwatchdog.org/insurance/proposition-103/", link: "consumerwatchdog.org" },
+    { name: "Bay Area DMV field offices", what: "Find your nearest Bay Area DMV office for registration, license, and SR-1 filing. Locations in SF, Oakland, San Jose, and across all nine counties.", url: "https://www.dmv.ca.gov/portal/dmv-offices/", link: "dmv.ca.gov/offices" },
+  ],
+
+  /* ---- 4. Rate estimator ---- */
+  estimatorIntro: "Get a rough sense of your annual premium range. This estimator uses California-average multipliers anchored to 2026 Bay Area rates — it is an illustrative range, not a quote.",
+  estimator: {
+    base: 2719,
+    band: 0.18,
+    disclaimer: "Estimate only — not a quote. Actual premiums depend on your specific insurer, vehicle, driving record, and coverage selections. Always compare real quotes from licensed California insurers.",
+    factors: {
+      age: [
+        { v: "u25",   label: "Under 25",                 mult: 1.95 },
+        { v: "2534",  label: "25–34",               mult: 1.10 },
+        { v: "3549",  label: "35–49 (baseline)",    mult: 1.00 },
+        { v: "5064",  label: "50–64",               mult: 0.95 },
+        { v: "65p",   label: "65+",                      mult: 1.05 },
+      ],
+      exp: [
+        { v: "new",  label: "New driver (under 3 yrs)", mult: 1.40 },
+        { v: "some", label: "Some experience (3–10 yrs)", mult: 1.00 },
+        { v: "vet",  label: "Experienced (10+ yrs)",   mult: 0.90 },
+      ],
+      record: [
+        { v: "clean",  label: "Clean (3+ yrs, Good Driver Discount)", mult: 0.80 },
+        { v: "one",    label: "One incident / ticket",                 mult: 1.36 },
+        { v: "multi",  label: "Multiple incidents",                    mult: 1.80 },
+        { v: "dui",    label: "DUI / major violation",                 mult: 2.30 },
+      ],
+      miles: [
+        { v: "low",  label: "Low (under 7,500/yr)",   mult: 0.85 },
+        { v: "avg",  label: "Average (7,500–12,000)", mult: 1.00 },
+        { v: "high", label: "High (12,000+)",          mult: 1.15 },
+      ],
+      coverage: [
+        { v: "min",  label: "Liability only (30/60/15)", mult: 0.26 },
+        { v: "mid",  label: "Full coverage, $1,000 ded", mult: 0.85 },
+        { v: "full", label: "Full coverage, $500 ded",   mult: 1.00 },
+        { v: "plus", label: "Full coverage, $250 ded",   mult: 1.18 },
+      ],
+      vehicle: [
+        { v: "economy", label: "Economy / compact",              mult: 0.82 },
+        { v: "mid",     label: "Mid-size sedan / SUV (baseline)", mult: 1.00 },
+        { v: "luxury",  label: "Luxury / EV",                    mult: 1.55 },
+        { v: "truck",   label: "Pickup / large SUV",             mult: 1.10 },
+      ],
+      region: [
+        { v: "sf",        label: "San Francisco",                  mult: 1.28 },
+        { v: "oakland",   label: "Oakland / Alameda County",       mult: 1.22 },
+        { v: "sanjose",   label: "San Jose / Santa Clara County",  mult: 1.14 },
+        { v: "peninsula", label: "Peninsula / San Mateo County",   mult: 1.10 },
+        { v: "eastbay",   label: "East Bay suburbs (Contra Costa)", mult: 1.08 },
+        { v: "northbay",  label: "North Bay (Marin / Sonoma / Napa)", mult: 1.05 },
+        { v: "bayarea",   label: "Bay Area (overall average)",     mult: 1.12 },
+        { v: "ca",        label: "Other CA (statewide avg)",       mult: 1.00 },
+      ],
+    },
+  },
+
+  /* ---- Bay Area metro pages ---- */
+  metros: [
+    { id: "san-francisco", slug: "san-francisco", name: "San Francisco", county: "San Francisco County",
+      geo: { lat: 37.7749, lng: -122.4194 }, sampleZips: ["94102","94103","94110","94117","94133"],
+      blurb: "San Francisco drivers face some of the highest auto insurance rates in California — dense traffic, elevated vehicle theft, and limited garaging push premiums well above the Bay Area average.",
+      rateContext: { note: "SF premiums run roughly 25–30% above the California average for comparable coverage.", mult: 1.28 },
+      localNote: "Comprehensive coverage is especially valuable here — SF ranks among the highest cities in California for vehicle break-ins and theft." },
+    { id: "oakland", slug: "oakland", name: "Oakland", county: "Alameda County",
+      geo: { lat: 37.8044, lng: -122.2712 }, sampleZips: ["94601","94602","94607","94612","94619"],
+      blurb: "Oakland’s diverse neighborhoods and I-880/I-580 corridor mean varying risk levels — downtown and flatlands ZIPs see higher comprehensive claims while hillside areas trend lower.",
+      rateContext: { note: "Oakland premiums run roughly 20–25% above the California average.", mult: 1.22 },
+      localNote: "Uninsured-motorist coverage is especially important — California’s overall uninsured rate (~16%) is felt acutely in busy urban corridors." },
+    { id: "san-jose", slug: "san-jose", name: "San Jose", county: "Santa Clara County",
+      geo: { lat: 37.3382, lng: -121.8863 }, sampleZips: ["95110","95112","95126","95128","95131"],
+      blurb: "San Jose blends dense downtown corridors with sprawling suburban commuter routes — rates are elevated above the state average but generally below SF and Oakland.",
+      rateContext: { note: "San Jose premiums run roughly 12–16% above the California average.", mult: 1.14 },
+      localNote: "Silicon Valley commuters often log high annual mileage — accurate mileage reporting under Prop 103 can meaningfully lower your rate." },
+    { id: "redwood-city", slug: "redwood-city", name: "Redwood City", county: "San Mateo County",
+      geo: { lat: 37.4852, lng: -122.2364 }, sampleZips: ["94061","94062","94063","94065"],
+      blurb: "The Peninsula’s mid-point between SF and San Jose, Redwood City sees moderate Bay Area rates with heavy US-101 commuter traffic.",
+      rateContext: { note: "Peninsula premiums run roughly 8–12% above the California average.", mult: 1.10 },
+      localNote: "Many Peninsula drivers qualify for verified low-mileage discounts — telecommuting has reduced commute miles significantly." },
+    { id: "concord", slug: "concord", name: "Concord", county: "Contra Costa County",
+      geo: { lat: 37.9780, lng: -122.0311 }, sampleZips: ["94519","94520","94521","94523"],
+      blurb: "Concord anchors the East Bay inland, with rates generally below SF and Oakland but above the California average — BART access can reduce commute miles for eligible drivers.",
+      rateContext: { note: "East Bay inland premiums run roughly 6–10% above the California average.", mult: 1.08 },
+      localNote: "BART commuters who shift from car to transit may qualify for verified low-mileage rate reductions under Prop 103." },
+    { id: "vallejo", slug: "vallejo", name: "Vallejo", county: "Solano County",
+      geo: { lat: 38.1041, lng: -122.2566 }, sampleZips: ["94589","94590","94591","94592"],
+      blurb: "Vallejo sits at the edge of the Bay Area with Solano County rates — historically among the more affordable in the region, though still above California’s inland average.",
+      rateContext: { note: "Solano County premiums run roughly 5–8% above the California average.", mult: 1.06 },
+      localNote: "Income-eligible good drivers in Vallejo may qualify for the state CLCA program at mylowcostauto.com — vehicle must be valued at $25,000 or less." },
+    { id: "san-rafael", slug: "san-rafael", name: "San Rafael", county: "Marin County",
+      geo: { lat: 37.9735, lng: -122.5311 }, sampleZips: ["94901","94903","94904","94915"],
+      blurb: "Marin County’s affluent communities and winding roads mean a mix of high-value vehicles and scenic driving — theft rates are lower than urban Bay Area but repair costs run high.",
+      rateContext: { note: "Marin County premiums run roughly 5–8% above the California average.", mult: 1.06 },
+      localNote: "High-value vehicles are common in Marin — comprehensive and GAP coverage matter more when the car’s replacement cost is high." },
+    { id: "santa-rosa", slug: "santa-rosa", name: "Santa Rosa", county: "Sonoma County",
+      geo: { lat: 38.4404, lng: -122.7141 }, sampleZips: ["95401","95403","95404","95405","95407"],
+      blurb: "Sonoma County’s largest city blends wine-country commuters with US-101 traffic — rates are moderate for the Bay Area, though wildfire proximity has affected some comprehensive pricing.",
+      rateContext: { note: "Sonoma County premiums run roughly 4–7% above the California average.", mult: 1.05 },
+      localNote: "Wildfire-adjacent areas may see higher comprehensive rates — verify your specific coverage with your insurer after any Sonoma County ZIP change." },
+    { id: "napa", slug: "napa", name: "Napa", county: "Napa County",
+      geo: { lat: 38.2975, lng: -122.2869 }, sampleZips: ["94558","94559"],
+      blurb: "Napa’s smaller population and lower traffic density generally mean rates closer to the California average, though wildfire risk and wine-country tourism traffic can add complexity.",
+      rateContext: { note: "Napa County premiums run roughly 3–6% above the California average.", mult: 1.04 },
+      localNote: "Tourism-related traffic surges (harvest season, weekends) mean elevated risk periods — accurate annual mileage reporting still benefits Napa commuters." },
   ],
 };
 

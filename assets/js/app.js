@@ -1,5 +1,5 @@
 /* ============================================================
-   California Car Insurance Guide — app logic
+   Bay Area Car Insurance Guide — app logic
    Vanilla JS. Renders sections, the floating menu (with
    scroll-spy), the profile matcher, and the daily news feed.
    No gamification, no gating — everything is freely accessible.
@@ -60,11 +60,12 @@
     const partners = getPartners();
     if (!partners.length) return null;
     const headings = {
-      verdict: "Ready to act on this? Compare California quotes",
-      bestrate: "Put these tips to work — compare California quotes",
-      news: "Compare California car-insurance quotes",
+      verdict: "Ready to act on this? Compare Bay Area quotes",
+      bestrate: "Put these tips to work — compare Bay Area quotes",
+      estimator: "Get a real quote to match your estimate",
+      news: "Compare Bay Area car-insurance quotes",
       resources: "Compare quotes from our partners",
-      default: "Compare California car-insurance quotes",
+      default: "Compare Bay Area car-insurance quotes",
     };
     const links = h("div", { class: "cta__links" });
     partners.forEach((p) => {
@@ -100,8 +101,9 @@
   function headFor(s) {
     switch (s.type) {
       case "essentials": return { title: CONTENT.essentials.title, sub: CONTENT.essentials.lead };
-      case "situations": return { title: "Real California situations", sub: CONTENT.situationsIntro };
-      case "factors":    return { title: "What sets your rate in California", sub: CONTENT.rateIntro };
+      case "situations": return { title: "Real Bay Area situations", sub: CONTENT.situationsIntro };
+      case "factors":    return { title: "What sets your rate in the Bay Area", sub: CONTENT.rateIntro };
+      case "estimator":  return { title: "Estimate your rate", sub: CONTENT.estimatorIntro };
       case "trend":      return { title: "How premiums have grown (5-year trend)", sub: CONTENT.trendIntro };
       case "bestrate":   return { title: "Get the best rate (and what to avoid)", sub: CONTENT.bestrateIntro };
       case "myths":      return { title: "7 common myths", sub: CONTENT.mythsIntro };
@@ -423,6 +425,45 @@
       ];
     },
 
+    estimator() {
+      const E = CONTENT.estimator;
+      const selects = {};
+      const out = h("div", { class: "estimate-out" });
+      const keys = ["age", "exp", "record", "miles", "coverage", "vehicle", "region"];
+      const labels = { age: "Age", exp: "Experience", record: "Driving record", miles: "Annual mileage", coverage: "Coverage level", vehicle: "Vehicle type", region: "Your area" };
+
+      function runEstimate() {
+        const inputs = {};
+        let ready = true;
+        keys.forEach((k) => { inputs[k] = selects[k] ? selects[k].value : ""; if (!inputs[k]) ready = false; });
+        out.innerHTML = "";
+        if (!ready) {
+          out.appendChild(h("p", { class: "rec__hint", text: "Fill in all fields to see your estimated rate range." }));
+          return;
+        }
+        const result = estimatePremium(inputs);
+        out.appendChild(estimateBlock(result));
+        appendIf(out, quoteCta("estimator"));
+      }
+
+      const grid = h("div", { class: "builder__grid" });
+      keys.forEach((k) => {
+        const opts = E.factors[k] || [];
+        const sel = h("select", { id: "est-" + k, onchange: runEstimate }, [h("option", { value: "", text: "Choose…" })]);
+        opts.forEach((o) => sel.appendChild(h("option", { value: o.v, text: o.label })));
+        selects[k] = sel;
+        grid.appendChild(h("label", { class: "field" }, [labels[k], sel]));
+      });
+      out.appendChild(h("p", { class: "rec__hint", text: "Fill in all fields to see your estimated rate range." }));
+      return [
+        h("div", { class: "builder" }, [
+          h("div", { class: "builder__title", text: "Rate estimator" }),
+          h("p", { class: "builder__sub", text: "Illustrative range based on 2026 Bay Area averages and California multipliers. Not a quote." }),
+          grid, out,
+        ]),
+      ];
+    },
+
     resources() {
       const wrap = h("div", { class: "res" });
       CONTENT.resources.forEach((r) => wrap.appendChild(h("div", { class: "resource" }, [
@@ -436,7 +477,47 @@
     },
   };
 
-  /* California-tuned recommendation engine */
+  /* ---------- rate estimator ---------- */
+  function estimatePremium(inputs) {
+    const E = CONTENT.estimator;
+    const get = (key, val) => {
+      const f = E.factors[key];
+      if (!f) return 1;
+      const entry = f.find((x) => x.v === val);
+      return entry ? entry.mult : 1;
+    };
+    const annual = E.base
+      * get("age", inputs.age)
+      * get("exp", inputs.exp)
+      * get("record", inputs.record)
+      * get("miles", inputs.miles)
+      * get("coverage", inputs.coverage)
+      * get("vehicle", inputs.vehicle)
+      * get("region", inputs.region);
+    const band = E.band;
+    const round5 = (n) => Math.round(n / 5) * 5;
+    const low  = Math.max(25, round5(annual * (1 - band)));
+    const high = round5(annual * (1 + band));
+    return { annual: round5(annual), low, high };
+  }
+
+  function estimateBlock(result) {
+    const fmt = (n) => "$" + n.toLocaleString();
+    const E = CONTENT.estimator;
+    return h("div", { class: "estimate-block" }, [
+      h("div", { class: "estimate-block__badge", text: "Estimate — not a quote" }),
+      h("div", { class: "estimate-block__range" }, [
+        h("span", { class: "estimate-block__low", text: fmt(result.low) }),
+        h("span", { class: "estimate-block__sep", text: " – " }),
+        h("span", { class: "estimate-block__high", text: fmt(result.high) }),
+        h("span", { class: "estimate-block__per", text: " / yr" }),
+      ]),
+      h("p", { class: "estimate-block__note", text: "Monthly: " + fmt(Math.round(result.low / 12)) + " – " + fmt(Math.round(result.high / 12)) }),
+      h("p", { class: "estimate-block__disc", text: E.disclaimer }),
+    ]);
+  }
+
+  /* Bay Area–tuned recommendation engine */
   function buildRecommendation(v) {
     const addons = ["Keep UM/UIM — don't waive it"];
     let coverage, deductible, liability;
@@ -445,7 +526,7 @@
     else if (v.value === "mid") { coverage = "Full coverage (collision + comprehensive)"; deductible = "$500–$1,000"; }
     else { coverage = "Liability only — self-insure an older car (10% rule)"; deductible = "$1,000+, or skip collision/comp"; addons.push("Check California Low Cost Auto (CLCA) if income-eligible"); }
 
-    if (v.area === "la") addons.push(v.value === "beater" ? "Comprehensive worth considering (city theft)" : "Prioritize comprehensive (theft/vandalism)");
+    if (v.area === "city") addons.push(v.value === "beater" ? "Comprehensive worth considering (city theft)" : "Prioritize comprehensive (theft/vandalism)");
 
     liability = (v.value === "beater" && v.record !== "clean")
       ? "At least 30/60/15; step up if you have assets"
@@ -570,7 +651,7 @@
     const grid = byId("newsGrid");
     try {
       const stamp = new Date().toISOString().slice(0, 10);
-      const res = await fetch("data/news.json?v=" + stamp, { cache: "no-store" });
+      const res = await fetch((document.body.dataset.newsbase || ".") + "/data/news.json?v=" + stamp, { cache: "no-store" });
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
       newsAll = Array.isArray(data.articles) ? data.articles : [];
@@ -614,6 +695,7 @@
   function articleCard(a) {
     const meta = h("div", { class: "article__meta" }, [h("span", { class: "article__source", text: a.source || "Web" })]);
     if (a.date) { const d = new Date(a.date); if (!isNaN(d.getTime())) meta.appendChild(h("span", { text: d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) })); }
+    if (a.region === "bayarea") meta.appendChild(h("span", { class: "badge badge--bay", text: "Bay Area" }));
     return h("a", { class: "article", href: a.url || "#", target: "_blank", rel: "noopener noreferrer" }, [
       meta,
       h("div", { class: "article__title", text: a.title || "Untitled" }),
@@ -625,6 +707,26 @@
     byId("newsMoreBtn").addEventListener("click", renderMore);
     let deb;
     byId("newsSearch").addEventListener("input", (e) => { clearTimeout(deb); const val = e.target.value; deb = setTimeout(() => applyFilter(val), 180); });
+    // Region filter chips
+    const chipsEl = byId("newsChips");
+    if (chipsEl) {
+      chipsEl.querySelectorAll(".chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          chipsEl.querySelectorAll(".chip").forEach((c) => c.classList.remove("is-active"));
+          chip.classList.add("is-active");
+          const region = chip.dataset.region || "";
+          if (!region) {
+            newsFiltered = newsAll.slice();
+          } else {
+            newsFiltered = newsAll.filter((a) => a.region === region);
+            if (newsFiltered.length === 0) newsFiltered = newsAll.slice();
+          }
+          newsShown = 0;
+          byId("newsGrid").innerHTML = "";
+          renderMore();
+        });
+      });
+    }
   }
 
   /* ---------- optional analytics ----------
