@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   California Car Insurance Guide — daily news fetcher
+   Bay Area Car Insurance Guide — daily news fetcher
    Pulls recent California car-insurance headlines from Google
    News RSS (no API key needed), cleans them, dedupes, and merges
    with a curated evergreen set so the feed is never empty. Writes
@@ -19,8 +19,13 @@ const OUT = resolve(__dirname, "../data/news.json");
 const MAX_ARTICLES = Number(process.env.NEWS_LIMIT || 42);
 const RECENCY = process.env.NEWS_WHEN || "30d"; // Google News "when:" window
 
-/* California-focused searches we blend together. */
+/* California + Bay Area searches we blend together. Bay Area first for relevance. */
 const QUERIES = [
+  "Bay Area car insurance rates",
+  "San Francisco auto insurance rates",
+  "Oakland car insurance California",
+  "San Jose auto insurance California",
+  "Silicon Valley auto insurance",
   "California car insurance",
   "California car insurance rates",
   "California auto insurance Proposition 103",
@@ -81,11 +86,13 @@ function parseItems(xml) {
     let snippet = clean(pick(block, "description"));
     if (!snippet || normTitle(snippet).startsWith(normTitle(title))) snippet = "";
     if (snippet.length > 200) snippet = snippet.slice(0, 197).trimEnd() + "…";
+    // Fallback: if snippet is still empty, use source + date context
+    if (!snippet && (source || pub)) snippet = (source || "Web") + (pub ? " · " + new Date(pub).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "");
 
     const pub = clean(pick(block, "pubDate"));
     const date = pub && !isNaN(new Date(pub)) ? new Date(pub).toISOString().slice(0, 10) : "";
 
-    items.push({ title, url: link, source, date, snippet });
+    items.push({ title, url: link, source, date, snippet, _raw: block });
   }
   return items;
 }
@@ -122,6 +129,18 @@ const CA_TERMS = [
   "san jose", "fresno", "long beach", "bay area", "inland empire",
   "orange county", "silicon valley", "socal", "norcal",
 ];
+/* Bay Area cities and terms used to tag regional articles. */
+const BAY_AREA_TERMS = [
+  "bay area", "san francisco", "sf bay", "oakland", "san jose", "fremont",
+  "berkeley", "santa rosa", "concord", "vallejo", "napa", "san rafael",
+  "redwood city", "san mateo", "daly city", "sunnyvale", "mountain view",
+  "palo alto", "santa clara", "hayward", "richmond", "antioch", "pittsburg",
+  "walnut creek", "pleasanton", "livermore", "novato", "petaluma",
+  "east bay", "south bay", "north bay", "peninsula", "silicon valley",
+  "marin county", "alameda county", "contra costa", "solano county",
+  "sonoma county", "napa county", "santa clara county", "san mateo county",
+];
+
 /* Other states/cities that signal an out-of-state story. */
 const OTHER_STATES = [
   "illinois", "chicago", "new york", "nyc", "nys", "new jersey", "florida",
@@ -138,6 +157,11 @@ function isCalifornia(a) {
   const mentionsOther = OTHER_STATES.some((s) => hay.includes(s));
   if (mentionsOther && !hay.includes("california")) return false;
   return true;
+}
+
+function isBayArea(a) {
+  const hay = ((a.title || "") + " " + (a.snippet || "") + " " + (a.source || "")).toLowerCase();
+  return BAY_AREA_TERMS.some((t) => hay.includes(t));
 }
 
 /* Car-insurance topical gate. Google News returns lots of California +
@@ -177,7 +201,11 @@ async function main() {
   console.log("Fetching California car-insurance news from Google News RSS…");
   const batches = await Promise.all(QUERIES.map(fetchQuery));
   const fetched = batches.flat();
+  // Clean up trailing " - Source" artifacts left by some Google News items.
+  fetched.forEach((a) => { a.source = a.source.replace(/\s*-\s*$/, "").trim() || "Google News"; delete a._raw; });
   const fresh = fetched.filter((a) => isCalifornia(a) && isCarInsurance(a));
+  // Tag each article by region.
+  fresh.forEach((a) => { a.region = isBayArea(a) ? "bayarea" : "california"; });
   console.log(`  California car-insurance: ${fresh.length} of ${fetched.length} fetched`);
 
   // Merge fresh + evergreen, dedupe by normalized title and by URL.
@@ -193,8 +221,13 @@ async function main() {
     merged.push(a);
   }
 
-  // Sort newest first; undated (evergreen) sink to the bottom.
-  merged.sort((a, b) => (b.date || "0000").localeCompare(a.date || "0000"));
+  // Sort: Bay Area first, then by date (newest first); undated sink to bottom.
+  merged.sort((a, b) => {
+    const aBA = a.region === "bayarea" ? 1 : 0;
+    const bBA = b.region === "bayarea" ? 1 : 0;
+    if (bBA !== aBA) return bBA - aBA;
+    return (b.date || "0000").localeCompare(a.date || "0000");
+  });
 
   const articles = merged.slice(0, MAX_ARTICLES);
   const payload = {

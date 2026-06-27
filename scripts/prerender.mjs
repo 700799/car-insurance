@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   California Car Insurance Guide — SEO prerender build
+   Bay Area Car Insurance Guide — SEO prerender build
    ------------------------------------------------------------
    The site renders sections client-side, which is invisible to
    non-JS crawlers and social-share bots. This build bakes the
@@ -21,7 +21,7 @@
    Requires Node 18+.
    ============================================================ */
 
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
@@ -62,8 +62,9 @@ const sectionWrap = (s, inner) =>
 function label(s) {
   switch (s.type) {
     case "essentials": return CONTENT.essentials.title;
-    case "situations": return "Real California situations";
-    case "factors":    return "What sets your rate in California";
+    case "situations": return "Real Bay Area situations";
+    case "factors":    return "What sets your rate in the Bay Area";
+    case "estimator":  return "Estimate your rate";
     case "trend":      return "How premiums have grown (5-year trend)";
     case "bestrate":   return "Get the best rate (and what to avoid)";
     case "myths":      return "7 common myths";
@@ -78,9 +79,10 @@ function label(s) {
 function sub(s) {
   const m = {
     essentials: CONTENT.essentials.lead, situations: CONTENT.situationsIntro,
-    factors: CONTENT.rateIntro, trend: CONTENT.trendIntro, bestrate: CONTENT.bestrateIntro,
-    myths: CONTENT.mythsIntro, terms: CONTENT.termsIntro, choices: CONTENT.choicesIntro,
-    profiles: CONTENT.profilesIntro, accident: CONTENT.accidentIntro, resources: CONTENT.resourcesIntro,
+    factors: CONTENT.rateIntro, estimator: CONTENT.estimatorIntro, trend: CONTENT.trendIntro,
+    bestrate: CONTENT.bestrateIntro, myths: CONTENT.mythsIntro, terms: CONTENT.termsIntro,
+    choices: CONTENT.choicesIntro, profiles: CONTENT.profilesIntro,
+    accident: CONTENT.accidentIntro, resources: CONTENT.resourcesIntro,
   };
   return m[s.type] ? `<p class="pr-sub">${esc(m[s.type])}</p>` : "";
 }
@@ -165,6 +167,16 @@ const R = {
     return `<h3>Step by step</h3><ol class="pr-steps">${steps}</ol>` +
       `<h3>Don't</h3><ul>${donts}</ul><h3>Keep in your glovebox</h3><ul>${kit}</ul>`;
   },
+  estimator() {
+    const E = CONTENT.estimator;
+    const caAvg = E.base;
+    const fmt = (n) => "$" + Math.round(n).toLocaleString();
+    const band = E.band;
+    return `<p>${esc(CONTENT.estimatorIntro)}</p>` +
+      `<p>Example: Bay Area average driver, full coverage ($500 ded.), mid-size vehicle, average mileage, clean record — ` +
+      `illustrative range <strong>${fmt(caAvg * 1.12 * (1 - band))} – ${fmt(caAvg * 1.12 * (1 + band))}/yr</strong>.</p>` +
+      `<p class="pr-note">${esc(E.disclaimer)}</p>`;
+  },
   resources() {
     return `<ul class="pr-res">` + CONTENT.resources.map((r) =>
       `<li><strong>${esc(r.name)}</strong> — ${esc(r.what)} ` +
@@ -187,24 +199,7 @@ function buildSectionsHtml() {
   }).join("\n");
 }
 
-function buildJsonLd(lastmod) {
-  const website = {
-    "@context": "https://schema.org", "@type": "WebSite",
-    name: "California Car Insurance Guide", url: CANONICAL,
-    description: "A clear, California-only guide to car insurance: 30/60/15 minimums, Proposition 103 rate factors, coverages, recommendations, and daily news.",
-  };
-  const org = {
-    "@context": "https://schema.org", "@type": "Organization",
-    name: "California Car Insurance Guide", url: CANONICAL,
-    logo: ORIGIN + "/assets/og-image.svg",
-  };
-  const breadcrumb = {
-    "@context": "https://schema.org", "@type": "BreadcrumbList",
-    itemListElement: CONTENT.sections.map((s, i) => ({
-      "@type": "ListItem", position: i + 1, name: label(s), item: CANONICAL + "#" + s.id,
-    })),
-  };
-  // FAQPage from the 7 myths (myth → question, truth → answer) plus a few key facts.
+function buildFaq() {
   const faqs = CONTENT.myths.map((m) => ({
     "@type": "Question", name: esc(m.myth),
     acceptedAnswer: { "@type": "Answer", text: esc(m.truth) },
@@ -213,16 +208,200 @@ function buildJsonLd(lastmod) {
     "@type": "Question", name: "What is the minimum car insurance required in California?",
     acceptedAnswer: { "@type": "Answer", text: "Since January 1, 2025 California requires 30/60/15 liability limits: $30,000 bodily injury per person, $60,000 per accident, and $15,000 property damage (SB 1107)." },
   });
-  const faq = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs };
-  return [website, org, breadcrumb, faq]
+  return { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs };
+}
+
+function buildJsonLd(lastmod) {
+  const website = {
+    "@context": "https://schema.org", "@type": "WebSite",
+    name: "Bay Area Car Insurance Guide", url: CANONICAL,
+    description: "A clear Bay Area guide to car insurance: 30/60/15 minimums, Proposition 103 rate factors, coverages, recommendations, Bay Area city rate context, and daily news.",
+  };
+  const org = {
+    "@context": "https://schema.org", "@type": "Organization",
+    name: "Bay Area Car Insurance Guide", url: CANONICAL,
+    logo: ORIGIN + "/assets/og-image.png",
+  };
+  const breadcrumb = {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: CONTENT.sections.map((s, i) => ({
+      "@type": "ListItem", position: i + 1, name: label(s), item: CANONICAL + "#" + s.id,
+    })),
+  };
+  const faq = buildFaq();
+  const counties = [
+    "San Francisco County", "Alameda County", "Santa Clara County", "San Mateo County",
+    "Contra Costa County", "Solano County", "Marin County", "Sonoma County", "Napa County",
+  ];
+  const service = {
+    "@context": "https://schema.org", "@type": "Service",
+    serviceType: "Car insurance guidance",
+    description: "Bay Area Car Insurance Guide — educational resource for Bay Area drivers. Covers California law, Prop 103 rate factors, and local rate context for all 9 Bay Area counties.",
+    areaServed: counties.map((c) => ({ "@type": "AdministrativeArea", name: c, containedInPlace: { "@type": "State", name: "California" } })),
+    provider: { "@type": "Organization", name: "Bay Area Car Insurance Guide", url: CANONICAL },
+  };
+  return [website, org, breadcrumb, faq, service]
     .map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n  ");
 }
 
+function buildMetrosHtml() {
+  if (!CONTENT.metros || !CONTENT.metros.length) return "";
+  const cards = CONTENT.metros.map((m) =>
+    `<a class="metro-card" href="${esc(m.slug)}/">` +
+    `<div class="metro-card__name">${esc(m.name)}</div>` +
+    `<div class="metro-card__county">${esc(m.county)}</div>` +
+    `<p class="metro-card__blurb">${esc(m.blurb)}</p>` +
+    `</a>`
+  ).join("\n");
+  return `<section class="metros" aria-labelledby="metros-h">` +
+    `<h2 id="metros-h" class="metros__title">Bay Area city guides</h2>` +
+    `<p class="metros__sub">Tap a city for local rate context, the estimator, and Bay Area news — all California law applies statewide.</p>` +
+    `<div class="metro-grid">${cards}</div></section>`;
+}
+
+function buildMetroPage(metro, lastmod) {
+  const metroCanonical = ORIGIN + "/" + metro.slug + "/";
+  const metroOrg = { "@type": "Organization", name: "Bay Area Car Insurance Guide", url: CANONICAL };
+  const place = {
+    "@context": "https://schema.org", "@type": "Place",
+    name: metro.name + ", California",
+    geo: { "@type": "GeoCoordinates", latitude: metro.geo.lat, longitude: metro.geo.lng },
+    address: { "@type": "PostalAddress", addressLocality: metro.name, addressRegion: "CA", addressCountry: "US" },
+    containedInPlace: { "@type": "AdministrativeArea", name: metro.county },
+  };
+  const metroService = {
+    "@context": "https://schema.org", "@type": "Service",
+    serviceType: "Car insurance guidance",
+    description: `${metro.name} car insurance guide — Bay Area rates, California law, and local coverage tips for ${metro.county} drivers.`,
+    areaServed: { "@type": "City", name: metro.name, containedInPlace: { "@type": "AdministrativeArea", name: metro.county } },
+    provider: metroOrg,
+  };
+  const metroCrumb = {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Bay Area Car Insurance Guide", item: CANONICAL },
+      { "@type": "ListItem", position: 2, name: metro.name + " Car Insurance", item: metroCanonical },
+    ],
+  };
+  const metroFaq = buildFaq();
+  const ldBlocks = [place, metroService, metroCrumb, metroFaq]
+    .map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n");
+
+  const sectionsHtml = buildSectionsHtml();
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f2747" />
+  <title>${esc(metro.name)} Car Insurance Guide — Bay Area Rates &amp; Coverage</title>
+  <meta name="description" content="${esc(metro.name)} car insurance: ${esc(metro.rateContext.note)} California law — 30/60/15 minimums, Prop 103 rate factors, coverage options, and daily Bay Area news." />
+  <link rel="canonical" href="${esc(metroCanonical)}" />
+  <meta property="og:title" content="${esc(metro.name)} Car Insurance — Bay Area Guide" />
+  <meta property="og:description" content="${esc(metro.blurb)}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="${esc(metroCanonical)}" />
+  <meta property="og:image" content="${ORIGIN}/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${esc(metro.name)} Car Insurance — Bay Area Guide" />
+  <meta name="twitter:description" content="${esc(metro.blurb)}" />
+  <meta name="twitter:image" content="${ORIGIN}/assets/og-image.png" />
+  <!-- JSONLD:START -->
+${ldBlocks}
+  <!-- JSONLD:END -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f2747'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body data-newsbase="..">
+  <a class="skip-link" href="#sections">Skip to content</a>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <a class="wordmark" href="${CANONICAL}">
+        <span class="wordmark__mark">BA</span>
+        <span class="wordmark__text">Bay Area Car Insurance Guide</span>
+      </a>
+      <span class="masthead__meta">Updated for 2026 · Educational, not advice</span>
+    </div>
+  </header>
+  <section class="intro" id="top">
+    <div class="intro__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="${CANONICAL}">Bay Area Guide</a> › <span aria-current="page">${esc(metro.name)}</span>
+      </nav>
+      <h1 class="intro__title">${esc(metro.name)} Car Insurance — Bay Area Guide</h1>
+      <p class="intro__sub">${esc(metro.blurb)}</p>
+      <div class="metro-rate-context">
+        <p>${esc(metro.rateContext.note)}</p>
+        <p class="pr-note">${esc(metro.localNote)}</p>
+      </div>
+      <ul class="intro__facts">
+        <li><span class="intro__num">30/60/15</span> minimum liability (2025)</li>
+        <li><span class="intro__num">~$2,700</span> avg. full coverage / yr (CA)</li>
+        <li><span class="intro__num">≥20%</span> mandated Good Driver Discount</li>
+      </ul>
+      <p class="intro__links">
+        <a href="#essentials">Start with the essentials</a>
+        <span aria-hidden="true">·</span>
+        <a href="#news">Bay Area news</a>
+        <span aria-hidden="true">·</span>
+        <a href="${CANONICAL}">All Bay Area cities</a>
+      </p>
+    </div>
+  </section>
+  <main>
+    <div id="sections" class="sections">
+      <!-- PRERENDER:START -->
+${sectionsHtml}
+      <!-- PRERENDER:END -->
+    </div>
+    <section class="news" id="news" aria-labelledby="news-h">
+      <div class="news__inner">
+        <div class="news__head">
+          <h2 id="news-h" class="news__title">Bay Area car-insurance news</h2>
+          <span id="newsUpdated" class="news__updated"></span>
+        </div>
+        <label class="news__search-wrap" for="newsSearch">
+          <span class="news__search-icon" aria-hidden="true">🔍</span>
+          <input id="newsSearch" class="news__search" type="search" placeholder="Filter articles…" aria-label="Filter news articles" />
+        </label>
+        <div id="newsChips" class="news__chips">
+          <button class="chip is-active" data-region="" type="button">All</button>
+          <button class="chip" data-region="bayarea" type="button">Bay Area</button>
+        </div>
+        <p id="newsCount" class="news__count"></p>
+        <div id="newsGrid" class="news__grid"></div>
+        <button id="newsMoreBtn" class="news__more" type="button" hidden>Load more</button>
+        <p class="news__disc">Headlines from public sources — not endorsements. Verify with the <a href="https://www.insurance.ca.gov/" target="_blank" rel="noopener noreferrer">California Department of Insurance</a>.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <p>Bay Area Car Insurance Guide · Educational content only, not financial or legal advice.</p>
+    <p><small id="footerUpdated"></small></p>
+  </footer>
+  <nav class="floatmenu" id="floatmenu" aria-label="Jump to section"></nav>
+  <script>window.ANALYTICS = null;</script>
+  <script src="../assets/js/content.js"></script>
+  <script src="../assets/js/partners.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>`;
+}
+
 function buildSitemap(lastmod) {
+  const metroUrls = (CONTENT.metros || []).map((m) =>
+    `  <url>\n    <loc>${ORIGIN}/${m.slug}/</loc>\n    <lastmod>${lastmod}</lastmod>\n` +
+    `    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`
+  ).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     `  <url>\n    <loc>${CANONICAL}</loc>\n    <lastmod>${lastmod}</lastmod>\n` +
     `    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n` +
+    (metroUrls ? metroUrls + "\n" : "") +
     `</urlset>\n`;
 }
 
@@ -246,8 +425,12 @@ async function main() {
   const indexPath = resolve(ROOT, "index.html");
   let html = await readFile(indexPath, "utf8");
 
+  const METROS_START = "<!-- METROS:START -->";
+  const METROS_END   = "<!-- METROS:END -->";
+
   const built = injectBetween(html, START, END, buildSectionsHtml(), "sections");
-  const withLd = injectBetween(built, LD_START, LD_END, "  " + buildJsonLd(lastmod), "json-ld");
+  const withMetros = injectBetween(built, METROS_START, METROS_END, buildMetrosHtml(), "metros");
+  const withLd = injectBetween(withMetros, LD_START, LD_END, "  " + buildJsonLd(lastmod), "json-ld");
 
   const sitemap = buildSitemap(lastmod);
   const robots = buildRobots();
@@ -272,6 +455,15 @@ async function main() {
   const sectionCount = CONTENT.sections.length;
   console.log(`✓ prerendered ${sectionCount} sections into index.html`);
   console.log(`✓ wrote sitemap.xml (lastmod ${lastmod}) and robots.txt`);
+
+  // Write per-metro landing pages.
+  for (const metro of (CONTENT.metros || [])) {
+    const dir = resolve(ROOT, metro.slug);
+    await mkdir(dir, { recursive: true });
+    const metroHtml = buildMetroPage(metro, lastmod);
+    await writeFile(resolve(dir, "index.html"), metroHtml, "utf8");
+    console.log(`✓ wrote ${metro.slug}/index.html`);
+  }
 }
 
 /* lastmod = the news feed's updatedAt date if available, else today. */
@@ -286,4 +478,4 @@ async function newsLastmod() {
 const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (invokedDirectly) main().catch((err) => { console.error("Fatal:", err); process.exit(1); });
 
-export { buildSectionsHtml, buildJsonLd, buildSitemap, buildRobots, label };
+export { buildSectionsHtml, buildJsonLd, buildSitemap, buildRobots, buildFaq, buildMetrosHtml, buildMetroPage, label };

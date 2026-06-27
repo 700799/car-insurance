@@ -15,19 +15,19 @@ const html = buildSectionsHtml();
 // Every section heading + representative body text must be present (crawler view).
 [
   "What California requires", "30/60/15", "SB 1107",
-  "Real California situations", "Sacramento",
+  "Real Bay Area situations", "Oakland",
   "What sets your rate", "Proposition 103", "Annual miles driven",
   "5-year trend", "CA average",
   "Get the best rate", "Compare at least 3", "Good Driver Discount",
   "7 common myths", "Red cars cost more", "credit score",
   "Coverages &amp; key terms", "Uninsured", "MedPay",
   "Smart coverage choices", "Choosing a deductible",
-  "Find your fit", "Los Angeles city driver", "California Low Cost",
+  "Find your fit", "Bay Area / SF city driver", "California Low Cost",
   "after an accident", "SR-1", "glovebox",
   "Help &amp; resources", "Department of Insurance",
 ].forEach((needle) => ok(html.includes(needle), "contains: " + needle));
-// All 11 section anchors present.
-["essentials","situations","rate","trends","bestrate","myths","coverages","choices","profiles","accident","resources"]
+// All 12 section anchors present (includes new estimator section).
+["essentials","situations","rate","estimator","trends","bestrate","myths","coverages","choices","profiles","accident","resources"]
   .forEach((id) => ok(html.includes(`id="${id}"`), "section anchor #" + id));
 // No unresolved template tokens / undefined.
 ok(!/undefined|\[object Object\]/.test(html), "no undefined / [object Object] leaks");
@@ -36,7 +36,7 @@ console.log("prerender: JSON-LD");
 const ld = buildJsonLd("2026-06-06");
 // Extract and JSON.parse each <script type="application/ld+json"> block.
 const blocks = [...ld.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]);
-ok(blocks.length === 4, "emits 4 JSON-LD blocks (WebSite, Organization, BreadcrumbList, FAQPage)");
+ok(blocks.length === 5, "emits 5 JSON-LD blocks (WebSite, Organization, BreadcrumbList, FAQPage, Service)");
 let types = [];
 blocks.forEach((b, i) => {
   try { const obj = JSON.parse(b); types.push(obj["@type"]); ok(true, "block " + (i + 1) + " parses (" + obj["@type"] + ")"); }
